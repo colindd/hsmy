@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="top_box">
+
+  </view>
+  <view class="bot_box flex">
+  <block wx:for="{{navList}}" wx:for-item="item" wx:key="id">
+    <navigator url="{{item.url}}" class="nav_item" hover-class="navigator-hover">
+        <image src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+    </navigator>
+  </block>
+
+  </view>
+</view>

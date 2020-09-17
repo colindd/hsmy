@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/register/register",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/forget/forget"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "海上美育艺术考级平台",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,27 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="login_top"></view>
+  <view class="login_main">
+    <view class="username input_box flex">
+      <view class="label_left">
+        <image src="/images/user.png"></image>
+      </view>
+      <view class="label_right">
+        <input bindinput="inputUserName" bindblur="checkInput" placeholder="请输入手机号"></input>
+      </view>
+    </view>
+    <view class="password input_box flex">
+      <view class="label_left">
+        <image src="/images/lock.png"></image>
+      </view>
+      <view class="label_right">
+        <input bindinput="inputPassword" bindblur="checkInput" password='true' placeholder="请输入密码"></input>
+      </view>
+    </view>
+    <view class="tip_box flex">
+      <view class="register" bindtap="Register">注册</view>
+      <view class="forget" bindtap="Forget">忘记密码</view>
+    </view>
+  </view>
+  <view class="login_btn {{canClick? '':'noclick'}}" bindtap="{{canClick? 'Login':' '}}">登录</view>
+</view>

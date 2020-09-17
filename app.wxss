@@ -1,0 +1,12 @@
+/**app.wxss**/
+page{
+  font-size:28rpx;
+}
+.flex{
+  display:flex;
+}
+image{
+  display:block;
+  width:100%;
+  height:100%;
+}
