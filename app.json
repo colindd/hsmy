@@ -1,10 +1,17 @@
 {
   "pages": [
-    "pages/register/register",
+    "pages/teacher/examStudents/examStudents",
+    
+    "pages/teacher/index/index",
     "pages/index/index",
+    "pages/register/register",
     "pages/logs/logs",
     "pages/login/login",
-    "pages/forget/forget"
+    "pages/forget/forget",
+    "pages/teacher/examDetail/examDetail",
+
+    "pages/teacher/studentDetail/studentDetail",
+    "pages/teacher/shearSuccess/shearSuccess"
   ],
   "window": {
     "backgroundTextStyle": "light",

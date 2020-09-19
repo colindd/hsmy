@@ -1,0 +1,22 @@
+<!--pages/teacher/examStudents/examStudents.wxml-->
+<view class="container">
+  <view class="stu_list">
+    <view class="stu_item flex" wx:for="{{sList}}" wx:for-item="item" wx:key="id" data-id="{{item.id}}" >
+      <view class="head_img">
+        <image src="{{item.head}}"></image>
+      </view>
+      <view class="stu_info">
+        <view class="info_top">
+          <text>{{item.name}}</text>
+          <text class="pay_type online" wx:if="{{item.payType == 1}}">线下支付</text>
+          <text class="pay_type outline" wx:else>线上支付</text>
+        </view>
+        <view class="info_bot">{{item.examType}}（{{item.type}}）</view>
+      </view>
+      <view class="stu_right">
+        <view class="detail_btn" bindtap="studentDetail">详情</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,71 @@
+/* pages/teacher/examStudents/examStudents.wxss */
+page{
+  background:#fff;
+}
+.stu_list{
+  width: 100%;
+}
+.stu_item{
+  width:100%;
+  height:160rpx;
+  padding:0 20rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-bottom:1rpx solid #eee;
+}
+.head_img{
+  width:20%;
+}
+.head_img image{
+  width:110rpx;
+  height:110rpx;
+  margin-top:25rpx;
+  border-radius:50%;
+}
+.stu_info{
+  width:50%;
+}
+.info_top,.info_bot{
+  margin-top:20rpx;
+}
+.pay_type{
+  padding:4rpx 8rpx;
+  font-size:22rpx;
+  border-radius:8rpx;
+  margin-left:10rpx;
+}
+.outline{
+  color:#5592FA;
+  background: #E6F0FF;
+}
+.online{
+  color:#F9547E;
+  background:#FFEDF1;
+}
+.stu_right{
+  position: relative;
+  width:30%;
+}
+.detail_btn{
+  margin-top:20rpx;
+}
+.detail_btn{
+  color:#fff;
+  width: 100rpx;
+  height:40rpx;
+  line-height:40rpx;
+  border-radius:20rpx;
+  text-align:center;
+  background:#F9547E;
+  position: absolute;
+  right:0;
+  font-size: 30rpx;
+}
+.time{
+  position: absolute;
+  right:0;
+  bottom:40rpx;
+  color:#888888;
+  font-size:26rpx;
+  margin-top:30rpx;
+}

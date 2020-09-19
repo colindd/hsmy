@@ -1,6 +1,7 @@
 /**app.wxss**/
 page{
   font-size:28rpx;
+  color:#353535;
 }
 .flex{
   display:flex;

@@ -36,7 +36,7 @@
       </view>
     </view>
     <view class="tip_box">
-      <radio value="r1" checked="true"/>我同意<text bindtap="showRule">《用户使用条款及服务协议》</text>
+     <checkbox></checkbox> 我同意<text bindtap="showRule">《用户使用条款及服务协议》</text>
     </view>
   </view>
   <view class="reg_btn">注册</view>

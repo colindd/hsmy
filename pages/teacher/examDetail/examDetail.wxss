@@ -1,0 +1,87 @@
+/* pages/teacher/examDetail/examDetail.wxss */
+page{
+  background:#eee;
+}
+.header_bg{
+  width:100%;
+  z-index:-1;
+}
+.header_bg image{
+  width:100%;
+}
+.detail_box{
+  width:96%;
+  min-height:900rpx;
+  margin:0 auto;
+  position: relative;
+  top:-520rpx;
+  padding:0 40rpx;
+  box-sizing: border-box;
+  background-image: url('https://shylh1d3.oss-cn-hangzhou.aliyuncs.com/hsmy/teacher_bg.png');
+  background-size:100% 100%;
+}
+.det_title{
+  height:130rpx;
+  line-height:180rpx;
+  overflow: hidden;
+  justify-content: space-between;
+  border-bottom:1rpx dashed #eee;
+}
+.status{
+  color:#5592FA;
+}
+.det_name,.det_item{
+  line-height:100rpx;
+  border-bottom:1px dashed #eee;
+  justify-content: space-between;
+}
+.det_name{
+  font-size:32rpx;
+  font-weight:bold;
+  color:#000;
+  position: relative;
+  box-sizing: border-box;
+  padding-left:20rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.det_name::after{
+  content:'';
+  width:8rpx;
+  height:50rpx;
+  border-radius:8rpx;
+  background:#5592FA;
+  position: absolute;
+  left:0;
+  top:25rpx;
+}
+.item_left{
+  color:#B2B2B2;
+}
+.item_icon{
+  display:inline-block;
+  width:50rpx;
+  height:50rpx;
+  position: relative;
+  top:16rpx;
+}
+.det_student {
+  color:#000000;
+  font-weight:500;
+}
+.tip_icon{
+  width:16rpx;
+  height:16rpx;
+  border-radius:50%;
+  background:#FF0243;
+  position: relative;
+  top:42rpx;
+  margin:0 10rpx;
+}
+.right{
+  width:40rpx;
+  height:40rpx;
+  position: relative;
+  top:30rpx;
+}

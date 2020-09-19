@@ -1,0 +1,33 @@
+<!--pages/teacher/index/index.wxml-->
+<view class="container">
+   <view class="header flex">
+      <view class="head_img">
+        <image src="/images/default.png"></image>
+      </view>
+      <view class="teacher_name">刘月月</view>
+      <view class="organization">上海美育艺术培训机构</view>
+   </view>
+   <view class="nav_box flex">
+      <view class="nav_item {{navIdx==idx ? 'activeNav':''}}" wx:for="{{navList}}" wx:for-item='nav' wx:for-index="idx" data-idx="{{idx}}" wx:key="id" data-id="{{nav.id}}" bindtap="changeNav">{{nav.name}}</view>
+   </view>
+   <view class="bot_box">
+     <view class="list_box" wx:if="{{listData.length>0}}">
+        <view class="list_item" wx:for="{{listData}}" wx:for-item="item" data-id="{{item.id}}" wx:key="id" bindtap="examDetail">
+          <view class="item_title flex">
+            <view class="release_time"><image src="/images/release.png"></image> 发布时间:{{item.releaseTime}}</view>
+            <view class="item_status">{{STATUS[item.status]}}</view>
+          </view>
+          <view class="item_main">
+            <view class="item_name">{{item.name}}</view>
+            <view class="item_deadtime">报名截止:{{item.deadline}}</view>
+            <view class="item_examtime">考试时间:{{item.examtime}}</view>
+            <view class="item_member">总报名:{{item.number}}人</view>
+          </view>
+          <view class="item_btn flex">
+            <view class="shear_btn" wx:if="{{item.status == 1}}" >去分享</view>
+          </view>
+        </view>
+     </view>
+     <view class="no_list" wx:else>暂无数据</view>
+   </view>
+</view>

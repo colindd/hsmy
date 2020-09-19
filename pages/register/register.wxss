@@ -90,3 +90,32 @@ page{
 .tip_text text{
   color:#F9547E;
 }
+radio .wx-radio-input.wx-radio-input-checked {
+  border-color: #03a9f4;
+  background: #03a9f4;
+}
+
+checkbox{
+  margin-left:10rpx;
+}
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius:50%;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #F9547E;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
