@@ -1,6 +1,8 @@
 <!--pages/login/login.wxml-->
 <view class="container">
-  <view class="login_top"></view>
+  <view class="login_top">
+    <image src="/images/logo.png"></image>
+  </view>
   <view class="login_main">
     <view class="username input_box flex">
       <view class="label_left">
@@ -18,8 +20,20 @@
         <input bindinput="inputPassword" bindblur="checkInput" password='true' placeholder="请输入密码"></input>
       </view>
     </view>
+    <view class="type flex">
+      <view class="stu_box type_item" data-type="1" bindtap="chooseType">
+        <image src="/images/stu_on.png" wx:if="{{stuChoosed}}"></image>
+        <image src="/images/stu_not.png" wx:else></image>
+        <text class="{{stuChoosed ? 'stuChoosed':''}}">我是学生</text>
+      </view>
+      <view class="tea_box type_item" data-type="2"  bindtap="chooseType">
+        <image src="/images/tea_on.png" wx:if="{{teaChoosed}}"></image>
+        <image src="/images/tea_not.png" wx:else></image>
+        <text class="{{teaChoosed ? 'teaChoosed':''}}">我是老师</text>
+      </view>
+    </view>
     <view class="tip_box flex">
-      <view class="register" bindtap="Register">注册</view>
+      <view class="register" bindtap="Register">学生注册</view>
       <view class="forget" bindtap="Forget">忘记密码</view>
     </view>
   </view>

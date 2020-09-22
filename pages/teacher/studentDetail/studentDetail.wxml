@@ -1,2 +1,46 @@
 <!--pages/teacher/studentDetail/studentDetail.wxml-->
-<text>pages/teacher/studentDetail/studentDetail.wxml</text>
+<view class="container">
+  <view class="header_top flex">
+    <view class="head_img">
+      <image src="/images/default.png"></image>
+    </view>
+    <view class="stu_name">刘悦</view>
+    <view class="type">素描四级（美术）</view>
+  </view>
+  <view class="stu_info flex">
+    <view class="info_item">
+      <view class="into_item_top">性别</view>
+      <view class="into_item_bot">男</view>
+    </view>
+    <view class="info_item">
+      <view class="into_item_top">国籍</view>
+      <view class="into_item_bot">中国</view>
+    </view>
+    <view class="info_item">
+      <view class="into_item_top">民族</view>
+      <view class="into_item_bot">汉</view>
+    </view>
+  </view>
+  <view class="info_detail">
+    <view class="detail_item">
+      <view class="det_item_top">出生年月</view>
+      <view class="det_item_bot">1994-07-15</view>
+    </view>
+    <view class="detail_item">
+      <view class="det_item_top">身份证号</view>
+      <view class="det_item_bot">32488197770081566628</view>
+    </view>
+    <view class="detail_item">
+      <view class="det_item_top">手机号码</view>
+      <view class="det_item_bot">15551693365</view>
+    </view>
+    <view class="detail_item">
+      <view class="det_item_top">联系人</view>
+      <view class="det_item_bot">庞大开心</view>
+    </view>
+    <view class="detail_item">
+      <view class="det_item_top">邮寄地址</view>
+      <view class="det_item_bot">安徽省阜阳市颍上县三十铺镇三十铺中心校</view>
+    </view>
+  </view>
+</view>

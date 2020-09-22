@@ -1,9 +1,18 @@
 // pages/teacher/index/index.js
+import{
+  teacherList
+} from '../../../utils/api'
+import{
+  datetimeFormat2,
+  datetimeFormat3
+} from '../../../utils/util'
 var STATUS = {
-  '1':'报名中',
-  '2':'报名截止',
-  '3':'已结束'
+  '100001':'报名中',
+  '100002':'报名截止',
+  '100003':'等待考试',
+  '100004':'考试中'
 }
+var app = getApp()
 Page({
 
   /**
@@ -15,21 +24,55 @@ Page({
       {id:2,name:'进行中'},
       {id:3,name:'已结束'},
     ],
-    listData:[
-      {id:1,name:'全国美术书法考级上海考区2020年报考',deadline:'2020-10-08',examtime:'2020-10-08 15:00-16:00',number:'78',status:1,releaseTime:'2020-09-20'},
-      {id:1,name:'全国美术书法考级上海考区2020年报考',deadline:'2020-10-08',examtime:'2020-10-08 15:00-16:00',number:'78',status:2,releaseTime:'2020-09-20'},
-      {id:1,name:'全国美术书法考级上海考区2020年报考',deadline:'2020-10-08',examtime:'2020-10-08 15:00-16:00',number:'78',status:3,releaseTime:'2020-09-20'},
-    ],
+    listData:[],
     STATUS:STATUS,
-    navIdx:0
+    navIdx:0,
+    initPage:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
+      var that = this;
+      var teacherInfo = app.globalData.userInfo;
+      console.log('用户信息:',teacherInfo)
+      var page = that.data.initPage
+      that.getTeacherList(page)
+    },
+    // 获取考级列表
+    getTeacherList:function(page,status){
+      var that = this;
+      if(!status){
+        status = ''
+      }
+      teacherList({
+        page,status,
+        success(data){
+          console.log('考级列表',data)
+          var list = data.rows
+          list.map(function(item){
+            item.startDate = datetimeFormat2(item.startDate)
+            item.endDate = datetimeFormat2(item.endDate)
+            item.createDate = datetimeFormat2(item.createDate)
+            item.year = datetimeFormat3(item.createDate)
+            if(!item.count){
+              item.count = 0
+            }
+          })
+          that.setData({
+            listData:list
+          })
+        },
+        error(res){
+          wx.showToast({
+            title: res,
+            icon:'none',
+            duration:1500
+          })
+        }
+      })
+    },
 
   //切换导航
   changeNav:function(e){
@@ -41,8 +84,9 @@ Page({
   // 考试详情
   examDetail:function(e){
     var id = e.currentTarget.dataset.id;
+    var status = e.currentTarget.dataset.status;
     wx.navigateTo({
-      url: '/pages/teacher/examDetail/examDetail?id='+id,
+      url: '/pages/teacher/examDetail/examDetail?id='+id+'&status='+status,
     })
   },
   // 去分享

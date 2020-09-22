@@ -1,1 +1,75 @@
 /* pages/teacher/studentDetail/studentDetail.wxss */
+.container{
+  width:100%;
+}
+.header_top{
+  width:100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.head_img{
+  width:140rpx;
+  height:140rpx;
+  border-radius:50%;
+}
+.head_img image{
+  border-radius:50%;
+}
+.stu_name, .type{
+  width:100%;
+  text-align:center;
+  margin-top:20rpx;
+}
+.stu_name{
+  font-size:32rpx;
+  color:#353535;
+  font-weight:bold;
+}
+.type{
+  margin-top:10rpx;
+  color:#F9547E;
+}
+.stu_info{
+  justify-content: space-between;
+}
+.info_item{
+  width:33.33%;
+  text-align:center;
+  box-sizing: border-box;
+}
+.info_item:not(:last-child){
+  border-right:1rpx solid #EEEEEE;
+}
+.into_item_top{
+  color:#888;
+  font-size:26rpx;
+}
+.into_item_bot{
+  color:#5592FA;
+  font-size:32rpx;
+  margin-top:10rpx;
+}
+.info_detail{
+  margin-top:30rpx;
+  box-sizing: border-box;
+  padding:0 30rpx;
+}
+.detail_item{
+  border-bottom:1rpx solid #eee;
+  text-align: center;
+  padding:20rpx 0;
+}
+.det_item_top{
+  font-size:26rpx;
+  color:#888888
+}
+.det_item_bot{
+  color:#353535;
+  margin-top:10rpx;
+}
+.detail_item:last-child{
+  border-bottom:none;
+}

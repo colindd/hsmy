@@ -18,6 +18,10 @@ page{
   line-height:100rpx;
   overflow: hidden;
 }
+.imgcode_right image{
+  width:180rpx;
+  height:80rpx;
+}
 .clear_inp{
   width:10%;
 }
@@ -79,7 +83,7 @@ page{
   font-size:32rpx;
   text-align:center;
   color:#fff;
-  background: #F9547E;
+  background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
   box-shadow: 0px 6px 12px rgba(249, 84, 126, 0.51);
 }
 .tip_text{

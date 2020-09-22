@@ -14,7 +14,7 @@
         <view class="info_bot">{{item.examType}}（{{item.type}}）</view>
       </view>
       <view class="stu_right">
-        <view class="detail_btn" bindtap="studentDetail">详情</view>
+        <view class="detail_btn" data-id="{{item.id}}" bindtap="studentDetail">详情</view>
         <view class="time">{{item.time}}</view>
       </view>
     </view>

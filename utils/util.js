@@ -73,34 +73,19 @@ function transTime3(unixtime) {
   var timeSpanStr = year + '-' + month + '-' + day ;
   return timeSpanStr;
 }
-// 详情页时间格式化
+// 时间格式化mm-dd
 export function datetimeFormat(unix_timestamp) {
   return dateFormat(new Date(unix_timestamp),"mm-dd")
 }
-// 订单确认页时间格式化
+// 时间格式化yyyy-mm-dd
 export function datetimeFormat2(unix_timestamp) {
   return dateFormat(new Date(unix_timestamp),"yyyy-mm-dd")
 }
-
-export function getSessionKey(options) {
-  wx.request({
-    url: `${host}/${options.url}`,
-    data: options.data,
-    method: options.method || 'POST',
-    header: {
-      'content-type': 'application/json'
-    },
-    success: function (res) {
-      const data = res.data
-      if (data.code == '1') {
-        options.success && options.success(data.data)
-      } else {
-        options.error && options.error(data.msg)
-      }
-      options.complete && options.complete()
-    }
-  })
+// 时间格式化yyyy
+export function datetimeFormat3(unix_timestamp) {
+  return dateFormat(new Date(unix_timestamp),"yyyy")
 }
+
 
 export function fetch(options) {
   var session_key = wx.getStorageSync('session_key')
@@ -127,9 +112,9 @@ export function fetch(options) {
 module.exports = {
   formatTime: formatTime,
   fetch:fetch,
-  getSessionKey:getSessionKey,
   datetimeFormat:datetimeFormat,
   datetimeFormat2:datetimeFormat2,
+  datetimeFormat3:datetimeFormat3,
   transTime:transTime,
   transTime2:transTime2,
   transTime3:transTime3

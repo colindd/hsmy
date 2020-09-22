@@ -5,10 +5,10 @@
   </view>
   <view class="detail_box">
     <view class="det_title flex">
-      <view class="release">9月20日发布</view>
-      <view class="status">报名中</view>
+      <view class="release">{{examDetail.createDate}}发布</view>
+      <view class="status">{{STATUS[examDetail.examStatus]}}</view>
     </view>
-    <view class="det_name">全国美术书法考级上海考区2020年报考</view>
+    <view class="det_name">全国{{examDetail.name}}考级上海考区{{examDetail.year}}年报考</view>
     <view class="det_item flex">
       <view class="item_left">
         <image class="item_icon" src="/images/tools.png"></image>
@@ -21,28 +21,24 @@
         <image class="item_icon" src="/images/money.png"></image>
         支付方式
       </view>
-      <view class="item_right">线上缴费</view>
+      <view class="item_right">
+        <text wx:if="{{examDetail.payType == 100001}}">线上缴费</text>
+        <text wx:else>线下缴费</text>
+      </view>
     </view>
     <view class="det_item flex">
       <view class="item_left">
         <image class="item_icon" src="/images/time.png"></image>
         报名截止
       </view>
-      <view class="item_right">2020-10-05 00:00:00</view>
-    </view>
-    <view class="det_item flex">
-      <view class="item_left">
-        <image class="item_icon" src="/images/time.png"></image>
-        考试时间
-      </view>
-      <view class="item_right">2020-10-08 15:00-16:00</view>
+      <view class="item_right">{{examDetail.endDate}}</view>
     </view>
     <view class="det_item flex">
       <view class="item_left">
         <image class="item_icon" src="/images/team.png"></image>
         总报名人数
       </view>
-      <view class="item_right">78人</view>
+      <view class="item_right">{{examDetail.count}}人</view>
     </view>
     <view class="det_item det_student flex" bindtap="studentList">
       <view class="item_left">
@@ -50,10 +46,15 @@
         我的学生
       </view>
       <view class="item_right flex" >
-        <text>7</text>
-        <view class="tip_icon"></view>
+        <text>{{teacherCount}}</text>
+        <!-- <view class="tip_icon"></view> -->
         <view class="right"><image src="/images/right.png"></image></view>
       </view>
     </view>
+  </view>
+  <view class="shear_box flex">
+    <button class='btn2' open-type='share'>
+    <image class='btnImg' src='/images/share.png'></image>
+ </button>
   </view>
 </view>

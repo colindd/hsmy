@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+var app = getApp()
 
 Page({
   data: {
@@ -15,12 +15,11 @@ Page({
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+
   },
   onLoad: function () {
-    
+    var userInfo = app.globalData.userInfo
+    console.log(userInfo)
   },
 
 })

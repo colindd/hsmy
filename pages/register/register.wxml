@@ -12,12 +12,23 @@
         <image wx:if="{{showClear}}" src="/images/clear.png"></image>
       </view>
     </view>
+    <view class="imgcode input_box flex">
+      <view class="label_left">
+        <image src="/images/code.png"></image>
+      </view>
+      <view class="label_mid">
+        <input placeholder="请输入图片验证码" bindinput="inputCode"></input>
+      </view>
+      <view class="code_right imgcode_right">
+        <image src="{{imgData}}" bindtap="changeCodeImg"></image>
+      </view>
+    </view>
     <view class="phonecode input_box flex">
       <view class="label_left">
         <image src="/images/code.png"></image>
       </view>
       <view class="label_mid">
-        <input placeholder="请输入验证码"></input>
+        <input placeholder="请输入验证码" bindinput="inputPhoneCode"></input>
       </view>
       <view class="code_right" bindtap="getPhoneCode">
         <text>{{codeTxt}}</text>
@@ -28,7 +39,7 @@
         <image src="/images/lock.png"></image>
       </view>
       <view class="label_right">
-        <input password='{{hidePsd}}' placeholder="密码6-16位字符,区分大小写"></input>
+        <input password='{{hidePsd}}' placeholder="密码6-16位字符,区分大小写" bindinput="inputPsw"></input>
       </view>
       <view class="show_psd" >
         <image wx:if="{{hidePsd}}" bindtap="ToggleShow" src="/images/show.png"></image>
@@ -39,6 +50,6 @@
      <checkbox></checkbox> 我同意<text bindtap="showRule">《用户使用条款及服务协议》</text>
     </view>
   </view>
-  <view class="reg_btn">注册</view>
+  <view class="reg_btn" bindtap="toReg">注册</view>
   <view class="tip_text">已有账号，<text class="toLogin" bindtap="toLogin">去登录</text></view>
 </view>

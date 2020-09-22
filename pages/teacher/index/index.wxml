@@ -12,19 +12,19 @@
    </view>
    <view class="bot_box">
      <view class="list_box" wx:if="{{listData.length>0}}">
-        <view class="list_item" wx:for="{{listData}}" wx:for-item="item" data-id="{{item.id}}" wx:key="id" bindtap="examDetail">
+        <view class="list_item" wx:for="{{listData}}" wx:for-item="item" data-id="{{item.id}}" data-status="{{item.examStatus}}" wx:key="id" bindtap="examDetail">
           <view class="item_title flex">
-            <view class="release_time"><image src="/images/release.png"></image> 发布时间:{{item.releaseTime}}</view>
-            <view class="item_status">{{STATUS[item.status]}}</view>
+            <view class="release_time"><image src="/images/release.png"></image> 发布时间:{{item.createDate}}</view>
+            <view class="item_status">{{STATUS[item.examStatus]}}</view>
           </view>
           <view class="item_main">
-            <view class="item_name">{{item.name}}</view>
-            <view class="item_deadtime">报名截止:{{item.deadline}}</view>
-            <view class="item_examtime">考试时间:{{item.examtime}}</view>
-            <view class="item_member">总报名:{{item.number}}人</view>
+            <view class="item_name">全国{{item.name}}考级上海考区{{item.year}}年报考</view>
+            <view class="item_deadtime">报名截止:{{item.endDate}}</view>
+            <!-- <view class="item_examtime">考试时间:{{item.examtime}}</view> -->
+            <view class="item_member">总报名:{{item.count}}人</view>
           </view>
           <view class="item_btn flex">
-            <view class="shear_btn" wx:if="{{item.status == 1}}" >去分享</view>
+            <view class="shear_btn" wx:if="{{item.examStatus == 100001}}" >去分享</view>
           </view>
         </view>
      </view>

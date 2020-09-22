@@ -8,7 +8,12 @@ page{
 }
 .login_top{
   width:100%;
-  height:300rpx;
+  padding:40rpx 0 30rpx;
+}
+.login_top image{
+  width:150rpx;
+  height:150rpx;
+  margin:0 auto;
 }
 .login_main{
   width:100%;
@@ -44,6 +49,25 @@ page{
   margin-top:10rpx;
   justify-content: space-between;
 }
+.type{
+  margin-top:20rpx;
+  box-sizing: border-box;
+  padding:20rpx 50rpx;
+  justify-content: space-around;
+}
+.type_item image{
+  width:120rpx;
+  height:120rpx;
+}
+.type_item text{
+  display:block;
+  width:100%;
+  text-align: center;
+  margin-top:10rpx;
+}
+.teaChoosed, .stuChoosed{
+  color:#F9547E;
+}
 .register{
   color:#353535;
 }
@@ -58,7 +82,7 @@ page{
   font-size:32rpx;
   text-align:center;
   color:#fff;
-  background: #F9547E;
+  background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
   box-shadow: 0px 6px 12px rgba(249, 84, 126, 0.51);
 }
 .noclick{

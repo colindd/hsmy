@@ -21,6 +21,13 @@ Page({
 
   },
 
+  // 点击详情
+  studentDetail:function(e){
+    var sId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/teacher/studentDetail/studentDetail?id='+sId,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
