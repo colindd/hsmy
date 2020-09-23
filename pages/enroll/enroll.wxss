@@ -1,0 +1,41 @@
+/* pages/enroll/enroll.wxss */
+page{
+  background-color: #fff;
+}
+.list_box{
+  box-sizing: border-box;
+  padding:0 30rpx;
+}
+.list_item{
+  margin-top:40rpx;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 12px rgba(53, 53, 53, 0.1);
+  border-radius:20rpx;
+  position: relative;
+}
+.list_item_title{
+  width:100%;
+  line-height:90rpx;
+  font-size:30rpx;
+  color:#000;
+  font-weight:500;
+  box-sizing: border-box;
+  padding:0 20rpx;
+  border-radius:20rpx 20rpx 0 0;
+  background:#F1F1F3;
+}
+.list_item_bot{
+  box-sizing: border-box;
+  padding:0 20rpx 40rpx;
+}
+.list_item_line{
+  color:#888888;
+  margin-top:20rpx;
+}
+.list_item_corner{
+  width:120rpx;
+  height:120rpx;
+  position: absolute;
+  top:0;
+  right:0;
+}

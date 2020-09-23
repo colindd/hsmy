@@ -1,0 +1,34 @@
+<!--pages/chooseDetail/chooseDetail.wxml-->
+<view class="container">
+  <view class="list_box">
+    <view class="list_item flex">
+      <view class="list_item_left">报名科目</view>
+      <view class="list_item_right first_right">美术</view>
+    </view>
+    <view class="list_item flex">
+      <view class="list_item_left">报考专业</view>
+      <view class="list_item_right">
+        <picker bindchange="bindMajorChange" value="{{majorIndex}}" range="{{majorList}}">
+          <view class="picker">{{majorList[majorIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="list_item flex">
+      <view class="list_item_left">报考级别</view>
+      <view class="list_item_right">
+        <picker bindchange="bindLevelChange" value="{{levelIndex}}" range="{{levelList}}">
+          <view class="picker">{{levelList[levelIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="list_item flex">
+      <view class="list_item_left">考级费用</view>
+      <view class="list_item_right">美术</view>
+    </view>
+    <view class="list_item list_tip flex">
+      <checkbox></checkbox>
+      <view class="tip_text">我同意<text>《海上美育考级报名协议》</text></view>
+    </view>
+  </view>
+  <view class="next_btn">下一步</view>
+</view>

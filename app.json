@@ -9,7 +9,10 @@
     "pages/teacher/examDetail/examDetail",
     "pages/teacher/examStudents/examStudents",
     "pages/teacher/studentDetail/studentDetail",
-    "pages/teacher/shearSuccess/shearSuccess"
+    "pages/teacher/shearSuccess/shearSuccess",
+    "pages/enroll/enroll",
+    "pages/confirmEnroll/confirmEnroll",
+    "pages/chooseDetail/chooseDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

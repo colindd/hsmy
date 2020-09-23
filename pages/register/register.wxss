@@ -94,10 +94,6 @@ page{
 .tip_text text{
   color:#F9547E;
 }
-radio .wx-radio-input.wx-radio-input-checked {
-  border-color: #03a9f4;
-  background: #03a9f4;
-}
 
 checkbox{
   margin-left:10rpx;
