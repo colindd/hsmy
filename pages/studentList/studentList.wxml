@@ -1,0 +1,36 @@
+<!--pages/studentList/studentList.wxml-->
+<view class="container">
+  <view class="student_list">
+    <view class="student_item" data-id="{{item.id}}" bindtap="changeInfo" wx:for="{{list}}" wx:for-item="item" wx:key="id" >
+       <view class="item_top flex">
+         <view class="head_img">
+           <image src="/images/default.png"></image>
+         </view>
+         <view class="item_right">
+           <view class="item_info_name">庞大开心</view>
+           <view class="birth_box flex">
+             <image src="/images/date_of_birth.png"></image>
+             <text>1995-07-15</text>
+             <image class="sex_img" src="/images/gender.png"></image>
+             <text>女</text>
+           </view>
+           <view class="item_info_org flex">
+             <image src="/images/mechanism.png"></image>
+             <text>上海美育机构艺术培训</text>
+           </view>
+         </view>
+       </view>
+       <view class="item_bot flex">
+         <view class="item_bot_left flex">
+           <image src="/images/Details.png"></image>
+           <text>查看详细信息</text>
+         </view>
+         <view class="item_bot_right" catchtap="deleteInfo">删除</view>
+       </view>
+    </view>
+  </view>
+  <view class="add_student flex" bindtap="addStudent">
+     <image src="/images/add_stu.png"></image>
+     <text>新增考生信息</text>
+  </view>
+</view>

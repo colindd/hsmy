@@ -26,7 +26,8 @@ page{
   color:#353535;
 }
 .list_item_right picker{
-  width:260rpx;
+  width:130rpx;
+  text-align:right;
   height:90rpx;
 }
 

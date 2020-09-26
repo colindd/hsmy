@@ -23,7 +23,7 @@
     </view>
     <view class="list_item flex">
       <view class="list_item_left">考级费用</view>
-      <view class="list_item_right">美术</view>
+      <view class="list_item_right">¥<text></text></view>
     </view>
     <view class="list_item list_tip flex">
       <checkbox></checkbox>

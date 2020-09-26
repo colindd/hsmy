@@ -1,0 +1,42 @@
+/* pages/enrollSuccess/enrollSuccess.wxss */
+page{
+  background-color:#fff;
+}
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+.tip_img{
+  width:110rpx;
+  height:110rpx;
+}
+.tip_text{
+  width:100%;
+  color:#333333;
+  font-size:36rpx;
+  font-weight:bold;
+  text-align:center;
+  margin:50rpx 0 40rpx;
+}
+.btn_box{
+  width:70%;
+  text-align:center;
+  line-height:80rpx;
+  border-radius:20rpx;
+  font-size:32rpx;
+  margin-top:40rpx;
+  box-sizing: border-box;
+}
+.show_list{
+  color:#fff;
+  background-color: #FE657F;
+}
+.show_index{
+  color:#FE657F;
+  border:1rpx solid #FE657F;
+}

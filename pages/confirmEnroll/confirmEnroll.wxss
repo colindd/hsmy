@@ -1,1 +1,72 @@
 /* pages/confirmEnroll/confirmEnroll.wxss */
+page{
+  background:#EEEEEE;
+}
+.container{
+  width:100%;
+  box-sizing: border-box;
+}
+.info_top{
+  width:100%;
+  box-sizing: border-box;
+  padding:0 20rpx;
+  background-color: #fff;
+}
+.header_img{
+  width:100%;
+  padding:30rpx 0;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #eee;
+}
+.header_img image{
+  width:180rpx;
+  height:180rpx;
+  border-radius:50%;
+  display:block;
+  margin:0 auto;
+}
+.info_item{
+  box-sizing:border-box;
+  padding:25rpx 0;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #F6F6F6;
+}
+.info_item:last-child{
+  border-bottom:none;
+}
+.info_item_left{
+  color:#888888;
+  min-width: 20%;
+}
+.info_item_right{
+  color:#353535;
+}
+.info_mid,.info_bot{
+  background: #fff;
+  box-sizing: border-box;
+  padding:0 20rpx;
+  margin-top:20rpx;
+}
+.info_bot{
+  padding-bottom:60rpx;
+}
+.money{
+  line-height:80rpx;
+}
+.money .info_item_right{
+  font-size:32rpx;
+  color:#7A67FB;
+  font-weight:bold;
+}
+.pay_btn{
+  width:100%;
+  color:#fff;
+  font-size:32rpx;
+  text-align:center;
+  line-height:90rpx;
+  margin-top:80rpx;
+  border-radius:20rpx;
+  background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
+  box-shadow: 0px 6px 12px rgba(79, 71, 232, 0.2);
+}

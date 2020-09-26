@@ -1,0 +1,7 @@
+<!--pages/enrollSuccess/enrollSuccess.wxml-->
+<view class="container">
+    <image class="tip_img" src="/images/success.png"></image>
+    <view class="tip_text">恭喜您报名成功！</view>
+    <view class="show_list btn_box" bindtap="showList">查看报名记录</view>
+    <view class="show_index btn_box" bindtap="showIndex">返回首页</view>
+</view>

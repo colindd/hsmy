@@ -1,0 +1,38 @@
+<!--pages/chooseStu/chooseStu.wxml-->
+<view class="container">
+  <view class="list_box">
+    <view class="list_item flex" wx:for="{{stuList}}" wx:for-item="item" wx:key="id">
+       <view class="item_img">
+        <image src="/images/default.png"></image>
+       </view>
+       <view class="item_mid">
+         <view class="item_name">{{item.name}}</view>
+          <view class="item_birth flex">
+            <view class="birth_box flex">
+              <view class="birth_icon icon_box">
+                <image src="/images/date_of_birth.png"></image>
+              </view>
+              <text>{{item.birth}}</text>
+            </view>
+            <view class="sex_box flex">
+              <view class="sex_icon icon_box">
+                <image src="/images/gender.png"></image>
+              </view>
+              <text wx:if="{{item.sex == 100001}}">女</text>
+              <text wx:if="{{item.sex == 100002}}">男</text>
+            </view>
+          </view>
+          <view class="item_org flex">
+            <view class="org_icon icon_box">
+              <image src="/images/mechanism.png"></image>
+            </view>
+            <text>{{item.orgnazation}}</text>
+          </view>
+       </view>
+       <view class="item_right">
+         <checkbox class="checkbox" bindtap="chooseStu" data-id="{{item.id}}" wx:if="{{chooseId == item.id}}" checked="checked"></checkbox>
+         <checkbox class="checkbox" bindtap="chooseStu" data-id="{{item.id}}" wx:else ></checkbox>
+       </view>
+    </view>
+  </view>
+</view>

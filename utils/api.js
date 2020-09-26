@@ -150,3 +150,16 @@ export function studentInfo(options){
     success,error
   })
 }
+// 学生列表
+export function studentList(options){
+  var {page,success,error } = options
+  fetch({
+    url:'student/list',
+    method:'GET',
+    data:{
+      page:page,
+      pageSize:10
+    },
+    success,error
+  })
+}

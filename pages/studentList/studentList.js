@@ -1,11 +1,11 @@
-// pages/confirmEnroll/confirmEnroll.js
+// pages/studentList/studentList.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list:[{},{}]
   },
 
   /**
@@ -14,11 +14,10 @@ Page({
   onLoad: function (options) {
 
   },
-  // 点击支付
-  toPay:function(){
-    wx.navigateTo({
-      url: '/pages/enrollSuccess/enrollSuccess',
-    })
+
+  // 添加学生
+  addStudent:function(){
+
   },
 
   /**

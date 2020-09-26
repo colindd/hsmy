@@ -1,2 +1,60 @@
 <!--pages/confirmEnroll/confirmEnroll.wxml-->
-<text>pages/confirmEnroll/confirmEnroll.wxml</text>
+<view class="container">
+  <view class="info_top">
+    <view class="header_img">
+      <image src="/images/default.png"></image>
+    </view>
+    <view class="info_list">
+      <view class="info_item flex">
+        <view class="info_item_left">姓名</view>
+        <view class="info_item_right">庞大开心</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left">性别</view>
+        <view class="info_item_right">男</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left">出生日期</view>
+        <view class="info_item_right">1995-07-15</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left">国籍</view>
+        <view class="info_item_right">中国</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left">民族</view>
+        <view class="info_item_right">汉族</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left">身份证</view>
+        <view class="info_item_right">341226199400000000</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left">添加机构</view>
+        <view class="info_item_right">上海美育机构艺术培训</view>
+      </view>
+    </view>
+  </view>
+  <view class="info_mid">
+    <view class="info_item flex">
+      <view class="info_item_left">联系人</view>
+      <view class="info_item_right">庞寻</view>
+    </view>
+    <view class="info_item flex">
+      <view class="info_item_left">手机号码</view>
+      <view class="info_item_right">15551693365</view>
+    </view>
+    <view class="info_item flex">
+      <view class="info_item_left">所在地址</view>
+      <view class="info_item_right address">安徽省阜阳市颍上县三十铺镇三十铺中心校十铺中心校十铺中心校</view>
+    </view>
+  </view>
+  <view class="info_bot">
+    <view class="info_item flex money">
+      <view class="info_item_left">考试费用</view>
+      <view class="info_item_right">¥180</view>
+    </view>
+    <view class="pay_btn" bindtap="toPay">支付并提交报名</view>
+  </view>
+
+</view>

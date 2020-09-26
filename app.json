@@ -11,8 +11,11 @@
     "pages/teacher/studentDetail/studentDetail",
     "pages/teacher/shearSuccess/shearSuccess",
     "pages/enroll/enroll",
+    "pages/chooseDetail/chooseDetail",
+    "pages/chooseStu/chooseStu",
     "pages/confirmEnroll/confirmEnroll",
-    "pages/chooseDetail/chooseDetail"
+    "pages/enrollSuccess/enrollSuccess",
+    "pages/studentList/studentList"
   ],
   "window": {
     "backgroundTextStyle": "light",

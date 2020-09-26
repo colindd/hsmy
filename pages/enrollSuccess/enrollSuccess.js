@@ -1,4 +1,4 @@
-// pages/confirmEnroll/confirmEnroll.js
+// pages/enrollSuccess/enrollSuccess.js
 Page({
 
   /**
@@ -14,12 +14,17 @@ Page({
   onLoad: function (options) {
 
   },
-  // 点击支付
-  toPay:function(){
-    wx.navigateTo({
-      url: '/pages/enrollSuccess/enrollSuccess',
-    })
-  },
+
+    //返回首页
+    showIndex: function() {
+      wx.navigateTo({
+        url: '/pages/index/index',
+      })
+    },
+    // 查看报名记录
+    showList:function(e){
+  
+    },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
