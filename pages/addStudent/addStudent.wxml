@@ -1,0 +1,93 @@
+<!--pages/addStudent/addStudent.wxml-->
+<view class="container">
+  <view class="info_top">
+    <view class="header_img">
+      <image src="{{headUrl}}" bindtap="uploadImg"></image>
+      <view class="tip_box">
+        <image src="/images/tip.png"></image>
+        <text>请上传考生近期蓝底证件照，将被用作校验考生身份和证书制作</text>
+      </view>
+    </view>
+    <view class="info_list">
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text> 姓名</view>
+        <view class="info_item_right">
+          <input type="text" placeholder="请输入" bindinput="inputName"></input>
+        </view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>性别</view>
+        <view class="info_item_right">
+          <radio-group bindchange="selectSex">
+            <label class="radio">
+              <radio value="100001" >男</radio>
+            </label>
+            <label class="radio">
+              <radio value="100002" >女</radio>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>出生日期</view>
+        <view class="info_item_right">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <input value='{{time}}' disabled="true" placeholder='选择时间'/>
+          </picker>
+        </view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>国籍</view>
+        <view class="info_item_right">
+          <picker mode="selector" bindchange="chooseCountry"  value="{{country.name}}" range-key="name" range="{{CountriesList}}">
+            <input value='{{country.name}}' disabled="true"  placeholder='选择国籍'/>
+          </picker>
+        </view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>民族</view>
+        <view class="info_item_right">
+          <picker mode="selector" bindchange="chooseNation"  value="{{nation.name}}" range-key="name" range="{{NationList}}">
+            <input value='{{nation.name}}' disabled="true"  placeholder='选择民族'/>
+          </picker>
+        </view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>身份证</view>
+        <view class="info_item_right">
+          <input type="text" placeholder="请输入" type="idcard" bindinput="inputCardNo"></input>
+        </view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>添加机构</view>
+        <view class="info_item_right">
+          <picker mode="selector" bindchange="chooseOrganization"  value="{{organization.name}}" range-key="name" range="{{orgList}}">
+            <input value='{{organization.name}}' disabled="true"  placeholder='选择机构'/>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="info_mid">
+    <view class="info_item flex">
+      <view class="info_item_left"><text>*</text>联系人</view>
+      <view class="info_item_right">
+        <input type="text" placeholder="请输入" bindinput="inputContact"></input>
+      </view>
+    </view>
+    <view class="info_item flex">
+      <view class="info_item_left"><text>*</text>手机号码</view>
+      <view class="info_item_right">
+        <input type="text" placeholder="请输入" type="number" bindinput="inputPhone"></input>
+      </view>
+    </view>
+    <view class="info_item flex">
+      <view class="info_item_left"><text>*</text>所在地址</view>
+      <view class="info_item_right address">
+        <input type="text" placeholder="请输入" bindinput="inputAddress"></input>
+      </view>
+    </view>
+    <view class="pay_btn" bindtap="addStudent">保存</view>
+  </view>
+
+</view>

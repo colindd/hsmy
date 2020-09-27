@@ -1,2 +1,51 @@
 <!--pages/forget/forget.wxml-->
-<text>pages/forget/forget.wxml</text>
+<view class="container">
+  <view class="login_main">
+    <view class="username input_box flex">
+      <view class="label_left">
+        <image src="/images/phone.png"></image>
+      </view>
+      <view class="label_right">
+        <input bindinput="showClear" value="{{mobile}}" placeholder="请输入手机号"></input>
+      </view>
+      <view class="clear_inp" bindtap="clearInput">
+        <image wx:if="{{showClear}}" src="/images/clear.png"></image>
+      </view>
+    </view>
+    <view class="imgcode input_box flex">
+      <view class="label_left">
+        <image src="/images/code.png"></image>
+      </view>
+      <view class="label_mid">
+        <input placeholder="请输入图片验证码" bindinput="inputCode"></input>
+      </view>
+      <view class="code_right imgcode_right">
+        <image src="{{imgData}}" bindtap="changeCodeImg"></image>
+      </view>
+    </view>
+    <view class="phonecode input_box flex">
+      <view class="label_left">
+        <image src="/images/code.png"></image>
+      </view>
+      <view class="label_mid">
+        <input placeholder="请输入验证码" bindinput="inputPhoneCode"></input>
+      </view>
+      <view class="code_right" bindtap="getPhoneCode">
+        <text>{{codeTxt}}</text>
+      </view>
+    </view>
+    <view class="password input_box flex">
+      <view class="label_left">
+        <image src="/images/lock.png"></image>
+      </view>
+      <view class="label_right">
+        <input password='{{hidePsd}}' placeholder="密码6-16位字符,区分大小写" bindinput="inputPsw"></input>
+      </view>
+      <view class="show_psd" >
+        <image wx:if="{{hidePsd}}" bindtap="ToggleShow" src="/images/show.png"></image>
+        <image wx:else bindtap="ToggleShow" src="/images/hidden.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="reg_btn" bindtap="ChangePsw">完成</view>
+</view>

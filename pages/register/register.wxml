@@ -6,7 +6,7 @@
         <image src="/images/phone.png"></image>
       </view>
       <view class="label_right">
-        <input bindinput="showClear" placeholder="请输入手机号"></input>
+        <input bindinput="showClear" value="{{mobile}}" placeholder="请输入手机号"></input>
       </view>
       <view class="clear_inp" bindtap="clearInput">
         <image wx:if="{{showClear}}" src="/images/clear.png"></image>
@@ -47,7 +47,7 @@
       </view>
     </view>
     <view class="tip_box">
-     <checkbox></checkbox> 我同意<text bindtap="showRule">《用户使用条款及服务协议》</text>
+     <checkbox class="checkbox"></checkbox> 我同意<text bindtap="showRule">《用户使用条款及服务协议》</text>
     </view>
   </view>
   <view class="reg_btn" bindtap="toReg">注册</view>

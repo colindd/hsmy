@@ -1,4 +1,4 @@
-import {fetch} from './util'
+import {fetch,fetch2} from './util'
 //注册
 export function register(options){
   var {account,password,code,success,error } = options
@@ -61,6 +61,19 @@ export function sendResetPwdSms(options){
       mobile:mobile,
       code:code,
       uuid:uuid
+    },
+    success,error
+  })
+}
+// 修改密码
+export function resetPwd(options){
+  var {account,code,password,success,error  } = options
+  fetch({
+    url:'resetPwd',
+    data:{
+      account:account,
+      code:code,
+      password:password
     },
     success,error
   })
@@ -159,6 +172,70 @@ export function studentList(options){
     data:{
       page:page,
       pageSize:10
+    },
+    success,error
+  })
+}
+// 机构列表
+export function sysDeptList(options){
+  var {success,error } = options
+  fetch({
+    url:'sysDept/list',
+    method:'GET',
+    data:{},
+    success,error
+  })
+}
+// 民族列表
+export function chooseNationList(options){
+  var {success,error } = options
+  fetch({
+    url:'nation/chooseNationList',
+    method:'GET',
+    data:{},
+    success,error
+  })
+}
+// 国家列表
+export function chooseCountriesList(options){
+  var {success,error } = options
+  fetch({
+    url:'countries/chooseCountriesList',
+    method:'GET',
+    data:{},
+    success,error
+  })
+}
+// 图片上传
+export function imgUpload(options){
+  var {images,success,error } = options
+  fetch2({
+    url:'image/upload',
+    method:'POST',
+    data:{
+      images:images
+    },
+    success,error
+  })
+}
+// 图片上传
+export function addStudent(options){
+  var {organizationId,name,sex,birthday,nationality,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
+  fetch({
+    url:'student/add',
+    method:'POST',
+    data:{
+      organizationId:organizationId,
+      name:name,
+      sex:sex,
+      birthday:birthday,
+      nationality:nationality,
+      nation:nation,
+      idCard:idCard,
+      contacts:contacts,
+      urgentMobile:urgentMobile,
+      address:address,
+      avatar:avatar
     },
     success,error
   })

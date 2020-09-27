@@ -12,7 +12,9 @@ Page({
   data: {
     codeTxt:'获取验证码',
     hidePsd:true,
-    showClear:false
+    mobile:'',
+    showClear:false,
+    snsMsgWait:60
   },
 
   /**
@@ -35,20 +37,22 @@ Page({
     var val = e.detail.value;
     if(val){
       this.setData({
+        mobile:val,
         showClear:true
       })
     }else{
       this.setData({
+        mobile:'',
         showClear:false
       })
     }
-    this.setData({
-      mobile:val
-    })
   },
   // 点击清除
   clearInput:function(){
-
+    this.setData({
+      mobile:'',
+      showClear:false
+    })
   },
 
   // 显示/隐藏密码
@@ -104,6 +108,20 @@ Page({
        mobile,code,uuid,
        success(data){
          console.log(data)
+            // 60秒后重新获取验证码
+          var inter = setInterval(function() {
+            that.setData({
+              codeTxt: '('+that.data.snsMsgWait + 's)后重发',
+              snsMsgWait: that.data.snsMsgWait - 1
+            });
+            if (that.data.snsMsgWait < 0) {
+              clearInterval(inter)
+              that.setData({
+                codeTxt: '获取验证码',
+                snsMsgWait: 60
+              });
+            }
+          }.bind(this), 1000);
        },
        error(res){
          console.log(res)
@@ -113,7 +131,7 @@ Page({
   // 点击使用条款
   showRule:function(){
     wx.navigateTo({
-      url: '/pages/rule/rule',
+      url: '/pages/regulation/regulation',
     })
   },
 
@@ -140,7 +158,12 @@ Page({
         }
       },
       error(res){
-        console.log(res)
+        // console.log(res)
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1200
+        })
       }
     })
   },

@@ -1,11 +1,11 @@
-// pages/studentList/studentList.js
+// pages/regulation/regulation.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[{},{}]
+
   },
 
   /**
@@ -13,13 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-
-  // 添加学生
-  addStudent:function(){
-    wx.navigateTo({
-      url: '/pages/addStudent/addStudent',
-    })
   },
 
   /**

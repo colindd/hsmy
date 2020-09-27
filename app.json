@@ -15,7 +15,9 @@
     "pages/chooseStu/chooseStu",
     "pages/confirmEnroll/confirmEnroll",
     "pages/enrollSuccess/enrollSuccess",
-    "pages/studentList/studentList"
+    "pages/studentList/studentList",
+    "pages/addStudent/addStudent",
+    "pages/regulation/regulation"
   ],
   "window": {
     "backgroundTextStyle": "light",

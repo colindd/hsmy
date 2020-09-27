@@ -109,9 +109,33 @@ export function fetch(options) {
   })
 }
 
+
+export function fetch2(options) {
+  var session_key = wx.getStorageSync('session_key')
+  wx.request({
+    url: `${host}/${options.url}`,
+    data: options.data,
+    method: options.method || 'POST',
+    header: {
+      'content-type': 'multipart/form-data',
+      'Authorization':session_key
+    },
+    success: function (res) {
+      const data = res.data
+      if (data.code == '1') {
+        options.success && options.success(data.data)
+      } else {
+        options.error && options.error(data.msg)
+      }
+      options.complete && options.complete()
+    }
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
   fetch:fetch,
+  fetch2:fetch2,
   datetimeFormat:datetimeFormat,
   datetimeFormat2:datetimeFormat2,
   datetimeFormat3:datetimeFormat3,

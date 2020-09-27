@@ -1,0 +1,109 @@
+/* pages/addStudent/addStudent.wxss */
+page{
+  background:#EEEEEE;
+}
+.container{
+  width:100%;
+  box-sizing: border-box;
+}
+.info_top{
+  width:100%;
+  box-sizing: border-box;
+  padding:0 30rpx;
+  background-color: #fff;
+}
+.header_img{
+  width:100%;
+  padding:30rpx 0;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #eee;
+}
+.header_img image{
+  width:180rpx;
+  height:180rpx;
+  border-radius:50%;
+  display:block;
+  margin:0 auto;
+}
+.tip_box{
+  font-size:24rpx;
+  color:#FE657F;
+  width:60%;
+  text-align:center;
+  margin:20rpx auto;
+}
+.tip_box image{
+  width:30rpx;
+  height:30rpx;
+  margin-right:10rpx;
+  display:inline-block;
+}
+.info_item{
+  box-sizing:border-box;
+  padding:25rpx 0;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #F6F6F6;
+}
+.info_item:last-child{
+  border-bottom:none;
+}
+.info_item_left{
+  color:#888888;
+  min-width: 20%;
+}
+.info_item_left text{
+  color:#FF7D92;
+}
+.info_item_right{
+  color:#353535;
+}
+.info_item_right input{
+  text-align:right;
+}
+.radio:first-child{
+  margin-right:30rpx;
+}
+.info_mid{
+  background: #fff;
+  box-sizing: border-box;
+  padding:0 20rpx 40rpx;
+  margin-top:20rpx;
+}
+.pay_btn{
+  width:100%;
+  color:#fff;
+  font-size:32rpx;
+  text-align:center;
+  line-height:90rpx;
+  margin-top:80rpx;
+  border-radius:20rpx;
+  background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
+  box-shadow: 0px 6px 12px rgba(79, 71, 232, 0.2);
+}
+radio .wx-radio-input.wx-radio-input-checked {
+  border-color: #FF7D92;
+  background: #FF7D92;
+}
+ 
+radio .wx-radio-input {
+  height: 40rpx;
+  width: 40rpx;
+  margin-top: -4rpx;
+  border-radius: 50%;
+  border: 2rpx solid #999;
+  background: transparent;
+}
+ 
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%; 
+  width: 40rpx;
+  height: 40rpx; 
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  background: #FF7D92;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

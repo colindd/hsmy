@@ -94,26 +94,62 @@ page{
 .tip_text text{
   color:#F9547E;
 }
-
-checkbox{
-  margin-left:10rpx;
+.checkbox .wx-checkbox-input {
+  border-radius: 40rpx; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40r'p'x; /* 背景的高 */
+  border: 2px solid #FE657F;
 }
-checkbox .wx-checkbox-input {
+
+.checkbox .wx-checkbox-input-disabled {
+  border-radius: 40rpx; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  background: #f3f3f3;
+  border: 1px solid rgba(201, 201, 201, 1);
+}
+
+.checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #FE657F;
+}
+
+.checkbox  .wx-checkbox-input.wx-checkbox-input-checked::before {
   width: 40rpx;
   height: 40rpx;
-  border-radius:50%;
-}
-
-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-  background: #F9547E;
-}
-
-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
-  width: 30rpx;
-  height: 30rpx;
-  line-height: 30rpx;
+  line-height: 40rpx;
   text-align: center;
-  font-size: 26rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.checkbox .wx-checkbox-input {
+  border-radius: 40rpx; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  border: 1px solid #FE657F;
+}
+
+.checkbox .wx-checkbox-input-disabled {
+  border-radius: 40rpx; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  background: #f3f3f3;
+  border: 1px solid rgba(201, 201, 201, 1);
+}
+
+.checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #FE657F;
+}
+
+.checkbox  .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 30rpx;
   color: #fff;
   background: transparent;
   transform: translate(-50%, -50%) scale(1);
