@@ -1,4 +1,12 @@
 // pages/confirmEnroll/confirmEnroll.js
+import{
+  studentDetail,
+  professionalPrice,
+  addOrder
+} from '../../utils/api'
+import {
+  datetimeFormat2
+} from '../../utils/util'
 Page({
 
   /**
@@ -12,13 +20,49 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    var that = this;
+    that.setData({
+      studentId:options.stuid,
+      pid:options.pid,
+      sid:options.sid,
+    })
+    // 学生信息
+    studentDetail({
+      studentId:options.stuid,
+      success(data){
+        console.log('学生信息:',data)
+        data.birthday = datetimeFormat2(data.birthday)
+        that.setData({
+          userInfo:data
+        })
+      }
+    })
+    // 价格信息
+    professionalPrice({
+      professionalId:options.pid,
+      subjectLevelId:options.sid,
+      success(data){
+        console.log(data)
+        that.setData({
+          price:data.price
+        })
+      }
+    })
   },
   // 点击支付
   toPay:function(){
-    wx.navigateTo({
-      url: '/pages/enrollSuccess/enrollSuccess',
+    var that = this;
+    var {studentId,pid,sid,userInfo} = that.data
+    addOrder({
+      organizationEnrollDateId:userInfo.organizationId,professionalItemId:pid,levelId:sid,studentId:studentId,
+      success(data){
+        console.log(data)
+      }
     })
+    // wx.navigateTo({
+    //   url: '/pages/enrollSuccess/enrollSuccess',
+    // })
   },
 
   /**

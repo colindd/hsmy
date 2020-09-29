@@ -6,7 +6,14 @@ page{
 .top_box{
   width:100%;
   height:500rpx;
-  background-color: #F9547E;
+}
+.top_box swiper{
+  width:100%;
+  height:100%;
+}
+.swiper-item{
+  width:100%;
+  height:100%;
 }
 .bot_box{
   width:92%;
@@ -25,16 +32,15 @@ page{
   box-sizing: border-box;
 }
 .nav_item image{
-  width:120rpx;
-  height:120rpx;
-  border-radius:50%;
-  margin:60rpx auto 0;
+  width:150rpx;
+  height:150rpx;
+  margin:50rpx auto 0;
 }
 .nav_item text{
   display:block;
   width:100%;
   text-align: center;
-  margin-top:16rpx;
+  margin-top:6rpx;
 }
 .nav_item:nth-child(odd){
   border-right:1rpx solid #EEEEEE;

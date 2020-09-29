@@ -109,21 +109,23 @@ export function fetch(options) {
   })
 }
 
-
-export function fetch2(options) {
+export function upload(options) {
   var session_key = wx.getStorageSync('session_key')
-  wx.request({
+  wx.uploadFile({
+    filePath: options.filePath,
+    name: 'images',
     url: `${host}/${options.url}`,
-    data: options.data,
-    method: options.method || 'POST',
     header: {
-      'content-type': 'multipart/form-data',
+      'content-type': 'multipart/form-data;charset=utf-8',
       'Authorization':session_key
     },
-    success: function (res) {
-      const data = res.data
+    formData: {
+               
+    },
+    success(res){
+      var data = JSON.parse(res.data)
       if (data.code == '1') {
-        options.success && options.success(data.data)
+        options.success && options.success(data.data.url)
       } else {
         options.error && options.error(data.msg)
       }
@@ -132,10 +134,11 @@ export function fetch2(options) {
   })
 }
 
+
 module.exports = {
   formatTime: formatTime,
   fetch:fetch,
-  fetch2:fetch2,
+  upload:upload,
   datetimeFormat:datetimeFormat,
   datetimeFormat2:datetimeFormat2,
   datetimeFormat3:datetimeFormat3,

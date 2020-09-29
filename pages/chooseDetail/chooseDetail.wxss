@@ -20,7 +20,11 @@ page{
 }
 .list_tip{
   justify-content: flex-start;
+  color:#888888;
   border-bottom:none;
+}
+.tip_text text{
+  color:#7A67FB;
 }
 .first_right{
   color:#353535;
@@ -28,7 +32,12 @@ page{
 .list_item_right picker{
   width:130rpx;
   text-align:right;
-  height:90rpx;
+  height:100%;
+}
+.list_item_right picker input{
+  line-height:100rpx;
+  position: relative;
+  top:20rpx;
 }
 
 checkbox{

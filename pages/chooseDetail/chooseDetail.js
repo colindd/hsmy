@@ -1,35 +1,137 @@
 // pages/chooseDetail/chooseDetail.js
+import{
+  pItemList,
+  subItemList,
+  professionalPrice
+} from '../../utils/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    majorList:['书法','绘画','山水画'],
-    levelList:['四级','五级','六级','七级'],
+    majorList:null,
+    levelList:null,
+    chooseMajor:null,
+    chooseLevel:null,
     majorIndex: 0,
-    levelIndex:0
+    levelIndex:0,
+    agree:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      var pid = options.pid
+      var that = this;
+      that.setData({
+        stuId:options.stuid
+      })
+      // 科目列表
+      pItemList({
+          pid:pid,
+          success(data){
+            console.log('科目列表：',data)
+            that.setData({
+              majorList:data
+            })
+          },error(res){
+            wx.showToast({
+              title:res,
+              icon:'none',
+              duration:1500
+            })
+          }
+      })
+      // 级别列表
+      subItemList({
+        success(data){
+          console.log('级别列表:',data)
+          that.setData({
+            levelList:data
+          })
+        },error(res){
+          wx.showToast({
+            title:res,
+            icon:'none',
+            duration:1500
+          })
+        }
+      })
   },
+
   // 选择专业
   bindMajorChange: function(e) {
+    var index = e.detail.value
+    var chooseMajor = this.data.majorList[index]
     this.setData({
-      majorIndex: e.detail.value
+      chooseMajor: chooseMajor
     })
   },
 
   // 选择级别
   bindLevelChange: function(e) {
-    this.setData({
-      levelIndex: e.detail.value
+    var that = this;
+    var index = e.detail.value
+    var chooseLevel = this.data.levelList[index]
+    that.setData({
+      chooseLevel:chooseLevel
+    })
+    var professionalId = that.data.chooseMajor.pid
+    var subjectLevelId = that.data.chooseLevel.id
+    that.getProfessionalPrice(professionalId,subjectLevelId)
+  },
+
+  // 获取科目价格
+  getProfessionalPrice:function(pid,sid){
+    var that = this;
+    professionalPrice({
+      professionalId:pid,
+      subjectLevelId:sid,
+      success(data){
+        that.setData({
+          price:data.price
+        })
+      }
     })
   },
+
+  // 点击我同意
+  chooseAgree:function(e){
+    var that = this;
+    var agree = e.detail.value[0]
+    if(agree && agree == 'agree'){
+      that.setData({
+        agree:true
+      })
+    }else{
+      that.setData({
+        agree:false
+      })
+    }
+  },
+
+  // 点击下一步
+  nextStep:function(e){
+    var that = this;
+    var agree = that.data.agree
+    var stuId = that.data.stuId
+    var professionalId = that.data.chooseMajor.pid
+    var subjectLevelId = that.data.chooseLevel.id
+    if(agree){
+      wx.navigateTo({
+        url: '/pages/confirmEnroll/confirmEnroll?stuid='+stuId+'&pid='+professionalId+'&sid='+subjectLevelId,
+      })
+    }else{
+      wx.showToast({
+        title: '请先阅读报名须知',
+        icon:'none',
+        duration:1500
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

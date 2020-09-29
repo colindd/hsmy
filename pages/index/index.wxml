@@ -1,7 +1,14 @@
 <!--index.wxml-->
 <view class="container">
   <view class="top_box">
-
+    <swiper class="swiper" indicator-dots="{{swiperSetting.indicatorDots}}"
+        autoplay="{{swiperSetting.autoplay}}" circular="{{swiperSetting.circular}}" interval="{{swiperSetting.interval}}" duration="{{swiperSetting.duration}}">
+          <swiper-item class="swiper-item" wx:for="{{swiperSetting.background}}" wx:key="*this">
+            <view class="swiper-item">
+              <image src="{{item}}"></image>
+            </view>
+          </swiper-item>
+    </swiper>
   </view>
   <view class="bot_box flex">
   <block wx:for="{{navList}}" wx:for-item="item" wx:key="id">

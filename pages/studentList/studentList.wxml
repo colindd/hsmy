@@ -4,19 +4,20 @@
     <view class="student_item" data-id="{{item.id}}" bindtap="changeInfo" wx:for="{{list}}" wx:for-item="item" wx:key="id" >
        <view class="item_top flex">
          <view class="head_img">
-           <image src="/images/default.png"></image>
+           <image src="{{item.avatar}}"></image>
          </view>
          <view class="item_right">
-           <view class="item_info_name">庞大开心</view>
+           <view class="item_info_name">{{item.name}}</view>
            <view class="birth_box flex">
              <image src="/images/date_of_birth.png"></image>
-             <text>1995-07-15</text>
+             <text>{{item.birthday}}</text>
              <image class="sex_img" src="/images/gender.png"></image>
-             <text>女</text>
+             <text wx:if="{{item.sex == 1}}">女</text>
+             <text wx:if="{{item.sex == 2}}">女</text>
            </view>
            <view class="item_info_org flex">
              <image src="/images/mechanism.png"></image>
-             <text>上海美育机构艺术培训</text>
+             <text>{{item.organizationName}}</text>
            </view>
          </view>
        </view>

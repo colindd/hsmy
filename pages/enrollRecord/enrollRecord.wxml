@@ -1,0 +1,30 @@
+<!--pages/enrollRecord/enrollRecord.wxml-->
+<view class="container">
+  <view class="list_box" wx:if="{{list.length>0}}">
+    <view class="list_item" data-id="{{item.id}}" bindtap="recordDetail" wx:for="{{list}}" wx:for-item="item" wx:key="id">
+      <view class="item_top flex">
+        <view class="item_left">      
+            <image src="/images/record.png"></image>
+        </view>
+        <view class="item_mid">
+          <view class="item_title">{{item.title}}</view>
+          <view class="item_line">形式：{{item.form}}</view>
+          <view class="item_line">姓名：{{item.name}}</view>
+        </view>
+        <view class="item_right">
+          <view class="pay_money">¥180</view>
+          <view class="pay_status">{{STATUS[item.status]}}</view>
+        </view>
+      </view>
+      <view class="item_bot flex">
+        <view class="cancel_btn" bindtap="cancelEnroll" data-id="{{item.id}}" wx:if="{{item.status == 100001 || item.status == 100002}}">取消报名</view>
+        <view class="pay_btn" bindtap="toPay" data-id="{{item.id}}" wx:if="{{item.status == 100001}}">立即支付</view>
+      </view>
+    </view>
+  </view>
+  <view class="no_list flex" wx:else>
+      <image src="/images/blank_record.png"></image>
+      <text>暂无报名记录</text>
+      <view class="to_index" bindtap="toIndex">返回首页</view>
+  </view>
+</view>

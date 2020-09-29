@@ -2,7 +2,10 @@
 <view class="container">
   <view class="info_top">
     <view class="header_img">
-      <image src="{{headUrl}}" bindtap="uploadImg"></image>
+      <view class="img_box">
+        <image class="headImg" src="{{headUrl}}" bindtap="uploadImg"></image>
+        <image class="cameraImg" src="/images/click_upload.png" wx:if="{{headUrl == '/images/default.png'}}"></image>
+      </view>
       <view class="tip_box">
         <image src="/images/tip.png"></image>
         <text>请上传考生近期蓝底证件照，将被用作校验考生身份和证书制作</text>
@@ -20,10 +23,10 @@
         <view class="info_item_right">
           <radio-group bindchange="selectSex">
             <label class="radio">
-              <radio value="100001" >男</radio>
+              <radio value="1" >男</radio>
             </label>
             <label class="radio">
-              <radio value="100002" >女</radio>
+              <radio value="2" >女</radio>
             </label>
           </radio-group>
         </view>

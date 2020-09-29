@@ -1,4 +1,4 @@
-import {fetch,fetch2} from './util'
+import {fetch,upload} from './util'
 //注册
 export function register(options){
   var {account,password,code,success,error } = options
@@ -206,21 +206,67 @@ export function chooseCountriesList(options){
     success,error
   })
 }
-// 图片上传
-export function imgUpload(options){
-  var {images,success,error } = options
-  fetch2({
-    url:'image/upload',
-    method:'POST',
+// 考级列表
+export function enrollList(options){
+  var {studentId,page,success,error } = options
+  fetch({
+    url:'organizationEnrollDate/studentList',
+    method:'GET',
     data:{
-      images:images
+      studentId:studentId,
+      page:page,
+      pageSize:10
+    },
+    success,error
+  })
+}
+// 科目列表
+export function pItemList(options){
+  var {pid,success,error } = options
+  fetch({
+    url:'professionalItem/list',
+    method:'GET',
+    data:{
+      pid:pid
+    },
+    success,error
+  })
+}
+// 级别列表
+export function subItemList(options){
+  var {success,error } = options
+  fetch({
+    url:'subjectLevel/list',
+    method:'GET',
+    data:{},
+    success,error
+  })
+}
+// 考级价格
+export function professionalPrice(options){
+  var {professionalId,subjectLevelId,success,error } = options
+  fetch({
+    url:'professionalItemDetail/info',
+    method:'GET',
+    data:{
+      professionalId,
+      subjectLevelId
     },
     success,error
   })
 }
 // 图片上传
+export function imgUpload(options){
+  var {images,success,error } = options
+  upload({
+    url:'image/upload',
+    filePath:images,
+    success,error
+  })
+}
+// 添加学生
 export function addStudent(options){
-  var {organizationId,name,sex,birthday,nationality,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
+  var {organizationId,name,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
   fetch({
     url:'student/add',
     method:'POST',
@@ -233,9 +279,37 @@ export function addStudent(options){
       nation:nation,
       idCard:idCard,
       contacts:contacts,
+      mobile:mobile,
       urgentMobile:urgentMobile,
       address:address,
       avatar:avatar
+    },
+    success,error
+  })
+}
+// 学生信息详情
+export function studentDetail(options){
+  var {studentId,success,error } = options
+  fetch({
+    url:'student/info',
+    method:'GET',
+    data:{
+      studentId:studentId
+    },
+    success,error
+  })
+}
+// 下单
+export function addOrder(options){
+  var {organizationEnrollDateId,professionalItemId,levelId,studentId,success,error } = options
+  fetch({
+    url:'order/add',
+    method:'POST',
+    data:{
+      organizationEnrollDateId:organizationEnrollDateId,
+      professionalItemId:professionalItemId,
+      levelId:levelId,
+      studentId:studentId
     },
     success,error
   })

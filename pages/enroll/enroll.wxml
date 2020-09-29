@@ -1,19 +1,19 @@
 <!--pages/enroll/enroll.wxml-->
 <view class="container">
   <view class="list_box">
-    <view class="list_item" wx:for="{{list}}" wx:for-item="item" wx:key="id" data-id="{{item.id}}" bindtap="examDetail">
-      <view class="list_item_title">{{item.name}}</view>
+    <view class="list_item" wx:for="{{list}}" wx:for-item="item" wx:key="id" data-id="{{item.professionalId}}" bindtap="{{item.examStatus == 100001 ? 'examDetail':''}}">
+      <view class="list_item_title">全国{{item.name}}考级上海考区{{item.year}}年报考</view>
       <view class="list_item_bot">
-        <view class="list_item_line">报名机构：{{item.org}}</view>
-        <view class="list_item_line">报名截止：{{item.endtime}}</view>
+        <view class="list_item_line">报名机构：{{item.organizationName}}</view>
+        <view class="list_item_line">报名截止：{{item.endDate}}</view>
         <view class="list_item_line">
-          支付方式：<text wx:if="{{item.paytype == 100001}}">线上支付</text> 
-          <text wx:if="{{item.paytype == 100002}}">线下支付</text> 
+          支付方式：<text wx:if="{{item.payType == 100001}}">线上支付</text> 
+          <text wx:if="{{item.payType == 100002}}">线下支付</text> 
         </view>
-      </view>
+      </view> 
       <view class="list_item_corner">
-        <image src="/images/corner01.png" wx:if="{{item.status == 100001}}"></image>
-        <image src="/images/corner02.png" wx:if="{{item.status == 100002}}"></image>
+        <image src="/images/corner02.png" wx:if="{{item.examStatus == 100001}}"></image>
+        <image src="/images/corner01.png" wx:else></image>
       </view>
     </view>
   </view>

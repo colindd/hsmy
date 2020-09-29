@@ -17,7 +17,7 @@ page{
 }
 .login_main{
   width:100%;
-  margin-top:30rpx;
+  margin-top:160rpx;
 }
 .input_box{
   width:100%;
@@ -43,40 +43,60 @@ page{
   height:100%;
   height:130rpx;
 }
-.tip_box{
-  height:100rpx;
-  line-height:100rpx;
-  margin-top:10rpx;
-  justify-content: space-between;
-}
 .type{
-  margin-top:20rpx;
+  margin-top:80rpx;
   box-sizing: border-box;
   padding:20rpx 50rpx;
   justify-content: space-around;
 }
 .type_item image{
-  width:120rpx;
-  height:120rpx;
+  width:200rpx;
+  height:200rpx;
 }
 .type_item text{
   display:block;
-  width:100%;
+  width:50%;
+  color:#fff;
+  font-size:24rpx;
+  border-radius:25rpx;
+  background:#DBD9DC;
+  line-height:50rpx;
   text-align: center;
-  margin-top:10rpx;
+  margin:0 auto;
 }
-.teaChoosed, .stuChoosed{
-  color:#F9547E;
+.type_item text.stuChoosed{
+  background:#FF8D90;
+}
+.type_item text.teaChoosed{
+  background:#8DA0FE;
+}
+.tip_box{
+  height:100rpx;
+  line-height:100rpx;
+  margin-top:20rpx;
+  justify-content:center;
 }
 .register{
-  color:#353535;
+  color:#888888;
+  position: relative;
+  margin-right:40rpx;
+}
+.register::after{
+  content: '';
+  width:2rpx;
+  height:30rpx;
+  background:#707070;
+  position: absolute;
+  right:-40rpx;
+  top:35rpx;
 }
 .forget{
   color:#5592FA;
+  margin-left:40rpx;
 }
 .login_btn{
   width:100%;
-  margin-top:200rpx;
+  margin-top:100rpx;
   line-height:100rpx;
   border-radius:20rpx;
   font-size:32rpx;

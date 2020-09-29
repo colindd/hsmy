@@ -18,12 +18,23 @@ page{
   box-sizing: border-box;
   border-bottom:1rpx solid #eee;
 }
-.header_img image{
+.img_box{
   width:180rpx;
   height:180rpx;
   border-radius:50%;
-  display:block;
   margin:0 auto;
+  position: relative;
+}
+.headImg{
+  border-radius:50%;
+  display:block;
+}
+.cameraImg{
+  width:40rpx;
+  height:40rpx;
+  position: absolute;
+  right:8%;
+  bottom:8%;
 }
 .tip_box{
   font-size:24rpx;

@@ -1,0 +1,96 @@
+/* pages/enrollRecord/enrollRecord.wxss */
+page{
+  background-color: #F6F6F6;
+}
+.list_box{
+  width:100%;
+  box-sizing: border-box;
+  padding:0 20rpx;
+}
+.list_item{
+  width:100%;
+  box-sizing: border-box;
+  background:#fff;
+  border-radius:20rpx;
+  margin-top:20rpx;
+  padding:20rpx;
+}
+.item_left image{
+  width:50rpx;
+  height:50rpx;
+}
+.item_mid{
+  width:70%;
+  margin-left:10rpx;
+}
+.item_title{
+  font-weight:bold;
+  font-size:32rpx;
+}
+.item_line{
+  font-size:26rpx;
+  margin-top:15rpx;
+}
+.pay_money{
+  text-align:right;
+  font-size:32rpx;
+  font-weight:bold;
+  color:#FE657F;
+}
+.pay_status{
+  text-align:right;
+  margin-top:20rpx;
+  color:#888888;
+}
+.item_bot{
+  margin-top:20rpx;
+  box-sizing: border-box;
+  /* padding:0 20rpx; */
+  justify-content: flex-end;
+}
+.pay_btn{
+  color:#fff;
+  text-align:center;
+  border-radius:16rpx;
+  width:160rpx;
+  line-height:60rpx;
+  background: linear-gradient(122deg, #FF8F78 0%, #FE657F 100%);
+  box-shadow: 0px 6px 12px rgba(53, 53, 53, 0.1);
+}
+.no_list{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background:#fff;
+}
+.no_list image{
+  width:330rpx;
+  height:230rpx;
+  margin-top:-300rpx;
+}
+.no_list text{
+  color:#888;
+  margin-top:20rpx;
+}
+.to_index{
+  width:180rpx;
+  text-align:center;
+  color:#fff;
+  border-radius:10rpx;
+  background:#FE657F;
+  line-height:60rpx;
+  margin-top:40rpx;
+}
+.cancel_btn{
+  color:#888888;
+  text-align:center;
+  border-radius:16rpx;
+  width:160rpx;
+  line-height:60rpx;
+  border:1rpx solid #eee;
+  margin-right:20rpx;
+}

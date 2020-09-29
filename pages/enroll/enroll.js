@@ -1,28 +1,54 @@
 // pages/enroll/enroll.js
+import{
+  enrollList
+} from '../../utils/api'
+import {
+  datetimeFormat2,
+  datetimeFormat3
+} from '../../utils/util'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      {id:1,name:'全国美术书法考级上海考区2020年报考',org:'上海市海上美育艺术培训机构',endtime:'2020-10-08 24:00',paytype:'100001',status:'100001'},
-      {id:2,name:'全国美术书法考级上海考区2020年报考',org:'上海市海上美育艺术培训机构',endtime:'2020-10-08 24:00',paytype:'100002',status:'100002'}
-    ]
+    list:[],
+    inintPage:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var stuId = options.id
+    var that = this;
+    that.setData({
+      stuId:stuId
+    })
+    var inintPage = that.data.inintPage
+    enrollList({
+      studentId:stuId,
+      page:inintPage,
+      success(data){
+        var list = data.rows;
+        list.map(item =>{
+          item.endDate = datetimeFormat2(item.endDate)
+          item.year = datetimeFormat3(item.endDate)
+        })
+        that.setData({
+          list:list
+        })
+      }
+    })
   },
 
   // 考级详情
   examDetail:function(e){
    const id = e.currentTarget.dataset.id;
+   const stuId = this.data.stuId
    wx.navigateTo({
-     url: '/pages/chooseDetail/chooseDetail?id='+id,
+     url: '/pages/chooseDetail/chooseDetail?pid='+id+'&stuid='+stuId,
    })
   },
 

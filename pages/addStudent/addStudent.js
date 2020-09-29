@@ -3,7 +3,8 @@ import{
   sysDeptList,
   chooseNationList,
   chooseCountriesList,
-  imgUpload
+  imgUpload,
+  addStudent
 } from '../../utils/api'
 
 const date = new Date();
@@ -94,19 +95,21 @@ Page({
       success(res){
         console.log(res)
         if(res.errMsg == 'chooseImage:ok'){
-          // imgUpload({
-          //   images:res.tempFilePaths[0],
-          //   success(data){
-          //     console.log(data)
-          //     that.setData({
-          //       headUrl:res.tempFilePaths[0]
-          //     })
-          //   }
-          // })
+          imgUpload({
+            images:res.tempFilePaths[0],
+            success(data){
+              var host = 'https://hsmy2020.oss-cn-hangzhou.aliyuncs.com'
+              var imgUrl = host+'/'+data
+              that.setData({
+                headUrl:imgUrl
+              })
+            }
+          })
         }
       }
     })
   },
+  // 
 
   //获取时间日期
   bindMultiPickerChange: function(e) {
@@ -187,6 +190,13 @@ Page({
     data.multiIndex[e.detail.column] = e.detail.value;
     this.setData(data);
   },
+  // 输入姓名
+  inputName:function(e){
+    var val = e.detail.value
+    this.setData({
+      name:val
+    })
+  },
   // 选择性别
   selectSex:function(e){
     var sex = e.detail.value
@@ -211,6 +221,7 @@ Page({
       nation: nation
     })
   },
+
   // 选择机构
   chooseOrganization:function(e){
     var index = e.detail.value
@@ -219,10 +230,53 @@ Page({
       organization: organization
     })
   },
+  // 输入身份证号
+  inputCardNo:function(e){
+    var val = e.detail.value
+    this.setData({
+      idCard:val
+    })
+  },
+   // 输入联系人
+   inputContact:function(e){
+    var val = e.detail.value
+    this.setData({
+      contacts:val
+    })
+  },
+
+   // 输入联系人手机号
+   inputPhone:function(e){
+    var val = e.detail.value
+    this.setData({
+      urgentMobile:val
+    })
+  },
+   // 输入地址
+   inputAddress:function(e){
+    var val = e.detail.value
+    this.setData({
+      address:val
+    })
+  },
 
   // 添加学生
   addStudent:function(){
-
+    var that = this;
+    var {organization,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
+    var userInfo = wx.getStorageSync('user')
+    addStudent({
+      organizationId:organization.deptId,name,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
+      success(data){
+        console.log(data)
+      },error(res){
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1200
+        })
+      }
+    })
   },
 
   /**

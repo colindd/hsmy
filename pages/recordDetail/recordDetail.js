@@ -1,44 +1,18 @@
-// pages/studentList/studentList.js
-import{
-  studentList
-} from '../../utils/api'
-import {
-  datetimeFormat2
-} from '../../utils/util'
+// pages/recordDetail/recordDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var that = this;
-      studentList({
-        page:1,
-        success(data){
-          console.log(data.rows)
-          var list = data.rows
-          list.map(item =>{
-              item.birthday = datetimeFormat2(item.birthday)
-          })
-          that.setData({
-            list:list
-          })
-        }
-      })
-  },
 
-  // 添加学生
-  addStudent:function(){
-    wx.navigateTo({
-      url: '/pages/addStudent/addStudent',
-    })
   },
 
   /**

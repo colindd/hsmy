@@ -2,6 +2,9 @@
 import{
   studentList
 } from '../../utils/api'
+import {
+  datetimeFormat2
+} from '../../utils/util'
 Page({
 
   /**
@@ -10,11 +13,7 @@ Page({
   data: {
     initPage:1,
     chooseId:null,
-    stuList:[
-      {id:1,name:'庞大开心',sex:'100001',birth:'1995-07-15',orgnazation:'上海美育机构艺术培训'},
-      {id:2,name:'庞大开心',sex:'100002',birth:'1995-07-15',orgnazation:'上海美育机构艺术培训'},
-      {id:3,name:'庞大开心',sex:'100001',birth:'1995-07-15',orgnazation:'上海美育机构艺术培训'},
-    ]
+    stuList:[]
   },
 
   /**
@@ -33,6 +32,13 @@ Page({
       page:initPage,
       success(data){
         console.log(data)
+        var list = data.rows
+          list.map(item =>{
+              item.birthday = datetimeFormat2(item.birthday)
+          })
+        that.setData({
+          stuList:list
+        })
       }
     })
   },

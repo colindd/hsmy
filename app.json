@@ -17,7 +17,9 @@
     "pages/enrollSuccess/enrollSuccess",
     "pages/studentList/studentList",
     "pages/addStudent/addStudent",
-    "pages/regulation/regulation"
+    "pages/regulation/regulation",
+    "pages/enrollRecord/enrollRecord",
+    "pages/recordDetail/recordDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
