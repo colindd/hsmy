@@ -299,6 +299,41 @@ export function studentDetail(options){
     success,error
   })
 }
+// 修改学生信息
+export function updateStudentInfo(options){
+  var {organizationId,name,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
+  fetch({
+    url:'student/update',
+    method:'POST',
+    data:{
+      organizationId:organizationId,
+      name:name,
+      sex:sex,
+      birthday:birthday,
+      nationality:nationality,
+      nation:nation,
+      idCard:idCard,
+      contacts:contacts,
+      mobile:mobile,
+      urgentMobile:urgentMobile,
+      address:address,
+      avatar:avatar
+    },
+    success,error
+  })
+}
+// 删除学生信息
+export function detStudent(options){
+  var {studentId,success,error } = options
+  fetch({
+    url:'student/del',
+    method:'POST',
+    data:{
+      studentId:studentId
+    },
+    success,error
+  })
+}
 // 下单
 export function addOrder(options){
   var {organizationEnrollDateId,professionalItemId,levelId,studentId,success,error } = options
@@ -310,6 +345,31 @@ export function addOrder(options){
       professionalItemId:professionalItemId,
       levelId:levelId,
       studentId:studentId
+    },
+    success,error
+  })
+}
+// 报名列表
+export function orderList(options){
+  var {page,success,error } = options
+  fetch({
+    url:'order/list',
+    method:'GET',
+    data:{
+      page:page,
+      pageSize:10
+    },
+    success,error
+  })
+}
+// 准考证
+export function levelExam(options){
+  var {orderId,success,error } = options
+  fetch({
+    url:'levelExam/info',
+    method:'GET',
+    data:{
+      orderId:orderId
     },
     success,error
   })

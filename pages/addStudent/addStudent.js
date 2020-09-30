@@ -269,6 +269,16 @@ Page({
       organizationId:organization.deptId,name,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
       success(data){
         console.log(data)
+        wx.showToast({
+          title: '添加成功',
+          icon:'success',
+          duration:1200
+        })
+        setTimeout(function(){
+          wx.navigateTo({
+            url: '/pages/studentList/studentList',
+          })
+        },1500)
       },error(res){
         wx.showToast({
           title: res,

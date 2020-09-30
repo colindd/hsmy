@@ -31,7 +31,6 @@ Page({
     studentList({
       page:initPage,
       success(data){
-        console.log(data)
         var list = data.rows
           list.map(item =>{
               item.birthday = datetimeFormat2(item.birthday)

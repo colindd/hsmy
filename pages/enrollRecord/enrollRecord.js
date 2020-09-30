@@ -1,4 +1,7 @@
 // pages/enrollRecord/enrollRecord.js
+import{
+  orderList
+} from '../../utils/api'
 var STATUS = {
   '100001':'等待支付',
   '100002':'支付成功',
@@ -17,6 +20,7 @@ Page({
       {id:1,title:'素描专业四级考试(美术)',name:'庞大开心',form:'视频考试',status:'100002'},
       {id:1,title:'素描专业四级考试(美术)',name:'庞大开心',form:'视频考试',status:'100003'},
     ],
+    initPage:1,
     STATUS:STATUS
   },
 
@@ -24,6 +28,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    var initPage = that.data.initPage
+    orderList({
+      page:initPage,
+      success(data){
+        console.log(data)
+      }
+    })
 
   },
   // 返回首页
@@ -53,6 +65,9 @@ Page({
   // 报名详情
   recordDetail:function(e){
     var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/recordDetail/recordDetail?id='+id,
+    })
   },
 
   // 立即支付

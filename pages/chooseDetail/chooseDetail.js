@@ -32,7 +32,6 @@ Page({
       pItemList({
           pid:pid,
           success(data){
-            console.log('科目列表：',data)
             that.setData({
               majorList:data
             })
@@ -47,7 +46,6 @@ Page({
       // 级别列表
       subItemList({
         success(data){
-          console.log('级别列表:',data)
           that.setData({
             levelList:data
           })

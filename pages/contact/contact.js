@@ -1,7 +1,4 @@
-// pages/recordDetail/recordDetail.js
-import{
-  levelExam
-} from '../../utils/api'
+// pages/contact/contact.js
 Page({
 
   /**
@@ -15,13 +12,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var orderId = options.id
-    levelExam({
-      orderId:"202009291809292743",
-      success(data){
-        console.log(data)
-      }
-    })
+
+  },
+
+  // 拨打电话
+  takePhone:function(e){
+    console.log('拨打电话')
+  },
+
+  // 退出登录
+  outLogin:function(e){
+    console.log('退出登录')
   },
 
   /**

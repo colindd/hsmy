@@ -1,1 +1,5 @@
 /* pages/recordDetail/recordDetail.wxss */
+.container{
+  box-sizing: border-box;
+  padding:80rpx 20rpx;
+}

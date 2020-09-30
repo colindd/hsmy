@@ -1,6 +1,7 @@
 // pages/studentList/studentList.js
 import{
-  studentList
+  studentList,
+  detStudent
 } from '../../utils/api'
 import {
   datetimeFormat2
@@ -18,11 +19,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var pages = getCurrentPages()
       var that = this;
+      that.setData({
+        pages:pages
+      })
       studentList({
         page:1,
         success(data){
-          console.log(data.rows)
           var list = data.rows
           list.map(item =>{
               item.birthday = datetimeFormat2(item.birthday)
@@ -38,6 +42,39 @@ Page({
   addStudent:function(){
     wx.navigateTo({
       url: '/pages/addStudent/addStudent',
+    })
+  },
+  // 学生详情
+  stuDetail:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/addStudent/addStudent?id='+id,
+    })
+  },
+
+  // 删除学生信息
+  deleteInfo:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.showModal({
+      title:'提示',
+      content:'确认删除该学生信息吗？',
+      confirmColor:'#FE657F',
+      success(res){
+        if(res.confirm){
+          detStudent({
+            studentId:id,
+            success(data){
+              console.log(data)
+            },error(res){
+              wx.showToast({
+                title: res,
+                icon:'none',
+                duration:1200
+              })
+            }
+          })
+        }
+      }
     })
   },
 
@@ -66,7 +103,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+      let pages = this.data.pages
+      if(pages.length > 2){
+        wx.reLaunch({
+          url: '/pages/index/index',
+        })
+      }
   },
 
   /**

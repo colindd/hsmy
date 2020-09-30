@@ -21,7 +21,6 @@ Page({
    */
   onLoad: function (options) {
     var userInfo = wx.getStorageSync('user')
-    console.log('用户信息:',userInfo)
      if(userInfo && userInfo.type == '100001'){
       wx.redirectTo({
         url: '/pages/index/index',

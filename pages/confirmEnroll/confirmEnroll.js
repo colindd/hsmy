@@ -20,7 +20,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     var that = this;
     that.setData({
       studentId:options.stuid,
@@ -31,7 +30,6 @@ Page({
     studentDetail({
       studentId:options.stuid,
       success(data){
-        console.log('学生信息:',data)
         data.birthday = datetimeFormat2(data.birthday)
         that.setData({
           userInfo:data
@@ -43,7 +41,6 @@ Page({
       professionalId:options.pid,
       subjectLevelId:options.sid,
       success(data){
-        console.log(data)
         that.setData({
           price:data.price
         })
@@ -58,6 +55,12 @@ Page({
       organizationEnrollDateId:userInfo.organizationId,professionalItemId:pid,levelId:sid,studentId:studentId,
       success(data){
         console.log(data)
+      },error(res){
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1500
+        })
       }
     })
     // wx.navigateTo({

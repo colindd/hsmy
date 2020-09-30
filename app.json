@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/recordDetail/recordDetail",
     "pages/login/login",
     "pages/index/index",
     "pages/register/register",
-    "pages/logs/logs",
     "pages/forget/forget",
     "pages/teacher/index/index",
     "pages/teacher/examDetail/examDetail",
@@ -18,8 +18,11 @@
     "pages/studentList/studentList",
     "pages/addStudent/addStudent",
     "pages/regulation/regulation",
+
     "pages/enrollRecord/enrollRecord",
-    "pages/recordDetail/recordDetail"
+    "pages/achievement/achievement",
+    "pages/contact/contact",
+    "pages/onlineExam/onlineExam"
   ],
   "window": {
     "backgroundTextStyle": "light",

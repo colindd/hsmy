@@ -1,7 +1,4 @@
-// pages/recordDetail/recordDetail.js
-import{
-  levelExam
-} from '../../utils/api'
+// pages/onlineExam/onlineExam.js
 Page({
 
   /**
@@ -15,13 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var orderId = options.id
-    levelExam({
-      orderId:"202009291809292743",
-      success(data){
-        console.log(data)
-      }
-    })
+
   },
 
   /**

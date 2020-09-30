@@ -1,7 +1,7 @@
 <!--pages/studentList/studentList.wxml-->
 <view class="container">
   <view class="student_list">
-    <view class="student_item" data-id="{{item.id}}" bindtap="changeInfo" wx:for="{{list}}" wx:for-item="item" wx:key="id" >
+    <view class="student_item" data-id="{{item.id}}" bindtap="stuDetail" wx:for="{{list}}" wx:for-item="item" wx:key="id" >
        <view class="item_top flex">
          <view class="head_img">
            <image src="{{item.avatar}}"></image>
@@ -12,7 +12,7 @@
              <image src="/images/date_of_birth.png"></image>
              <text>{{item.birthday}}</text>
              <image class="sex_img" src="/images/gender.png"></image>
-             <text wx:if="{{item.sex == 1}}">女</text>
+             <text wx:if="{{item.sex == 1}}">男</text>
              <text wx:if="{{item.sex == 2}}">女</text>
            </view>
            <view class="item_info_org flex">
@@ -26,7 +26,7 @@
            <image src="/images/Details.png"></image>
            <text>查看详细信息</text>
          </view>
-         <view class="item_bot_right" catchtap="deleteInfo">删除</view>
+         <view class="item_bot_right" data-id="{{item.id}}" catchtap="deleteInfo">删除</view>
        </view>
     </view>
   </view>

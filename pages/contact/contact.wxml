@@ -1,0 +1,8 @@
+<!--pages/contact/contact.wxml-->
+<view class="container">
+  <image class="logo" src="/images/contact_logo.png"></image>
+  <text>电话：0558-6681313</text>
+  <text>邮箱：1591364081@qq.com</text>
+  <view class="contact_btn take_phone" bindtap="takePhone">拨打电话</view>
+  <view class="contact_btn out_login" bindtap="outLogin">退出登录</view>
+</view>
