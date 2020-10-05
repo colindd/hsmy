@@ -23,9 +23,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      var id = options.id
       var pid = options.pid
       var that = this;
       that.setData({
+        id:id,
         stuId:options.stuid
       })
       // 科目列表
@@ -115,11 +117,12 @@ Page({
     var that = this;
     var agree = that.data.agree
     var stuId = that.data.stuId
+    var id = that.data.id
     var professionalId = that.data.chooseMajor.pid
     var subjectLevelId = that.data.chooseLevel.id
     if(agree){
       wx.navigateTo({
-        url: '/pages/confirmEnroll/confirmEnroll?stuid='+stuId+'&pid='+professionalId+'&sid='+subjectLevelId,
+        url: '/pages/confirmEnroll/confirmEnroll?stuid='+stuId+'&pid='+professionalId+'&sid='+subjectLevelId+'&id='+id,
       })
     }else{
       wx.showToast({

@@ -2,7 +2,8 @@
 import {
   login,
   userInfo,
-  teacherInfo
+  teacherInfo,
+  getOpenId
 } from '../../utils/api'
 var app = getApp()
 Page({
@@ -31,6 +32,16 @@ Page({
          url: '/pages/teacher/index/index',
        })
     }
+    wx.login({
+      success(res){
+        getOpenId({
+          code:res.code,
+          success(data){
+            wx.setStorageSync('openId', data)
+          }
+        })
+      }
+    })
   },
   // 输入用户名
   inputUserName: function (e) {

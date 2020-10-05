@@ -17,8 +17,8 @@
         <view class="info_label_right">109</view>
       </view>
       <view class="info_left_item flex">
-        <view class="info_label_left">考生姓名:</view>
-        <view class="info_label_right">刘悦悦</view>
+        <view class="info_label_left">考生编号:</view>
+        <view class="info_label_right">200210001000101010001</view>
       </view>
       <view class="info_left_item flex">
         <view class="info_label_left">考试时间:</view>
@@ -30,33 +30,32 @@
       </view>
     </view>
     <view class="info_right">
-      <image src="/images/head.png"></image>
+      <image src="/images/head.png" mode="widthFix"></image>
     </view>
   </view>
   <view class="exam_info">
     <view class="exam_item_title flex">
       <view class="exam_item">报名科目</view>
       <view class="exam_item">报名专业</view>
-      <view class="exam_item">专业编号</view>
+      <view class="exam_item">专业级别</view>
     </view>
     <view class="exam_item_title flex">
       <view class="exam_item">美术</view>
       <view class="exam_item">素描</view>
-      <view class="exam_item">9009</view>
+      <view class="exam_item">四级</view>
     </view>
   </view>
   <view class="tip_info">
     <view class="tip_title">考试须知:</view>
-    <text>
-      1.考试时提前进入视频，对摄像头进行调整：摄像头要距离考生至少1 米距离，保证视频中能看到考生四周的情况。注意摄像头对着学生和电脑屏幕。\n
-      2.考试期间全程打开视频和语音，尽量保持周围环境安静。\n
-      3.严格按照考试时间收发试卷，要注意把握考试时间，在规定的时间内提交试卷。\n
-      4.考试过程中保持网络畅通，如果出现掉线，监考老师会和考生电话联系，如果没有联系上该生本次考试资格作废；\n
-      5.考试不能使用百度等搜索题目，禁止使用手机和即时聊天工具。\n
-      6.交卷后检查自己是否提交成功，未成功要及时与监考教师进行联系\n
+    <text>1.考试时提前进入视频，对摄像头进行调整：摄像头要距离考生至少1 米距离，保证视频中能看到考生四周的情况。注意摄像头对着学生和电脑屏幕。
+      2.考试期间全程打开视频和语音，尽量保持周围环境安静。
+      3.严格按照考试时间收发试卷，要注意把握考试时间，在规定的时间内提交试卷。
+      4.考试过程中保持网络畅通，如果出现掉线，监考老师会和考生电话联系，如果没有联系上该生本次考试资格作废；
+      5.考试不能使用百度等搜索题目，禁止使用手机和即时聊天工具。
+      6.交卷后检查自己是否提交成功，未成功要及时与监考教师进行联系
     </text>
   </view>
-  <view class="show_tip">
+</view>
+<view class="show_tip">
     *请各位家长自行截图并打印准考证
-  </view>
 </view>

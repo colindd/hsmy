@@ -75,7 +75,7 @@ function transTime3(unixtime) {
 }
 // 时间格式化mm-dd
 export function datetimeFormat(unix_timestamp) {
-  return dateFormat(new Date(unix_timestamp),"mm-dd")
+  return dateFormat(new Date(unix_timestamp),"yyyy-mm-dd HH:MM:ss")
 }
 // 时间格式化yyyy-mm-dd
 export function datetimeFormat2(unix_timestamp) {

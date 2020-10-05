@@ -220,6 +220,34 @@ export function enrollList(options){
     success,error
   })
 }
+
+// 视频考级列表
+export function levelExamList(options){
+  var {page,success,error } = options
+  fetch({
+    url:'levelExam/list',
+    method:'GET',
+    data:{
+      page:page,
+      pageSize:10
+    },
+    success,error
+  })
+}
+
+// 视频考级详情
+export function levelExamDetail(options){
+  var {id,success,error } = options
+  fetch({
+    url:'levelExam/detail',
+    method:'GET',
+    data:{
+      id:id
+    },
+    success,error
+  })
+}
+
 // 科目列表
 export function pItemList(options){
   var {pid,success,error } = options
@@ -329,7 +357,7 @@ export function detStudent(options){
     url:'student/del',
     method:'POST',
     data:{
-      studentId:studentId
+      id:studentId
     },
     success,error
   })
@@ -349,6 +377,31 @@ export function addOrder(options){
     success,error
   })
 }
+// 支付
+export function payOrder(options){
+  var {orderId,openId,success,error } = options
+  fetch({
+    url:'pay/getPayParams',
+    method:'GET',
+    data:{
+      orderId:orderId,
+      openId:openId
+    },
+    success,error
+  })
+}
+// 获取openid
+export function getOpenId(options){
+  var {code,success,error } = options
+  fetch({
+    url:'auth/getOpenId',
+    method:'POST',
+    data:{
+      code:code
+    },
+    success,error
+  })
+}
 // 报名列表
 export function orderList(options){
   var {page,success,error } = options
@@ -362,8 +415,33 @@ export function orderList(options){
     success,error
   })
 }
+// 取消报名
+
+export function applyBack(options){
+  var {orderId,success,error } = options
+  fetch({
+    url:'pay/applyBack',
+    method:'GET',
+    data:{
+      orderId:orderId
+    },
+    success,error
+  })
+}
+// 查询支付结果
+export function orderQuery(options){
+  var {orderId,success,error } = options
+  fetch({
+    url:'pay/orderQuery',
+    method:'GET',
+    data:{
+      orderId:orderId
+    },
+    success,error
+  })
+}
 // 准考证
-export function levelExam(options){
+export function levelExamCard(options){
   var {orderId,success,error } = options
   fetch({
     url:'levelExam/info',

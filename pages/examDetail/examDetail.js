@@ -1,57 +1,34 @@
-// pages/enroll/enroll.js
+// pages/examDetail/examDetail.js
 import{
-  enrollList
+  levelExamDetail
 } from '../../utils/api'
-import {
-  datetimeFormat2,
-  datetimeFormat3
-} from '../../utils/util'
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[],
-    inintPage:1
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var stuId = options.id
+    var id = options.id;
     var that = this;
-    that.setData({
-      stuId:stuId
-    })
-    var inintPage = that.data.inintPage
-    enrollList({
-      studentId:stuId,
-      page:inintPage,
+    levelExamDetail({
+      id:id,
       success(data){
         console.log(data)
-        var list = data.rows;
-        list.map(item =>{
-          item.endDate = datetimeFormat2(item.endDate)
-          item.year = datetimeFormat3(item.endDate)
-        })
         that.setData({
-          list:list
+          
         })
+      },error(res){
+        console.log(res)
       }
+      
     })
-  },
-
-  // 考级详情
-  examDetail:function(e){
-   const id = e.currentTarget.dataset.id;
-   const pid = e.currentTarget.dataset.pid
-   const stuId = this.data.stuId
-   wx.navigateTo({
-     url: '/pages/chooseDetail/chooseDetail?id='+id+'&stuid='+stuId+'&pid='+pid,
-   })
   },
 
   /**

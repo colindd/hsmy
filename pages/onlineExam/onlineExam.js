@@ -1,18 +1,53 @@
 // pages/onlineExam/onlineExam.js
+import {
+  levelExamList
+} from '../../utils/api'
+import {
+  datetimeFormat
+} from '../../utils/util'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list:[],
+    inintPage:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    var page = that.data.inintPage
+    that.getList(page)
+  },
 
+  // 获取考级列表
+  getList:function(page){
+    var that = this;
+    levelExamList({
+      page:page,
+      success(data){
+        console.log(data)
+        var list = data.rows
+        list.map(item =>{
+          item.startTime = datetimeFormat(item.startTime)
+        })
+        that.setData({
+          list:list
+        })
+      }
+    })
+  },
+
+  // 点击开始考试
+  examDetail:function(e){
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/examDetail/examDetail?id='+id,
+    })
   },
 
   /**

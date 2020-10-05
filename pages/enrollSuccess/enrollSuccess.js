@@ -23,7 +23,9 @@ Page({
     },
     // 查看报名记录
     showList:function(e){
-  
+      wx.navigateTo({
+        url: '/pages/enrollRecord/enrollRecord',
+      })
     },
 
   /**

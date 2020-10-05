@@ -1,6 +1,6 @@
 // pages/recordDetail/recordDetail.js
 import{
-  levelExam
+  levelExamCard
 } from '../../utils/api'
 Page({
 
@@ -16,10 +16,16 @@ Page({
    */
   onLoad: function (options) {
     var orderId = options.id
-    levelExam({
-      orderId:"202009291809292743",
+    levelExamCard({
+      orderId:orderId,
       success(data){
         console.log(data)
+      },error(res){
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1200
+        })
       }
     })
   },

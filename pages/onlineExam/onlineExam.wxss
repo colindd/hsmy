@@ -1,1 +1,74 @@
 /* pages/onlineExam/onlineExam.wxss */
+page{
+  background-color:#F6F6F6
+}
+.container{
+  width:100%;
+}
+.top_head{
+  width:100%;
+  height:200rpx;
+}
+.exam_list{
+  width:100%;
+}
+.exam_item{
+  width:100%;
+  background-color:#fff;
+  margin-top:20rpx;
+  box-sizing: border-box;
+  padding:20rpx;
+}
+.exam_head{
+  width:130rpx;
+  height:130rpx;
+  border-radius:50%;
+  position: relative;
+  top:50%;
+  margin-top:-65rpx;
+}
+.exam_head image{
+  border-radius:50%;
+}
+.exam_item_mid{
+  margin-left:10rpx;
+  width:55%;
+}
+.exam_item_name{
+  font-size:30rpx;
+  font-weight:bold;
+}
+.exam_item_title{
+  font-size:28rpx;
+  margin-top:6rpx;
+}
+.exam_item_date,.exam_item_time{
+  margin-top:6rpx;
+  font-size:26rpx;
+  color:#888;
+}
+.time_icon{
+  width:35rpx;
+  height:35rpx;
+}
+.time_txt{
+  margin-left:10rpx;
+}
+.exam_begin_btn{
+  color:#fff;
+  border-radius:10rpx;
+  height:70rpx;
+  line-height:70rpx;
+  font-size:26rpx;
+  box-sizing: border-box;
+  padding:0 10rpx;
+  background: linear-gradient(111deg, #FF8F78 0%, #FE657F 100%);
+  position: relative;
+  top:50%;
+  margin-top:-35rpx;
+}
+.exam_begin_btn .time_icon{
+  position: relative;
+  top:50%;
+  margin-top:-17.5rpx;
+}

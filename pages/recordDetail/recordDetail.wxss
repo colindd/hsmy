@@ -1,5 +1,84 @@
 /* pages/recordDetail/recordDetail.wxss */
+page{
+  padding-bottom:100rpx;
+}
 .container{
   box-sizing: border-box;
-  padding:80rpx 20rpx;
+  padding:30rpx 20rpx;
 }
+.main_title{
+  width:100%;
+  text-align:center;
+  font-size:38rpx;
+}
+.exam_title{
+  width:100%;
+  text-align:center;
+  font-size:42rpx;
+  font-weight:bold;
+  margin-top:10rpx;
+}
+.user_info{
+  margin-top:20rpx;
+  justify-content: space-between;
+}
+.info_left{
+  width:70%;
+}
+.info_left_item{
+  margin-top:15rpx;
+}
+.info_left_item:first-child{
+  margin-top:0;
+}
+.info_label_left{
+  width:30%;
+  text-align-last:justify;
+  text-align:justify;
+}
+.info_label_right{
+  width:70%;
+  margin-left:10rpx;
+}
+.info_right{
+  width:28%;
+}
+.info_right image{
+  width:100%;
+}
+.exam_info{
+  margin-top:40rpx;
+  width:100%;
+}
+.exam_item_title{
+  width:100%;
+  box-sizing: border-box;
+  border-top:1px solid #353535; 
+}
+.exam_item_title:last-child{
+  border-bottom:1px solid #353535;
+}
+.exam_item{
+  width:33.3%;
+  box-sizing: border-box;
+  text-align:center;
+  line-height:80rpx;
+  border-left:1rpx solid #353535;
+}
+.exam_item:last-child{
+  border-right:1px solid #353535;
+}
+.tip_info{
+  margin-top:40rpx;
+  font-size:26rpx;
+}
+.show_tip{
+  width:100%;
+  line-height:80rpx;
+  background-color:#FFF4F6;
+  color:#FE657F;
+  padding:0 20rpx;
+  box-sizing: border-box;
+  margin-top:80rpx;
+}
+

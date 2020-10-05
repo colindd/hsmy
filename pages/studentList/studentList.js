@@ -20,24 +20,29 @@ Page({
    */
   onLoad: function (options) {
     var pages = getCurrentPages()
-      var that = this;
-      that.setData({
+      this.setData({
         pages:pages
       })
-      studentList({
-        page:1,
-        success(data){
-          var list = data.rows
-          list.map(item =>{
-              item.birthday = datetimeFormat2(item.birthday)
-          })
-          that.setData({
-            list:list
-          })
-        }
-      })
+      this.getStudentList()
+ 
   },
 
+  // 获取学生列表
+  getStudentList:function(){
+    var that = this;
+    studentList({
+      page:1,
+      success(data){
+        var list = data.rows
+        list.map(item =>{
+            item.birthday = datetimeFormat2(item.birthday)
+        })
+        that.setData({
+          list:list
+        })
+      }
+    })
+  },
   // 添加学生
   addStudent:function(){
     wx.navigateTo({
@@ -55,6 +60,7 @@ Page({
   // 删除学生信息
   deleteInfo:function(e){
     var id = e.currentTarget.dataset.id
+    var that = this;
     wx.showModal({
       title:'提示',
       content:'确认删除该学生信息吗？',
@@ -64,7 +70,14 @@ Page({
           detStudent({
             studentId:id,
             success(data){
-              console.log(data)
+              wx.showToast({
+                title: '删除成功',
+                icon:'success',
+                duration:1500
+              })
+              setTimeout(function(){
+                that.getStudentList()
+              },1500)
             },error(res){
               wx.showToast({
                 title: res,

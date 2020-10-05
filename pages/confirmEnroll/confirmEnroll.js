@@ -2,7 +2,9 @@
 import{
   studentDetail,
   professionalPrice,
-  addOrder
+  addOrder,
+  payOrder,
+  orderQuery
 } from '../../utils/api'
 import {
   datetimeFormat2
@@ -25,6 +27,7 @@ Page({
       studentId:options.stuid,
       pid:options.pid,
       sid:options.sid,
+      id:options.id,
     })
     // 学生信息
     studentDetail({
@@ -50,11 +53,31 @@ Page({
   // 点击支付
   toPay:function(){
     var that = this;
-    var {studentId,pid,sid,userInfo} = that.data
+    var {studentId,id,pid,sid} = that.data
+    var openId = wx.getStorageSync('openId')
     addOrder({
-      organizationEnrollDateId:userInfo.organizationId,professionalItemId:pid,levelId:sid,studentId:studentId,
+      organizationEnrollDateId:id,professionalItemId:pid,levelId:sid,studentId:studentId,
       success(data){
-        console.log(data)
+        payOrder({
+          orderId:data,
+          openId:openId,
+          success(data){
+            var param = JSON.parse(data)
+            wx.requestPayment({
+              nonceStr: param.nonceStr,
+              package: param.package,
+              paySign: param.paySign,
+              signType:param.signType,
+              timeStamp: param.timeStamp,
+              success(res){
+                
+              },
+              fail(res){
+                console.log(res)
+              }
+            })
+          }
+        })
       },error(res){
         wx.showToast({
           title: res,

@@ -1,6 +1,9 @@
 // pages/enrollRecord/enrollRecord.js
 import{
-  orderList
+  orderList,
+  payOrder,
+  orderQuery,
+  applyBack
 } from '../../utils/api'
 var STATUS = {
   '100001':'等待支付',
@@ -15,11 +18,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[
-      {id:1,title:'素描专业四级考试(美术)',name:'庞大开心',form:'视频考试',status:'100001'},
-      {id:1,title:'素描专业四级考试(美术)',name:'庞大开心',form:'视频考试',status:'100002'},
-      {id:1,title:'素描专业四级考试(美术)',name:'庞大开心',form:'视频考试',status:'100003'},
-    ],
+    list:[],
     initPage:1,
     STATUS:STATUS
   },
@@ -30,13 +29,19 @@ Page({
   onLoad: function (options) {
     var that = this;
     var initPage = that.data.initPage
+    that.getOrderList(initPage)
+  },
+  // 获取报名记录列表
+  getOrderList:function(initPage){
+    var that = this;
     orderList({
       page:initPage,
       success(data){
-        console.log(data)
+        that.setData({
+          list:data.rows
+        })
       }
     })
-
   },
   // 返回首页
   toIndex:function(){
@@ -48,6 +53,7 @@ Page({
   // 取消报名
   cancelEnroll:function(e){
     var id = e.currentTarget.dataset.id
+    var page = that.data.inintPage
     wx.showModal({
       title: '取消报名须知',
       content:'考级报名在考试前X天不能进行取消报名，并需要机构审核，审核通过后即可完成取消，如因信息修改问题取消报名可联系所属报名机构。报名费用会以原路返还到您的账户，届时及时查看支付账户。',
@@ -56,7 +62,12 @@ Page({
       success(res){
         console.log(res)
         if(res.confirm){
-
+          applyBack({
+            orderId:id,
+            success(res){
+              that.getOrderList(page)
+            }
+          })
         }
       }
     })
@@ -73,6 +84,50 @@ Page({
   // 立即支付
   toPay:function(e){
     var id = e.currentTarget.dataset.id;
+    var openId = wx.getStorageSync('openId')
+    payOrder({
+      orderId:id,
+      openId:openId,
+      success(data){
+        var param = JSON.parse(data)
+        wx.requestPayment({
+          nonceStr: param.nonceStr,
+          package: param.package,
+          signType:param.signType,
+          paySign: param.paySign,
+          timeStamp: param.timeStamp,
+          success(res){
+            console.log(res)
+            orderQuery({
+              orderId:id,
+              success(response){
+                console.log(response)
+                wx.navigateTo({
+                  url: '/pages/enrollSuccess/enrollSuccess',
+                })
+              },
+              error(response){
+                wx.showToast({
+                  title: response,
+                  icon:'none',
+                  duration:1200
+                })
+              }
+            })
+          },
+          fail(res){
+            console.log(res)
+          }
+        })
+      },error(res){
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1200
+        })
+      }
+    })
+  
   },
 
   /**

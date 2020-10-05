@@ -1,2 +1,33 @@
 <!--pages/onlineExam/onlineExam.wxml-->
-<text>pages/onlineExam/onlineExam.wxml</text>
+<view class="container">
+  <view class="top_head">
+    <image src="/images/blue_banner.png"></image>
+  </view>
+  <view class="exam_list">
+    <view class="exam_item flex" wx:for="{{list}}" wx:for-item="item" wx:key="id">
+      <view class="exam_item_left">
+        <view class="exam_head">
+          <image src="{{item.avatar}}"></image>
+        </view>
+      </view>
+      <view class="exam_item_mid">
+        <view class="exam_item_name">{{item.name}}</view>
+        <view class="exam_item_title">{{item.professionalItemName}}专业四级考试（{{item.professionalName}}）</view>
+        <view class="exam_item_date flex">
+          <image class="time_icon" src="/images/time.png"></image>
+          <text class="time_txt">{{item.startTime}}</text>
+        </view>
+        <view class="exam_item_time flex">
+          <image class="time_icon" src="/images/time.png"></image>
+          <text class="time_txt">{{item.time}}分钟</text>
+        </view>
+      </view>
+      <view class="exam_item_right">
+        <view class="exam_begin_btn flex" data-id="{{item.id}}" bindtap="examDetail">
+            <image class="time_icon" src="/images/time.png"></image>
+            <text>开始考试</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
