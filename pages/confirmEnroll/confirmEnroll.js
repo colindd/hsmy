@@ -61,8 +61,8 @@ Page({
         payOrder({
           orderId:data,
           openId:openId,
-          success(data){
-            var param = JSON.parse(data)
+          success(response){
+            var param = JSON.parse(response)
             wx.requestPayment({
               nonceStr: param.nonceStr,
               package: param.package,
@@ -70,7 +70,22 @@ Page({
               signType:param.signType,
               timeStamp: param.timeStamp,
               success(res){
-                
+                orderQuery({
+                  orderId:data,
+                  success(response2){
+                    console.log(response2)
+                    wx.navigateTo({
+                      url: '/pages/enrollSuccess/enrollSuccess',
+                    })
+                  },
+                  error(response2){
+                    wx.showToast({
+                      title: response2,
+                      icon:'none',
+                      duration:1200
+                    })
+                  }
+                })
               },
               fail(res){
                 console.log(res)
@@ -86,9 +101,6 @@ Page({
         })
       }
     })
-    // wx.navigateTo({
-    //   url: '/pages/enrollSuccess/enrollSuccess',
-    // })
   },
 
   /**

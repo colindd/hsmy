@@ -329,11 +329,12 @@ export function studentDetail(options){
 }
 // 修改学生信息
 export function updateStudentInfo(options){
-  var {organizationId,name,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
+  var {id,organizationId,name,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
   fetch({
     url:'student/update',
     method:'POST',
     data:{
+      id:id,
       organizationId:organizationId,
       name:name,
       sex:sex,
@@ -415,13 +416,25 @@ export function orderList(options){
     success,error
   })
 }
-// 取消报名
+// 取消报名（退款）
 
 export function applyBack(options){
   var {orderId,success,error } = options
   fetch({
     url:'pay/applyBack',
     method:'GET',
+    data:{
+      orderId:orderId
+    },
+    success,error
+  })
+}
+// 取消报名
+export function cancelOrder(options){
+  var {orderId,success,error } = options
+  fetch({
+    url:'order/cancel',
+    method:'POST',
     data:{
       orderId:orderId
     },
@@ -440,6 +453,7 @@ export function orderQuery(options){
     success,error
   })
 }
+
 // 准考证
 export function levelExamCard(options){
   var {orderId,success,error } = options

@@ -1,11 +1,11 @@
-// pages/achievement/achievement.js
+// pages/simulateExam/simulateExam.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[]
+
   },
 
   /**
@@ -13,13 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-
-  // 返回首页
-  backIndex:function(){
-    wx.redirectTo({
-      url: '/pages/index/index',
-    })
   },
 
   /**

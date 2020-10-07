@@ -1,4 +1,3 @@
 <!--pages/examDetail/examDetail.wxml-->
 <view class="container">
-  <live-pusher url="rtmp://113974.livepush.myqcloud.com/live/test?txSecret=fe2d01a23d6d311fd53e8edb486a1212&txTime=5F7AF7DB" mode="RTC" autopush="true" bindstatechange="statechange" orientation="horizontal" style="width: 100%; height: 225px;" />
 </view>

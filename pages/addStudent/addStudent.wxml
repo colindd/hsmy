@@ -6,7 +6,7 @@
         <image class="headImg" src="{{headUrl}}" bindtap="uploadImg"></image>
         <image class="cameraImg" src="/images/click_upload.png" wx:if="{{headUrl == '/images/default.png'}}"></image>
       </view>
-      <view class="tip_box">
+      <view class="tip_box" wx:if="{{!userInfo}}">
         <image src="/images/tip.png"></image>
         <text>请上传考生近期蓝底证件照，将被用作校验考生身份和证书制作</text>
       </view>
@@ -15,18 +15,18 @@
       <view class="info_item flex">
         <view class="info_item_left"><text>*</text> 姓名</view>
         <view class="info_item_right">
-          <input type="text" placeholder="请输入" bindinput="inputName"></input>
+          <input type="text" placeholder="请输入" bindinput="inputName" value="{{name}}"></input>
         </view>
       </view>
       <view class="info_item flex">
         <view class="info_item_left"><text>*</text>性别</view>
         <view class="info_item_right">
-          <radio-group bindchange="selectSex">
+          <radio-group bindchange="selectSex" >
             <label class="radio">
-              <radio value="1" >男</radio>
+              <radio value="1" checked="{{sex == 1}}">男</radio>
             </label>
             <label class="radio">
-              <radio value="2" >女</radio>
+              <radio value="2" checked="{{sex == 2}}">女</radio>
             </label>
           </radio-group>
         </view>
@@ -58,7 +58,7 @@
       <view class="info_item flex">
         <view class="info_item_left"><text>*</text>身份证</view>
         <view class="info_item_right">
-          <input type="text" placeholder="请输入" type="idcard" bindinput="inputCardNo"></input>
+          <input type="text" placeholder="请输入" type="idcard" bindinput="inputCardNo" value="{{idCard}}"></input>
         </view>
       </view>
       <view class="info_item flex">
@@ -75,22 +75,23 @@
     <view class="info_item flex">
       <view class="info_item_left"><text>*</text>联系人</view>
       <view class="info_item_right">
-        <input type="text" placeholder="请输入" bindinput="inputContact"></input>
+        <input type="text" placeholder="请输入" value="{{contacts}}" bindinput="inputContact"></input>
       </view>
     </view>
     <view class="info_item flex">
       <view class="info_item_left"><text>*</text>手机号码</view>
       <view class="info_item_right">
-        <input type="text" placeholder="请输入" type="number" bindinput="inputPhone"></input>
+        <input type="text" placeholder="请输入" type="number" value="{{urgentMobile}}" bindinput="inputPhone"></input>
       </view>
     </view>
     <view class="info_item flex">
       <view class="info_item_left"><text>*</text>所在地址</view>
       <view class="info_item_right address">
-        <input type="text" placeholder="请输入" bindinput="inputAddress"></input>
+        <input type="text" placeholder="请输入" value="{{address}}" bindinput="inputAddress"></input>
       </view>
     </view>
     <view class="pay_btn" bindtap="addStudent">保存</view>
+    <view class="pay_btn change_btn" bindtap="changeInfo" wx:if="{{userInfo}}">修改信息</view>
   </view>
 
 </view>

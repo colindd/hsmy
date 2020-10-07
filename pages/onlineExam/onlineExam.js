@@ -5,6 +5,13 @@ import {
 import {
   datetimeFormat
 } from '../../utils/util'
+var STATUS = {
+  100001:'开始考试',
+  100002:'正在考试',
+  100003:'待上传作品',
+  100004:'已完成',
+  100005:'缺考',
+}
 Page({
 
   /**
@@ -12,7 +19,8 @@ Page({
    */
   data: {
     list:[],
-    inintPage:1
+    inintPage:1,
+    STATUS:STATUS
   },
 
   /**
@@ -45,8 +53,16 @@ Page({
   // 点击开始考试
   examDetail:function(e){
     var id = e.currentTarget.dataset.id
+    // wx.navigateTo({
+    //   url: '/pages/examDetail/examDetail?id='+id,
+    // })
+    console.log(id)
+  },
+
+  // 点击模拟考级
+  simulateExam:function(e){
     wx.navigateTo({
-      url: '/pages/examDetail/examDetail?id='+id,
+      url: '/pages/simulateExam/simulateExam',
     })
   },
 

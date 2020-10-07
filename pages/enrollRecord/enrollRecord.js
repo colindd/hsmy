@@ -3,7 +3,8 @@ import{
   orderList,
   payOrder,
   orderQuery,
-  applyBack
+  applyBack,
+  cancelOrder
 } from '../../utils/api'
 var STATUS = {
   '100001':'等待支付',
@@ -49,9 +50,23 @@ Page({
       url: '/pages/index/index',
     })
   },
+  // 未支付取消报名
+  cancelOrder:function(e){
+    console.log('未支付')
+    var that = this;
+    var id = e.currentTarget.dataset.id
+    var page = that.data.inintPage
+    cancelOrder({
+      orderId:id,
+      success(res){
+        that.getOrderList(page)
+      }
+    })
+  },
 
-  // 取消报名
-  cancelEnroll:function(e){
+  // 已支付取消报名
+  applyBack:function(e){
+    var that = this
     var id = e.currentTarget.dataset.id
     var page = that.data.inintPage
     wx.showModal({

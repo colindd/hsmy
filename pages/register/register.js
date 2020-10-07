@@ -124,7 +124,11 @@ Page({
           }.bind(this), 1000);
        },
        error(res){
-         console.log(res)
+         wx.showToast({
+           title: res,
+           icon:'none',
+           duration:1500
+         })
        }
     })
   },
@@ -151,11 +155,9 @@ Page({
       account:mobile,password:psw,code,
       success(data){
         console.log(data)
-        if(data.code == 1){
-          wx.navigateTo({
-            url: '/pages/login/login',
-          })
-        }
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
       },
       error(res){
         // console.log(res)

@@ -57,11 +57,12 @@ page{
 .exam_begin_btn{
   color:#fff;
   border-radius:10rpx;
+  width:160rpx;
   height:70rpx;
   line-height:70rpx;
   font-size:26rpx;
+  text-align:center;
   box-sizing: border-box;
-  padding:0 10rpx;
   background: linear-gradient(111deg, #FF8F78 0%, #FE657F 100%);
   position: relative;
   top:50%;
@@ -70,5 +71,5 @@ page{
 .exam_begin_btn .time_icon{
   position: relative;
   top:50%;
-  margin-top:-17.5rpx;
+  margin-top:-19rpx;
 }

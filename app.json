@@ -22,7 +22,8 @@
     "pages/achievement/achievement",
     "pages/contact/contact",
     "pages/onlineExam/onlineExam",
-    "pages/examDetail/examDetail"
+    "pages/examDetail/examDetail",
+    "pages/simulateExam/simulateExam"
   ],
   "window": {
     "backgroundTextStyle": "light",

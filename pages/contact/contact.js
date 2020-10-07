@@ -17,12 +17,27 @@ Page({
 
   // 拨打电话
   takePhone:function(e){
-    console.log('拨打电话')
+    wx.makePhoneCall({
+      phoneNumber: '0558-6681313',
+    })
   },
 
   // 退出登录
   outLogin:function(e){
-    console.log('退出登录')
+    wx.clearStorage({
+      success: (res) => {
+        wx.showToast({
+          title: '已退出登录',
+          icon:'none',
+          duration:1500
+        })
+        setTimeout(function(){
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        },1500)
+      },
+    })
   },
 
   /**

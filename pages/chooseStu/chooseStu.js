@@ -38,6 +38,17 @@ Page({
         that.setData({
           stuList:list
         })
+        if(list.length == 0){
+          wx.showModal({
+            title: '提示',
+            content:'您还未添加学生，请先在考生信息中添加学生再报名考级',
+            confirmText	:'确定',
+            confirmColor:'#FE657F',
+            success(res){
+              wx.navigateBack(1)
+            }
+          })
+        }
       }
     })
   },

@@ -4,8 +4,11 @@ import{
   chooseNationList,
   chooseCountriesList,
   imgUpload,
-  addStudent
+  addStudent,
+  studentDetail,
+  updateStudentInfo
 } from '../../utils/api'
+import {dateFormat, datetimeFormat2} from '../../utils/util';
 
 const date = new Date();
 const years = [];
@@ -47,45 +50,85 @@ Page({
     headUrl:'/images/default.png',
     orgList:[],
     NationList:[],
-    CountriesList:[]
+    CountriesList:[],
+    userInfo:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var studentId = options.id;
+    // console.log(studentId)
     var that = this;
-      //设置默认的年份
+    //设置默认的年份
+    that.setData({
+      choose_year: that.data.multiArray[0][0]
+    })
+    if(studentId){
       that.setData({
-        choose_year: that.data.multiArray[0][0]
+        studentId:studentId
       })
-      // 机构列表
-      sysDeptList({
-        success(data){
-          // console.log('机构列表:',data)
-          that.setData({
-            orgList:data
-          })
-        }
-      })
-      // 民族列表
-      chooseNationList({
-        success(data){
-          // console.log('民族列表:',data)
-          that.setData({
-            NationList:data
-          })
-        }
-      })
-      // 国家列表
-      chooseCountriesList({
-        success(data){
-          // console.log('国家列表:',data)
-          that.setData({
-            CountriesList:data
-          })
-        }
-      })
+      that.getStudentInfo(studentId)
+    }
+    
+    // 机构列表
+    sysDeptList({
+      success(data){
+        // console.log('机构列表:',data)
+        that.setData({
+          orgList:data
+        })
+      }
+    })
+    // 民族列表
+    chooseNationList({
+      success(data){
+        // console.log('民族列表:',data)
+        that.setData({
+          NationList:data
+        })
+      }
+    })
+    // 国家列表
+    chooseCountriesList({
+      success(data){
+        // console.log('国家列表:',data)
+        that.setData({
+          CountriesList:data
+        })
+      }
+    })
+  },
+  // 学生信息详情
+  getStudentInfo:function(id){
+    var that = this;
+    studentDetail({
+      studentId:id,
+      success(data){
+        data.birthday = datetimeFormat2(data.birthday)
+        var countryName = 'country.name'
+        var nationName = 'nation.name'
+        var orgName = 'organization.name'
+        var orgId = 'organization.deptId'
+        that.setData({
+          userInfo:data,
+          headUrl:data.avatar,
+          name:data.name,
+          sex:data.sex,
+          time:data.birthday,
+          [countryName]:data.nationality,
+          [nationName]:data.nation,
+          idCard:data.idCard,
+          [orgName]:data.organizationName,
+          [orgId]:data.organizationId,
+          contacts:data.contacts,
+          urgentMobile:data.urgentMobile,
+          address:data.address
+        })
+        console.log(data)
+      }
+    })
   },
   // 上传照片
   uploadImg:function(){
@@ -93,7 +136,7 @@ Page({
     wx.chooseImage({
       count: 1,
       success(res){
-        console.log(res)
+        // console.log(res)
         if(res.errMsg == 'chooseImage:ok'){
           imgUpload({
             images:res.tempFilePaths[0],
@@ -158,7 +201,7 @@ Page({
         });
       } else if (num == 2) { //判断2月份天数
         let year = parseInt(this.data.choose_year);
-        console.log(year);
+        // console.log(year);
         if (((year % 400 == 0) || (year % 100 != 0)) && (year % 4 == 0)) {
           for (let i = 1; i <= 29; i++) {
             if (i < 10) {
@@ -181,7 +224,7 @@ Page({
           });
         }
       }
-      console.log(this.data.multiArray[2]);
+      // console.log(this.data.multiArray[2]);
     }
     var data = {
       multiArray: this.data.multiArray,
@@ -226,6 +269,7 @@ Page({
   chooseOrganization:function(e){
     var index = e.detail.value
     var organization = this.data.orgList[index]
+    // console.log(organization)
     this.setData({
       organization: organization
     })
@@ -268,9 +312,37 @@ Page({
     addStudent({
       organizationId:organization.deptId,name,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
       success(data){
-        console.log(data)
+        // console.log(data)
         wx.showToast({
           title: '添加成功',
+          icon:'success',
+          duration:1200
+        })
+        setTimeout(function(){
+          wx.navigateTo({
+            url: '/pages/studentList/studentList',
+          })
+        },1500)
+      },error(res){
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1200
+        })
+      }
+    })
+  },
+
+  // 修改信息
+  changeInfo:function(){
+    var that = this;
+    var {studentId,organization,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
+    var userInfo = wx.getStorageSync('user')
+    updateStudentInfo({
+      id:studentId,organizationId:organization.deptId,name,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
+      success(data){
+        wx.showToast({
+          title: '修改成功',
           icon:'success',
           duration:1200
         })
