@@ -53,10 +53,9 @@ Page({
   // 点击开始考试
   examDetail:function(e){
     var id = e.currentTarget.dataset.id
-    // wx.navigateTo({
-    //   url: '/pages/examDetail/examDetail?id='+id,
-    // })
-    console.log(id)
+    wx.navigateTo({
+      url: '/pages/examDetail/examDetail?id='+id,
+    })
   },
 
   // 点击模拟考级

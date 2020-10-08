@@ -1,3 +1,4 @@
 <!--pages/examDetail/examDetail.wxml-->
 <view class="container">
+  <live-pusher url="rtmp://113974.livepush.myqcloud.com/live/test?txSecret=8022141268b2d4c1f68d04efb5fa66de&txTime=5F7FB58D" autopush="true" style="width:100%;height:225px;"></live-pusher>
 </view>
