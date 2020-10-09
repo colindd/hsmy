@@ -28,9 +28,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var that = this;
     var initPage = that.data.initPage
     that.getOrderList(initPage)
+    if(options.param){
+      that.setData({
+        pages:'suc'
+      })
+    }
   },
   // 获取报名记录列表
   getOrderList:function(initPage){
@@ -55,11 +61,24 @@ Page({
     console.log('未支付')
     var that = this;
     var id = e.currentTarget.dataset.id
-    var page = that.data.inintPage
-    cancelOrder({
-      orderId:id,
+    var page = that.data.initPage
+    wx.showModal({
+      title: '取消报名须知',
+      content:'考级报名在考试前X天不能进行取消报名，并需要机构审核，审核通过后即可完成取消，如因信息修改问题取消报名可联系所属报名机构。报名费用会以原路返还到您的账户，届时及时查看支付账户。',
+      confirmText	:'确定取消',
+      confirmColor:'#FE657F',
       success(res){
-        that.getOrderList(page)
+        console.log(res)
+        if(res.confirm){
+          cancelOrder({
+            orderId:id,
+            success(res){
+              setTimeout(function(){
+                that.getOrderList(page)
+              },800)
+            }
+          })
+        }
       }
     })
   },
@@ -68,7 +87,7 @@ Page({
   applyBack:function(e){
     var that = this
     var id = e.currentTarget.dataset.id
-    var page = that.data.inintPage
+    var page = that.data.initPage
     wx.showModal({
       title: '取消报名须知',
       content:'考级报名在考试前X天不能进行取消报名，并需要机构审核，审核通过后即可完成取消，如因信息修改问题取消报名可联系所属报名机构。报名费用会以原路返还到您的账户，届时及时查看支付账户。',
@@ -80,7 +99,9 @@ Page({
           applyBack({
             orderId:id,
             success(res){
-              that.getOrderList(page)
+              setTimeout(function(){
+                that.getOrderList(page)
+              },800)
             }
           })
         }
@@ -170,7 +191,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    var pages = this.data.pages;
+    if(pages == 'suc'){
+      wx.navigateBack(2)
+    }
   },
 
   /**

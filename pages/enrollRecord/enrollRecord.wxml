@@ -17,7 +17,12 @@
         </view>
       </view>
       <view class="item_bot flex">
-        <view class="cancel_btn" bindtap="{{item.orderStatus == 100001 ? 'applyBack':'cancelOrder'}}" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001 || item.orderStatus == 100002}}">取消报名</view>
+        <!-- <block wx:if="{{item.payType == 100001}}">
+          <view class="cancel_btn" bindtap="{{item.orderStatus == 100001 ? 'cancelOrder':'applyBack'}}" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001 || item.orderStatus == 100002}}">取消报名</view>
+        </block> -->
+        <block>
+          <view class="cancel_btn" bindtap="{{item.orderStatus == 100001 ? 'cancelOrder':'applyBack'}}" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001 || item.orderStatus == 100002}}">取消报名</view>
+        </block>
         <view class="pay_btn" bindtap="toPay" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001}}">立即支付</view>
       </view>
     </view>

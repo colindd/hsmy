@@ -23,9 +23,14 @@
         </view>
       </view>
       <view class="exam_item_right">
-        <view class="exam_begin_btn flex" data-id="{{item.id}}" bindtap="examDetail">
+        <view class="exam_begin_btn flex" data-id="{{item.id}}" bindtap="{{item.difference < 0 ? 'examDetail':'notTime'}}">
+          <block wx:if="{{item.difference < 0}}">
+            <text class="full">开始考试</text>
+          </block>
+          <block wx:else>
             <image class="time_icon" src="/images/exam_countdown.png"></image>
-            <text>{{STATUS[item.levelExamStatus]}}</text>
+            <text class="empty">{{item.diffTime}}</text>
+          </block>
         </view>
       </view>
     </view>

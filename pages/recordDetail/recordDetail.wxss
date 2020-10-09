@@ -39,6 +39,7 @@ page{
 .info_label_right{
   width:70%;
   margin-left:10rpx;
+  font-size: 24rpx;
 }
 .info_right{
   width:28%;

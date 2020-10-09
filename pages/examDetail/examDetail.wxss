@@ -1,1 +1,127 @@
 /* pages/examDetail/examDetail.wxss */
+.fixed{
+  position: fixed;
+}
+.push_box{
+  position:fixed;
+  width:100%;
+  height:100%;
+}
+.play_box{
+  position: fixed;
+  left:10px;
+  bottom:55px;
+  width:160px;
+  height:220px;
+}
+.live_header{
+  top:0;
+  left:0;
+  height:50px;
+  line-height:50px;
+  font-size:14px;
+  width:100%;
+  box-sizing: border-box;
+  padding:0 20px;
+  background:rgba(0,0,0,0.5);
+  justify-content: space-between;
+}
+.header_left{
+  color:#FFDE48;
+  line-height:50px;
+}
+.header_right{
+  color:#fff;
+  line-height:50px;
+}
+.live_bottom{
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50px;
+  line-height:50px;
+  background:rgba(0,0,0,0.5);
+  font-size:14px;
+  box-sizing: border-box;
+  padding:0 20px;
+  justify-content: space-between;
+}
+.bottom_left{
+  color:#FFDE48;
+  line-height:50px;
+}
+.bottom_mid{
+  color:#fff;
+  line-height:50px;
+}
+.exam_info_box{
+  width:25%;
+  background:#eee;
+  right:0;
+  top:50px;
+  font-size:14px;
+}
+.toggletBtn{
+  width:40px;
+  height:40px;
+  position: fixed;
+  top:50%;
+  right:0;
+  margin-top:-20px;
+}
+.toggletBtnImg{
+  width:100%;
+  height:100%;
+}
+.openBtn{
+  right:25%;
+  margin-right:-20rpx;
+}
+.stu_box{
+  width:100%;
+  height:65px;
+  background:#fff;
+  font-size:14px;
+  box-sizing: border-box;
+  padding:0 5px;
+  justify-content: space-between;
+}
+.stu_name{
+  margin-top:15px;
+}
+.header{
+  width:50px;
+  height:50px;
+  margin-top:7px;
+}
+.stu_header{
+  border-radius:50%;
+}
+.stu_exam{
+  color: #888888;
+}
+.exam_info{
+  width:100%;
+  background:#fff;
+  margin-top:10px;
+  font-size:14px;
+  box-sizing: border-box;
+  padding:10px;
+}
+.exam_detail_img{
+  margin-top:10px;
+}
+.c-state1{ 
+  transform: rotate(0deg) scale(1) translate(100%,0%);  
+  -webkit-transform: rotate(0deg) scale(1) translate(100%,0%);  
+ } 
+ .done{
+   width:80px;
+   height:40px;
+   line-height:40px;
+   text-align:center;
+   color:#fff;
+   background-color:#FE657F;
+   border-radius:10px;
+   margin-top:5px;
+ }

@@ -1,0 +1,52 @@
+/* pages/tipPage/tipPage.wxss */
+.tip_cover{
+  position:fixed;
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.3);
+  width:100%;
+  height:100%;
+}
+.tip_box{
+  width:90%;
+  margin:10% auto 0;
+  background:#fff;
+  box-sizing: border-box;
+  padding:20rpx;
+  border-radius:20rpx;
+}
+.tip_title{
+  width:100%;
+  text-align:center;
+  color:#FE657F;
+  font-size:32rpx;
+  margin-top:20rpx;
+}
+.tip_content{
+  margin-top:20rpx;
+  font-size:28rpx;
+  color:#353535;
+}
+.tip_btn{
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding:0 20rpx;
+  margin-top:20rpx;
+}
+.ignore,.agree{
+  box-sizing: border-box;
+  width:180rpx;
+  height:80rpx;
+  line-height:80rpx;
+  font-size:30rpx;
+  text-align:center;
+  border-radius:10rpx;
+}
+.ignore{
+  border:1rpx solid #EEEEEE;
+  color:#888888;
+}
+.agree{
+  color:#fff;
+  background: linear-gradient(112deg, #FF8F78 0%, #FE657F 100%);
+}

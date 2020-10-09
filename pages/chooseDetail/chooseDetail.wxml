@@ -3,7 +3,7 @@
   <view class="list_box">
     <view class="list_item flex">
       <view class="list_item_left">报名科目</view>
-      <view class="list_item_right first_right">美术</view>
+      <view class="list_item_right first_right">{{pname}}</view>
     </view>
     <view class="list_item flex">
       <view class="list_item_left">报考专业</view>

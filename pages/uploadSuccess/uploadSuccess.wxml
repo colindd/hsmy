@@ -1,0 +1,6 @@
+<!--pages/uploadSuccess/uploadSuccess.wxml-->
+<view class="container">
+  <image class="suc_icon" src="/images/success.png"></image>
+  <view class="tip_success">恭喜您提交成功!</view>
+  <view class="back_index" bindtap="backIndex">返回首页</view>
+</view>

@@ -1,4 +1,4 @@
-// pages/enrollSuccess/enrollSuccess.js
+// pages/uploadSuccess/uploadSuccess.js
 Page({
 
   /**
@@ -15,18 +15,12 @@ Page({
 
   },
 
-    //返回首页
-    showIndex: function() {
-      wx.navigateTo({
-        url: '/pages/index/index',
-      })
-    },
-    // 查看报名记录
-    showList:function(e){
-      wx.navigateTo({
-        url: '/pages/enrollRecord/enrollRecord?param=suc',
-      })
-    },
+  // 返回首页
+  backIndex:function(){
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,22 @@
+<!--pages/tipPage/tipPage.wxml-->
+<view class="container">
+  <view class="tip_cover" wx:if="{{showTip}}">
+    <view class="tip_box">
+      <view class="tip_title">海上美育线上考级须知</view>
+      <view class="tip_content">
+        <text>
+        考前准备要做好\n
+        一、考生须同时具备两台设备：用于在线答题的电脑，以及用于联络和监控考试行为的手机，二者缺一不可。\n
+        二、考试场所应安静、独立，具备稳定的WiFi网络环境，同时准备4G等手机移动网络作为备用网络。\n
+        三、请在考试过程中，留意自己的电脑摄像头功能是否正常（按钮如下图），如发现黑屏，请及时确认手机监考端的画面，如正常请继续答题，如不正常请重启手机并重新登录手机监考端，确认正常后继续答题。
+        完成设备调试和模拟考试后，请及时联系培训机构老师进行勘误，以免影响正式考试的身份验证。\n
+        四、监考手机应固定在考生侧\n
+        </text>
+      </view>
+      <view class="tip_btn flex">
+        <view class="ignore" bindtap="ignoreTip">不同意</view>
+        <view class="agree" bindtap="agreeTip">同意并继续</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -7,7 +7,7 @@ page{
 }
 .top_head{
   width:100%;
-  height:200rpx;
+  height:240rpx;
 }
 .exam_list{
   width:100%;
@@ -67,6 +67,12 @@ page{
   position: relative;
   top:50%;
   margin-top:-35rpx;
+}
+.full{
+  display:block;
+  width:100%;
+  height:100%;
+  text-align:center;
 }
 .exam_begin_btn .time_icon{
   position: relative;

@@ -23,7 +23,10 @@
     "pages/contact/contact",
     "pages/onlineExam/onlineExam",
     "pages/examDetail/examDetail",
-    "pages/simulateExam/simulateExam"
+    "pages/simulateExam/simulateExam",
+    "pages/tipPage/tipPage",
+    "pages/uploadWorks/uploadWorks",
+    "pages/uploadSuccess/uploadSuccess"
   ],
   "window": {
     "backgroundTextStyle": "light",

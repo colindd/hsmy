@@ -1,7 +1,7 @@
 <!--pages/enroll/enroll.wxml-->
 <view class="container">
   <view class="list_box">
-    <view class="list_item" wx:for="{{list}}" wx:for-item="item" wx:key="id" data-id="{{item.id}}" data-pid="{{item.professionalId}}" bindtap="{{item.examStatus == 100001 ? 'examDetail':''}}">
+    <view class="list_item" wx:for="{{list}}" wx:for-item="item" wx:key="id" data-paytype="{{item.payType}}" data-name="{{item.name}}" data-id="{{item.id}}" data-pid="{{item.professionalId}}" bindtap="{{item.examStatus == 100001 ? 'examDetail':''}}">
       <view class="list_item_title">全国{{item.name}}考级上海考区{{item.year}}年报考</view>
       <view class="list_item_bot">
         <view class="list_item_line">报名机构：{{item.organizationName}}</view>

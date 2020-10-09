@@ -25,10 +25,14 @@ Page({
   onLoad: function (options) {
       var id = options.id
       var pid = options.pid
+      var pname = options.pname
+      var paytype = options.paytype
       var that = this;
       that.setData({
         id:id,
-        stuId:options.stuid
+        stuId:options.stuid,
+        pname:pname,
+        paytype:paytype
       })
       // 科目列表
       pItemList({
@@ -118,11 +122,13 @@ Page({
     var agree = that.data.agree
     var stuId = that.data.stuId
     var id = that.data.id
-    var professionalId = that.data.chooseMajor.pid
+    var paytype = that.data.paytype
+    var professionalId = that.data.chooseMajor.id
+    var mainId = that.data.chooseMajor.pid
     var subjectLevelId = that.data.chooseLevel.id
     if(agree){
       wx.navigateTo({
-        url: '/pages/confirmEnroll/confirmEnroll?stuid='+stuId+'&pid='+professionalId+'&sid='+subjectLevelId+'&id='+id,
+        url: '/pages/confirmEnroll/confirmEnroll?mid='+mainId+'&stuid='+stuId+'&pid='+professionalId+'&sid='+subjectLevelId+'&id='+id+'&paytype='+paytype,
       })
     }else{
       wx.showToast({

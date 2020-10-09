@@ -1,7 +1,11 @@
 // pages/recordDetail/recordDetail.js
 import{
-  levelExamCard
+  levelExamCard, teacherList
 } from '../../utils/api'
+import{
+  datetimeFormat,
+  datetimeFormat3
+} from '../../utils/util'
 Page({
 
   /**
@@ -15,11 +19,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     var orderId = options.id
     levelExamCard({
       orderId:orderId,
       success(data){
         console.log(data)
+        data.startTime = datetimeFormat(data.startTime)
+        data.year = datetimeFormat3(data.startTime)
+        that.setData({
+          paperInfo:data
+        })
       },error(res){
         wx.showToast({
           title: res,

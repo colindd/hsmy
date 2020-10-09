@@ -1,30 +1,41 @@
-// pages/enrollSuccess/enrollSuccess.js
+// pages/tipPage/tipPage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    showTip:true
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var id = options.id
+    this.setData({
+      id:id
+    })
   },
 
-    //返回首页
-    showIndex: function() {
-      wx.navigateTo({
-        url: '/pages/index/index',
+  // 点击不同意
+  ignoreTip:function(){
+    this.setData({
+      showTip:false
+    })
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+    // 点击同意
+    agreeTip:function(){
+      var id = this.data.id
+      this.setData({
+        showTip:false
       })
-    },
-    // 查看报名记录
-    showList:function(e){
       wx.navigateTo({
-        url: '/pages/enrollRecord/enrollRecord?param=suc',
+        url: '/pages/examDetail/examDetail?id='+id,
       })
     },
 

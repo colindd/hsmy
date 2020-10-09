@@ -1,0 +1,20 @@
+<!--pages/uploadWorks/uploadWorks.wxml-->
+<view class="container">
+  <view class="tip_box">
+    <view class="tip_top">请在5分钟内拍摄考试作品并上传</view>
+    <view class="tip_bot">拍摄时请确保试卷边框完整、照片清晰、亮度均衡 </view>
+  </view>
+  <view class="upload_box">
+    <view class="box_title">试卷照片<text>(必传)</text></view>
+    <view class="box_image">
+      <view class="upload_icon_box" bindtap="uploadImg" wx:if="{{!worksUrl}}">
+        <image class="upload_icon" src="/images/exam_photo_upload.png" ></image>
+      </view>
+     <view class="works_box" wx:else>
+      <image class="works_img" mode="widthFix"  src="{{worksUrl}}" ></image>
+     </view>
+     
+    </view>
+  </view>
+  <view class="upload_btn" bindtap="uploadWorks">提交考生作品</view>
+</view>

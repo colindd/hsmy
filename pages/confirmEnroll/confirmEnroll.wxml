@@ -57,7 +57,8 @@
       <view class="info_item_left">考试费用</view>
       <view class="info_item_right">¥{{price}}</view>
     </view>
-    <view class="pay_btn" bindtap="toPay">支付并提交报名</view>
+    <view class="pay_btn" bindtap="toPay" wx:if="{{paytype == 100001}}">支付并提交报名</view>
+    <view class="pay_btn" bindtap="toAdd" wx:if="{{paytype == 100002}}">提交报名</view>
   </view>
 
 </view>

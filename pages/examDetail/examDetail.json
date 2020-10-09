@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "pageOrientation":"landscape",
+  "navigationStyle":"custom"
 }

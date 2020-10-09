@@ -248,6 +248,32 @@ export function levelExamDetail(options){
   })
 }
 
+// 考场详情
+export function roomDetail(options){
+  var {id,success,error } = options
+  fetch({
+    url:'examRoom/info',
+    method:'GET',
+    data:{
+      id:id
+    },
+    success,error
+  })
+}
+
+// 考题详情
+export function examPaperDetail(options){
+  var {id,success,error } = options
+  fetch({
+    url:'examPaper/info',
+    method:'GET',
+    data:{
+      id:id
+    },
+    success,error
+  })
+}
+
 // 科目列表
 export function pItemList(options){
   var {pid,success,error } = options
@@ -256,6 +282,31 @@ export function pItemList(options){
     method:'GET',
     data:{
       pid:pid
+    },
+    success,error
+  })
+}
+// 改变准考证状态
+export function examStart(options){
+  var {id,success,error } = options
+  fetch({
+    url:'levelExam/start',
+    method:'GET',
+    data:{
+      id:id
+    },
+    success,error
+  })
+}
+// 上传作品
+export function updateWorks(options){
+  var {id,opus,success,error } = options
+  fetch({
+    url:'levelExam/update',
+    method:'POST',
+    data:{
+      id:id,
+      opus:opus
     },
     success,error
   })
@@ -436,7 +487,7 @@ export function cancelOrder(options){
     url:'order/cancel',
     method:'POST',
     data:{
-      orderId:orderId
+      id:orderId
     },
     success,error
   })

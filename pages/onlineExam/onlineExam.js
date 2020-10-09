@@ -38,9 +38,12 @@ Page({
     levelExamList({
       page:page,
       success(data){
-        console.log(data)
         var list = data.rows
+        var timestamp = Date.parse(new Date());  
+        console.log(data)
         list.map(item =>{
+          item.difference = (parseInt(item.startTime)-300000) - parseInt(timestamp)
+          item.diffTime = that.timeLong(item.startTime)
           item.startTime = datetimeFormat(item.startTime)
         })
         that.setData({
@@ -54,7 +57,42 @@ Page({
   examDetail:function(e){
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/examDetail/examDetail?id='+id,
+      url: '/pages/tipPage/tipPage?id='+id,
+    })
+  },
+  // 时间格式化
+  timeLong:function (a) {
+    let timestamp = Date.parse(new Date());  
+    let sdate = new Date(a);//结束时间
+    let now = new Date(timestamp);//开始时间
+    let endTime=sdate.getTime();//结束时间
+    let startTime=now.getTime();//开始时间
+    let timeDiff =endTime  - startTime;
+    console.log(timeDiff)
+    let hours = parseInt((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = parseInt((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = (timeDiff % (1000 * 60)) / 1000;
+    hours < 10 ? hours='0'+hours : hours; //小时格式化
+    minutes < 10 ? minutes='0'+minutes : minutes; //分钟格式化
+    seconds < 10 ? seconds='0'+seconds : seconds; //秒钟格式化
+    let k=hours+':'+minutes+':'+seconds;
+    // return k;
+    if(timeDiff < 0){
+      return "00:00:00";
+    }
+    if("0" > seconds){
+        return "--"
+    }else{
+        return k;
+    }
+},
+
+  // 未到考试时间
+  notTime:function(e){
+    wx.showToast({
+      title: '还未到开考时间！',
+      icon:'none',
+      duration:1500
     })
   },
 

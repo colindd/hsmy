@@ -1,0 +1,67 @@
+/* pages/uploadWorks/uploadWorks.wxss */
+.container{
+  width:100%;
+}
+.tip_box{
+  width:100%;
+  margin-top:20rpx;
+  box-sizing: border-box;
+  padding:30rpx 20rpx;
+  background:#FFECF0;
+  color:#FE657F;
+}
+.tip_top{
+  font-size:26rpx;
+}
+.tip_bot{
+  font-size:24rpx;
+  margin-top:10rpx;
+}
+.upload_box{
+  margin-top:40rpx;
+  box-sizing: border-box;
+  padding:0 30rpx;
+  overflow-y: scroll;
+}
+.box_title{
+  color:#000;
+  font-size:32rpx;
+}
+.box_title text{
+  color:#B2B2B2;
+  font-size:28rpx;
+}
+.box_image{
+  width:90%;
+  height:300rpx;
+  margin:40rpx auto 0;
+  border-radius:20rpx;
+  background:#F6F6F6;
+  box-sizing: border-box;
+  border-top:1rpx solid #F6F6F6;
+}
+.upload_icon_box{
+  width:120rpx;
+  height:120rpx;
+  margin:60rpx auto 0;
+}
+.upload_icon{
+  width:100%;
+  height:100%;
+}
+.works_box{
+  width:100%;
+  height:100%;
+}
+.works_img{
+  width:100%;
+}
+.upload_btn{
+  width:80%;
+  margin:100rpx auto 0;
+  line-height:90rpx;
+  text-align:center;
+  color:#fff;
+  border-radius:20rpx;
+  background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
+}

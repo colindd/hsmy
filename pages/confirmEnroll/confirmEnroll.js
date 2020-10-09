@@ -28,7 +28,9 @@ Page({
       pid:options.pid,
       sid:options.sid,
       id:options.id,
+      paytype:options.paytype
     })
+    console.log(options)
     // 学生信息
     studentDetail({
       studentId:options.stuid,
@@ -41,7 +43,7 @@ Page({
     })
     // 价格信息
     professionalPrice({
-      professionalId:options.pid,
+      professionalId:options.mid,
       subjectLevelId:options.sid,
       success(data){
         that.setData({
@@ -50,7 +52,26 @@ Page({
       }
     })
   },
-  // 点击支付
+  // 点击报名
+  toAdd:function(){
+    var that = this;
+    var {studentId,id,pid,sid} = that.data
+    addOrder({
+      organizationEnrollDateId:id,professionalItemId:pid,levelId:sid,studentId:studentId,
+      success(data){
+        wx.navigateTo({
+          url: '/pages/enrollSuccess/enrollSuccess',
+        })
+      },error(res){
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1500
+        })
+      }
+    })
+  },
+  // 点击支付并报名
   toPay:function(){
     var that = this;
     var {studentId,id,pid,sid} = that.data

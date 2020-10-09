@@ -49,8 +49,10 @@ Page({
    const id = e.currentTarget.dataset.id;
    const pid = e.currentTarget.dataset.pid
    const stuId = this.data.stuId
+   const name = e.currentTarget.dataset.name
+   const paytype = e.currentTarget.dataset.paytype
    wx.navigateTo({
-     url: '/pages/chooseDetail/chooseDetail?id='+id+'&stuid='+stuId+'&pid='+pid,
+     url: '/pages/chooseDetail/chooseDetail?id='+id+'&stuid='+stuId+'&pid='+pid+'&pname='+name+'&paytype='+paytype,
    })
   },
 
