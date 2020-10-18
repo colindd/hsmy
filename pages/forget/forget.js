@@ -83,6 +83,20 @@ Page({
     })
   },
 
+    // 点击切换图片验证码
+    changeCodeImg:function(){
+      var that = this;
+      getCode({
+        success(data){
+          var base64Image = data.img
+          that.setData({
+            uuid:data.uuid,
+            imgData:base64Image
+          })
+        }
+      })
+    },
+
   // 点击获取短信验证码
   getPhoneCode: function () {
     var that = this;
@@ -111,20 +125,27 @@ Page({
         }.bind(this), 1000);
       },
       error(res) {
-        console.log(res)
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1500
+        })
       }
     })
   },
 
   // 点击完成
   ChangePsw: function () {
+    var that = this;
     var account = that.data.mobile
     var code = that.data.phoneCode
     var password = that.data.psw
     resetPwd({
       account,code,password,
       success(data){
-        console.log(data)
+        wx.navigateTo({
+          url: '/pages/resetSuccess/resetSuccess',
+        })
       },
       error(res){
         wx.showToast({

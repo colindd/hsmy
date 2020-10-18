@@ -30,7 +30,7 @@
 }
 .take_phone{
   color:#fff;
-  background:#FE657F;
+  background: linear-gradient(90deg, #FF8F78 0%, #FE657F 100%);
   margin-top:80rpx;
 }
 .out_login{

@@ -18,7 +18,7 @@ Page({
   // 拨打电话
   takePhone:function(e){
     wx.makePhoneCall({
-      phoneNumber: '0558-6681313',
+      phoneNumber: '021-67896559',
     })
   },
 

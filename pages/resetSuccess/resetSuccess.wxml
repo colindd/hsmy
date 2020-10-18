@@ -1,0 +1,6 @@
+<!--pages/resetSuccess/resetSuccess.wxml-->
+<view class="container">
+  <image class="suc_icon" src="/images/success.png"></image>
+  <view class="tip_text">恭喜您密码重置成功！</view>
+  <view class="to_login" bindtap="toLogin">立即登录</view>
+</view>

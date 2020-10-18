@@ -30,9 +30,9 @@ page{
   width:10%;
 }
 .label_left image{
-  width:50rpx;
-  height:50rpx;
-  margin:40rpx auto 0;
+  width:40rpx;
+  height:40rpx;
+  margin:45rpx auto 0;
 }
 .label_right{
   width:80%;
@@ -52,6 +52,22 @@ page{
 .type_item image{
   width:200rpx;
   height:200rpx;
+}
+.clear_inp{
+  width:10%;
+}
+.clear_inp image{
+  width:50rpx;
+  height:50rpx;
+  margin:45rpx auto 0;
+}
+.show_psd{
+  width:10%;
+}
+.show_psd image{
+  width:50rpx;
+  height:50rpx;
+  margin:40rpx auto 0;
 }
 .type_item text{
   display:block;
@@ -103,7 +119,7 @@ page{
   text-align:center;
   color:#fff;
   background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
-  box-shadow: 0px 6px 12px rgba(249, 84, 126, 0.51);
+  box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);
 }
 .noclick{
   opacity:0.5;

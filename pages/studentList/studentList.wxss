@@ -40,11 +40,8 @@ page{
   border-bottom:1rpx solid #F6F6F6;
 }
 .head_img{
-  width:110rpx;
-  height:110rpx;
-}
-.head_img image{
-  border-radius: 50%;
+  width:105rpx;
+  height:130rpx;
 }
 .item_right{
   margin-left:20rpx;

@@ -19,22 +19,20 @@ page{
   border-bottom:1rpx solid #eee;
 }
 .img_box{
-  width:180rpx;
-  height:180rpx;
-  border-radius:50%;
+  width:150rpx;
+  height:190rpx;
   margin:0 auto;
   position: relative;
 }
 .headImg{
-  border-radius:50%;
   display:block;
 }
 .cameraImg{
   width:40rpx;
   height:40rpx;
   position: absolute;
-  right:8%;
-  bottom:8%;
+  right:0;
+  bottom:0;
 }
 .tip_box{
   font-size:24rpx;
@@ -90,7 +88,7 @@ page{
   margin-top:80rpx;
   border-radius:20rpx;
   background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
-  box-shadow: 0px 6px 12px rgba(79, 71, 232, 0.2);
+  box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);
 }
 radio .wx-radio-input.wx-radio-input-checked {
   border-color: #FF7D92;

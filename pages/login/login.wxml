@@ -9,7 +9,10 @@
         <image src="/images/user.png"></image>
       </view>
       <view class="label_right">
-        <input bindinput="inputUserName" bindblur="checkInput" placeholder="请输入手机号"></input>
+        <input bindinput="inputUserName" bindblur="checkInput" value="{{userName}}" placeholder="请输入手机号"></input>
+      </view>
+      <view class="clear_inp" bindtap="clearInput">
+        <image wx:if="{{showClear}}" src="/images/clear.png"></image>
       </view>
     </view>
     <view class="password input_box flex">
@@ -17,18 +20,20 @@
         <image src="/images/lock.png"></image>
       </view>
       <view class="label_right">
-        <input bindinput="inputPassword" bindblur="checkInput" password='true' placeholder="请输入密码"></input>
+        <input bindinput="inputPassword" bindblur="checkInput"  password='{{hidePsd}}' placeholder="请输入密码"></input>
+      </view>
+      <view class="show_psd" >
+        <image wx:if="{{hidePsd == false}}" bindtap="ToggleShow" src="/images/show.png"></image>
+        <image wx:else bindtap="ToggleShow" src="/images/hidden.png"></image>
       </view>
     </view>
     <view class="type flex">
       <view class="stu_box type_item" data-type="1" bindtap="chooseType">
-        <image src="/images/stu_on.png" wx:if="{{stuChoosed}}"></image>
-        <image src="/images/stu_not.png" wx:else></image>
+        <image src="/images/stu_on.png"></image>
         <text class="{{stuChoosed ? 'stuChoosed':''}}">学生</text>
       </view>
       <view class="tea_box type_item" data-type="2"  bindtap="chooseType">
-        <image src="/images/tea_on.png" wx:if="{{teaChoosed}}"></image>
-        <image src="/images/tea_not.png" wx:else></image>
+        <image src="/images/tea_on.png" ></image>
         <text class="{{teaChoosed ? 'teaChoosed':''}}">老师</text>
       </view>
     </view>

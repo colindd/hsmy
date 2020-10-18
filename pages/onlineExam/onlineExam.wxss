@@ -20,16 +20,13 @@ page{
   padding:20rpx;
 }
 .exam_head{
-  width:130rpx;
-  height:130rpx;
-  border-radius:50%;
+  width:120rpx;
+  height:155rpx;
   position: relative;
   top:50%;
-  margin-top:-65rpx;
+  margin-top:-80rpx;
 }
-.exam_head image{
-  border-radius:50%;
-}
+
 .exam_item_mid{
   margin-left:10rpx;
   width:55%;

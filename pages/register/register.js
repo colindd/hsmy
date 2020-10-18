@@ -160,11 +160,10 @@ Page({
         })
       },
       error(res){
-        // console.log(res)
         wx.showToast({
           title: res,
           icon:'none',
-          duration:1200
+          duration:1500
         })
       }
     })

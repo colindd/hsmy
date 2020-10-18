@@ -101,7 +101,20 @@ export function fetch(options) {
       const data = res.data
       if (data.code == '1') {
         options.success && options.success(data.data)
-      } else {
+      } else if(data.code == '-1'){
+        options.error && options.error(data.msg)
+        wx.showToast({
+          title: data.msg,
+          icon:'none',
+          duration:1200
+        })
+        setTimeout(function(){
+          wx.clearStorage()
+          wx.navigateTo({
+            url: '/pages/login/login',
+          },1500)
+        })
+      }else{
         options.error && options.error(data.msg)
       }
       options.complete && options.complete()

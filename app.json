@@ -26,7 +26,9 @@
     "pages/simulateExam/simulateExam",
     "pages/tipPage/tipPage",
     "pages/uploadWorks/uploadWorks",
-    "pages/uploadSuccess/uploadSuccess"
+    "pages/uploadSuccess/uploadSuccess",
+    "pages/resetSuccess/resetSuccess",
+    "pages/stuDetail/stuDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

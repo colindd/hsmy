@@ -1,0 +1,59 @@
+<!--pages/stuDetail/stuDetail.wxml-->
+<view class="container">
+  <view class="info_top">
+    <view class="header_img">
+      <view class="img_box">
+        <image class="headImg" src="{{headUrl}}"></image>
+      </view>
+    </view>
+    <view class="info_list">
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text> 姓名</view>
+        <view class="info_item_right">{{name}}</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>性别</view>
+        <view class="info_item_right">
+          <text wx:if="{{sex == 1}}">男</text>
+          <text wx:if="{{sex == 2}}">女</text>
+        </view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>出生日期</view>
+        <view class="info_item_right">{{time}}</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>国籍</view>
+        <view class="info_item_right">{{country.name}}</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>民族</view>
+        <view class="info_item_right">{{nation.name}}</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>身份证</view>
+        <view class="info_item_right">{{idCard}}</view>
+      </view>
+      <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>添加机构</view>
+        <view class="info_item_right">{{organization.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="info_mid">
+    <view class="info_item flex">
+      <view class="info_item_left"><text>*</text>联系人</view>
+      <view class="info_item_right">{{contacts}}</view>
+    </view>
+    <view class="info_item flex">
+      <view class="info_item_left"><text>*</text>手机号码</view>
+      <view class="info_item_right">{{urgentMobile}}</view>
+    </view>
+    <view class="info_item flex">
+      <view class="info_item_left"><text>*</text>所在地址</view>
+      <view class="info_item_right address">{{address}}</view>
+    </view>
+    <view class="pay_btn change_btn" data-id="{{studentId}}" bindtap="changeInfo" >修改信息</view>
+  </view>
+
+</view>

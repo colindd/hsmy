@@ -4,9 +4,9 @@
     <view class="header_img">
       <view class="img_box">
         <image class="headImg" src="{{headUrl}}" bindtap="uploadImg"></image>
-        <image class="cameraImg" src="/images/click_upload.png" wx:if="{{headUrl == '/images/default.png'}}"></image>
+        <image class="cameraImg" src="/images/click_upload.png" wx:if="{{showChange}}"></image>
       </view>
-      <view class="tip_box" wx:if="{{!userInfo}}">
+      <view class="tip_box" wx:if="{{showChange}}">
         <image src="/images/tip.png"></image>
         <text>请上传考生近期蓝底证件照，将被用作校验考生身份和证书制作</text>
       </view>
@@ -90,8 +90,8 @@
         <input type="text" placeholder="请输入" value="{{address}}" bindinput="inputAddress"></input>
       </view>
     </view>
-    <view class="pay_btn" bindtap="addStudent">保存</view>
-    <view class="pay_btn change_btn" bindtap="changeInfo" wx:if="{{userInfo}}">修改信息</view>
+    <view class="pay_btn" bindtap="changeInfo" wx:if="{{userInfo}}">保存</view>
+    <view class="pay_btn" bindtap="addStudent" wx:else>保存</view>
   </view>
 
 </view>

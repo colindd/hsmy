@@ -34,9 +34,9 @@ page{
   width:10%;
 }
 .label_left image{
-  width:50rpx;
-  height:50rpx;
-  margin:40rpx auto 0;
+  width:40rpx;
+  height:40rpx;
+  margin:45rpx auto 0;
 }
 .label_mid{
   width:60%;

@@ -1,5 +1,5 @@
-/* pages/uploadSuccess/uploadSuccess.wxss */
-.container{
+/* pages/resetSuccess/resetSuccess.wxss */
+.container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -7,28 +7,25 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-}
+} 
 .suc_icon{
-  width:120rpx;
-  height:120rpx;
-  display:block;
+  width:130rpx;
+  height:130rpx;
 }
-.tip_success{
-  text-align:center;
+.tip_text{
   font-size:34rpx;
   font-weight:bold;
-  color:#333;
+  width:70%;
+  text-align:center;
   margin-top:50rpx;
 }
-.back_index{
-  width:75%;
-  margin:120rpx auto 0;
+.to_login{
+  width:70%;
+  margin:80rpx auto 0;
+  height:80rpx;
+  line-height:80rpx;
   border-radius:20rpx;
-  height:90rpx;
-  text-align:center;
-  box-sizing: border-box;
-  line-height:90rpx;
   color:#fff;
   background: linear-gradient(90deg, #FF8F78 0%, #FE657F 100%);
-  font-size:32rpx;
+  text-align:center;
 }

@@ -51,7 +51,8 @@ Page({
     orgList:[],
     NationList:[],
     CountriesList:[],
-    userInfo:null
+    userInfo:null,
+    showChange:false
   },
 
   /**
@@ -63,11 +64,13 @@ Page({
     var that = this;
     //设置默认的年份
     that.setData({
-      choose_year: that.data.multiArray[0][0]
+      choose_year: that.data.multiArray[0][0],
+      showChange:true
     })
     if(studentId){
       that.setData({
-        studentId:studentId
+        studentId:studentId,
+        showChange:true
       })
       that.getStudentInfo(studentId)
     }

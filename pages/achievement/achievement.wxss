@@ -20,8 +20,7 @@
 }
 .item_head image{
   width:120rpx;
-  height:120rpx;
-  border-radius:50%;
+  height:150rpx;
 }
 .item_info{
   margin-left:20rpx;

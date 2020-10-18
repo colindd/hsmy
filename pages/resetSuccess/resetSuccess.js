@@ -1,11 +1,11 @@
-// pages/achievement/achievement.js
+// pages/resetSuccess/resetSuccess.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[{},{},{}]
+
   },
 
   /**
@@ -15,10 +15,10 @@ Page({
 
   },
 
-  // 返回首页
-  backIndex:function(){
-    wx.redirectTo({
-      url: '/pages/index/index',
+  // 点击立即登录
+  toLogin:function(){
+    wx.reLaunch({
+      url: '/pages/login/login',
     })
   },
 

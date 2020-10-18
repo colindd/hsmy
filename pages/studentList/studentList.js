@@ -53,7 +53,7 @@ Page({
   stuDetail:function(e){
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/addStudent/addStudent?id='+id,
+      url: '/pages/stuDetail/stuDetail?id='+id,
     })
   },
 

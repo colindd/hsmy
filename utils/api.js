@@ -57,6 +57,7 @@ export function sendResetPwdSms(options){
   var {mobile,code,uuid,success,error  } = options
   fetch({
     url:'auth/sendResetPwdSms',
+    method:'GET',
     data:{
       mobile:mobile,
       code:code,
@@ -513,6 +514,35 @@ export function levelExamCard(options){
     method:'GET',
     data:{
       orderId:orderId
+    },
+    success,error
+  })
+}
+
+// 成绩列表
+export function examScoreList(options){
+  var {page,success,error } = options
+  fetch({
+    url:'examScore/list',
+    method:'GET',
+    data:{
+      page:page,
+      pageSize:10
+    },
+    success,error
+  })
+}
+// 更新证书邮寄地址
+export function examScoreUpdate(options){
+  var {id,name,mobile,address,success,error } = options
+  fetch({
+    url:'examScore/update',
+    method:'POST',
+    data:{
+      id:id,
+      name:name,
+      mobile:mobile,
+      address:address
     },
     success,error
   })

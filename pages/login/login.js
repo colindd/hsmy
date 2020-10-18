@@ -14,7 +14,9 @@ Page({
   data: {
     canClick: false,
     stuChoosed: false,
-    teaChoosed: false
+    teaChoosed: false,
+    showClear:false,
+    hidePsd:true
   },
 
   /**
@@ -46,10 +48,25 @@ Page({
   // 输入用户名
   inputUserName: function (e) {
     var txt = e.detail.value;
-    this.setData({
-      userName: txt
-    })
+    if(txt){
+      this.setData({
+        userName:txt,
+        showClear:true
+      })
+    }else{
+      this.setData({
+        userName:'',
+        showClear:false
+      })
+    }
     this.checkInput()
+  },
+  // 清除手机号
+  clearInput:function(){
+    this.setData({
+      userName:'',
+      showClear:false
+    })
   },
   // 输入密码
   inputPassword: function (e) {
@@ -58,6 +75,13 @@ Page({
       password: txt
     })
     this.checkInput()
+  },
+
+  // 显示/隐藏密码
+  ToggleShow:function(){
+    this.setData({
+      hidePsd:!this.data.hidePsd
+    })
   },
   // 检查输入情况
   checkInput: function () {

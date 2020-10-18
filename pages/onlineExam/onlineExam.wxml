@@ -12,7 +12,7 @@
       </view>
       <view class="exam_item_mid">
         <view class="exam_item_name">{{item.name}}</view>
-        <view class="exam_item_title">{{item.professionalItemName}}专业四级考试（{{item.professionalName}}）</view>
+        <view class="exam_item_title">{{item.professionalItemName}}专业{{item.levelName}}考试（{{item.professionalName}}）</view>
         <view class="exam_item_date flex">
           <image class="time_icon" src="/images/exam_start_date.png"></image>
           <text class="time_txt">{{item.startTime}}</text>

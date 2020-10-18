@@ -15,7 +15,7 @@ Page({
     },
     navList:[
       {name:'报名考级',icon:'/images/register_icon.png',url:'/pages/chooseStu/chooseStu?param=1'},
-      {name:'考生信息',icon:'/images/can _info.png',url:'/pages/studentList/studentList'},
+      {name:'考生信息',icon:'/images/can_info.png',url:'/pages/studentList/studentList'},
       {name:'线上考级',icon:'/images/online_exam.png',url:'/pages/onlineExam/onlineExam'},
       {name:'报名记录',icon:'/images/reg_list.png',url:'/pages/enrollRecord/enrollRecord'},
       {name:'我的成绩单',icon:'/images/result_inquiry.png',url:'/pages/achievement/achievement'},

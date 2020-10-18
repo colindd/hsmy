@@ -1,10 +1,14 @@
 <!--pages/studentList/studentList.wxml-->
 <view class="container">
+  <view class="add_student flex" bindtap="addStudent">
+     <image src="/images/add_stu.png"></image>
+     <text>新增考生信息</text>
+  </view>
   <view class="student_list">
     <view class="student_item" data-id="{{item.id}}" bindtap="stuDetail" wx:for="{{list}}" wx:for-item="item" wx:key="id" >
        <view class="item_top flex">
          <view class="head_img">
-           <image src="{{item.avatar}}"></image>
+           <image src="{{item.avatar}}" ></image>
          </view>
          <view class="item_right">
            <view class="item_info_name">{{item.name}}</view>
@@ -29,9 +33,5 @@
          <view class="item_bot_right" data-id="{{item.id}}" catchtap="deleteInfo">删除</view>
        </view>
     </view>
-  </view>
-  <view class="add_student flex" bindtap="addStudent">
-     <image src="/images/add_stu.png"></image>
-     <text>新增考生信息</text>
   </view>
 </view>
