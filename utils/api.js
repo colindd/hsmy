@@ -532,6 +532,31 @@ export function examScoreList(options){
     success,error
   })
 }
+// 成绩详情
+export function examScoreInfo(options){
+  var {id,success,error } = options
+  fetch({
+    url:'examScore/info',
+    method:'GET',
+    data:{
+      id:id
+    },
+    success,error
+  })
+}
+
+// 邮寄地址信息
+export function examScoreAddress(options){
+  var {organizationId,success,error } = options
+  fetch({
+    url:'address/info',
+    method:'GET',
+    data:{
+      organizationId:organizationId
+    },
+    success,error
+  })
+}
 // 更新证书邮寄地址
 export function examScoreUpdate(options){
   var {id,name,mobile,address,success,error } = options

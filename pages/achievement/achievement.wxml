@@ -1,26 +1,26 @@
 <!--pages/achievement/achievement.wxml-->
 <view class="container">
   <view class="list_box" wx:if="{{list.length>0}}">
-    <view class="list_item" wx:for="{{list}}" wx:for-item="item" wx:key="id">
+    <view class="list_item" wx:for="{{list}}" wx:for-item="item" wx:key="id" data-id="{{item.id}}" bindtap="achieveDetail">
       <view class="list_item_top flex">
         <view class="list_item_left flex">
           <view class="item_head">
-            <image src="/images/head.png"></image>
+            <image src="{{item.avatar}}"></image>
           </view>
           <view class="item_info">
-            <view class="item_name">庞大开心</view>
-            <view class="item_title flex"> <view class="icon"></view> 素描四级考试(美术)</view>
-            <view class="item_time flex"> <view class="icon"></view>2020.08.20 16：00-17：00</view>
+            <view class="item_name">{{item.studentName}}</view>
+            <view class="item_title flex"> <view class="icon"></view>{{item.professionalItemName}}{{item.levelName}}考试({{item.professionalName}})</view>
+            <view class="item_time flex"> <view class="icon"></view>{{item.examStartTime}}-{{item.endTime}}</view>
           </view>
         </view>
         <view class="list_item_right flex">
           <view class="show_btn">去查看</view>
         </view>
       </view>
-      <view class="list_item_bot flex">
+      <view class="list_item_bot flex" wx:if="{{item.trackingNumber}}">
         <view class="item_label_left">作品邮寄单号</view>
         <view class="item_label_right flex">
-          <text>34456789076543456789</text>
+          <text>{{item.trackingNumber}}</text>
           <image src="/images/pink_right.png"></image>
         </view>
       </view>

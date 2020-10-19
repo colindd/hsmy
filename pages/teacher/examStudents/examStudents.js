@@ -6,11 +6,11 @@ Page({
    */
   data: {
     sList:[
-      {id:1,head:'/images/default.png',name:'刘悦',payType:1,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
-      {id:2,head:'/images/default.png',name:'刘悦',payType:2,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
-      {id:3,head:'/images/default.png',name:'刘悦',payType:1,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
-      {id:4,head:'/images/default.png',name:'刘悦',payType:2,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
-      {id:5,head:'/images/default.png',name:'刘悦',payType:1,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
+      // {id:1,head:'/images/default.png',name:'刘悦',payType:1,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
+      // {id:2,head:'/images/default.png',name:'刘悦',payType:2,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
+      // {id:3,head:'/images/default.png',name:'刘悦',payType:1,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
+      // {id:4,head:'/images/default.png',name:'刘悦',payType:2,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
+      // {id:5,head:'/images/default.png',name:'刘悦',payType:1,examType:'素描四级',type:'美术',time:'2020.09.19 18:06'},
     ]
   },
 
@@ -26,6 +26,12 @@ Page({
     var sId = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/teacher/studentDetail/studentDetail?id='+sId,
+    })
+  },
+  // 返回首页
+  backIndex:function(){
+    wx.reLaunch({
+      url: '/pages/teacher/index/index',
     })
   },
   /**

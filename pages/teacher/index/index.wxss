@@ -7,7 +7,7 @@ page{
   align-items: center;
   justify-content: space-between;
   text-align:center;
-  background-color:#F9547E;
+  background-color:#FE657F;
   color:#fff;
   box-sizing: border-box;
   padding:60rpx 0 30rpx;
@@ -44,7 +44,7 @@ page{
   border-left:1rpx solid #eee;
 }
 .activeNav{
-  color:#F9547E;
+  color:#FE657F;
   font-weight:bold;
   position: relative;
 }
@@ -53,7 +53,7 @@ page{
   width:80rpx;
   height:8rpx;
   border-radius:8rpx;
-  background:#F9547E;
+  background:#FE657F;
   position: absolute;
   bottom:8rpx;
   left:50%;
@@ -76,7 +76,7 @@ page{
   border-bottom:1rpx solid #eee;
 }
 .release_time{
-  color:#F9547E;
+  color:#FE657F;
 }
 .release_time image{
   width:40rpx;
@@ -109,7 +109,7 @@ page{
 .shear_btn{
   padding:15rpx 30rpx;
   color:#fff;
-  background: #F9547E;
+  background: linear-gradient(99deg, #FF8F78 0%, #FE657F 100%);
   box-shadow: 0px 3px 6px rgba(249, 84, 126, 0.3);
   opacity: 1;
   border-radius: 4px;

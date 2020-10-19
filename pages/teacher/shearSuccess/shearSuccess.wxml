@@ -1,2 +1,6 @@
 <!--pages/teacher/shearSuccess/shearSuccess.wxml-->
-<text>pages/teacher/shearSuccess/shearSuccess.wxml</text>
+<view class="container">
+  <image class="suc_icon" src="/images/success.png"></image>
+  <view class="tip_text">恭喜您分享成功</view>
+  <view class="back_index" bindtap="backIndex">返回首页</view>
+</view>

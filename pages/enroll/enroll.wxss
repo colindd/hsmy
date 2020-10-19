@@ -9,7 +9,7 @@ page{
 .list_item{
   margin-top:40rpx;
   box-sizing: border-box;
-  box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);
+  box-shadow: 0px 6px 12px rgba(79, 71, 232, 0.2);
   border-radius:20rpx;
   position: relative;
 }

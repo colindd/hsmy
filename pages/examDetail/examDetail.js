@@ -114,6 +114,7 @@ Page({
 
   // 点击完成考试
   doneExam:function(e){
+    var that = this;
     var examId = e.currentTarget.dataset.id
     wx.showModal({
       title:'提示',

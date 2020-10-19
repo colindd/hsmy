@@ -1,6 +1,6 @@
 <!--pages/teacher/examStudents/examStudents.wxml-->
 <view class="container">
-  <view class="stu_list">
+  <view class="stu_list" wx:if="{{sList.length>0}}">
     <view class="stu_item flex" wx:for="{{sList}}" wx:for-item="item" wx:key="id" data-id="{{item.id}}" >
       <view class="head_img">
         <image src="{{item.head}}"></image>
@@ -18,5 +18,10 @@
         <view class="time">{{item.time}}</view>
       </view>
     </view>
+  </view>
+  <view class="no_student" wx:else>
+    <image class="suc_icon" src="/images/tea_no.png"></image>
+    <view class="tip_text">暂无报名学生</view>
+    <view class="back_index" bindtap="backIndex">返回首页</view>
   </view>
 </view>

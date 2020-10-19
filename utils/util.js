@@ -73,7 +73,7 @@ function transTime3(unixtime) {
   var timeSpanStr = year + '-' + month + '-' + day ;
   return timeSpanStr;
 }
-// 时间格式化mm-dd
+// 时间格式化yyyy-mm-dd HH:MM:SS
 export function datetimeFormat(unix_timestamp) {
   return dateFormat(new Date(unix_timestamp),"yyyy-mm-dd HH:MM:ss")
 }
@@ -84,6 +84,14 @@ export function datetimeFormat2(unix_timestamp) {
 // 时间格式化yyyy
 export function datetimeFormat3(unix_timestamp) {
   return dateFormat(new Date(unix_timestamp),"yyyy")
+}
+// 时间格式化yyyy-mm-dd HH:MM
+export function datetimeFormat4(unix_timestamp) {
+  return dateFormat(new Date(unix_timestamp),"yyyy.mm.dd HH:MM")
+}
+// 时间格式化HH:MM
+export function datetimeFormat5(unix_timestamp) {
+  return dateFormat(new Date(unix_timestamp),"HH:MM")
 }
 
 
@@ -155,6 +163,8 @@ module.exports = {
   datetimeFormat:datetimeFormat,
   datetimeFormat2:datetimeFormat2,
   datetimeFormat3:datetimeFormat3,
+  datetimeFormat4:datetimeFormat4,
+  datetimeFormat5:datetimeFormat5,
   transTime:transTime,
   transTime2:transTime2,
   transTime3:transTime3

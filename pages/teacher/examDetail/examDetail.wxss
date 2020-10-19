@@ -14,18 +14,15 @@ page{
   min-height:900rpx;
   margin:0 auto;
   position: relative;
-  top:-520rpx;
+  top:-855rpx;
   padding:0 40rpx;
   box-sizing: border-box;
-  background-image: url('https://shylh1d3.oss-cn-hangzhou.aliyuncs.com/hsmy/teacher_bg.png');
-  background-size:100% 100%;
 }
 .det_title{
   height:130rpx;
   line-height:180rpx;
   overflow: hidden;
   justify-content: space-between;
-  border-bottom:1rpx dashed #eee;
 }
 .status{
   color:#5592FA;
@@ -69,6 +66,10 @@ page{
 .det_student {
   color:#000000;
   font-weight:500;
+}
+.det_student .item_left{
+  color:#000000;
+  font-weight:bold;
 }
 .tip_icon{
   width:16rpx;

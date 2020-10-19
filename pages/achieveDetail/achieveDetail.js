@@ -1,7 +1,7 @@
-// pages/achievement/achievement.js
+// pages/achieveDetail/achieveDetail.js
 import{
-  examScoreList
-} from '../../utils/api';
+  examScoreInfo
+} from '../../utils/api'
 import {
   datetimeFormat4,
   datetimeFormat5
@@ -12,29 +12,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[],
-    initPage:1
+    examScoreInfo:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var id = options.id
+    console.log(id)
     var that = this;
-    var page = that.data.initPage;
-    examScoreList({
-      page,
+    examScoreInfo({
+      id:id,
       success(data){
         console.log(data)
-        var list = data.rows;
-        list.map(function(item){
-          item.endTime = parseInt(item.examStartTime)+parseInt(item.examTime*60*1000)
-          item.examStartTime = datetimeFormat4(item.examStartTime)
-          item.endTime = datetimeFormat5(item.endTime)
-        })
         that.setData({
-          list:list
-        })
+          examScoreInfo:data
+        })        
       },error(data){
         wx.showToast({
           title: data,
@@ -42,22 +36,6 @@ Page({
           duration:1500
         })
       }
-      
-    })
-  },
-
-  // 返回首页
-  backIndex:function(){
-    wx.redirectTo({
-      url: '/pages/index/index',
-    })
-  },
-
-  // 成绩单详情
-  achieveDetail:function(e){
-    var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/achieveDetail/achieveDetail?id='+id,
     })
   },
 

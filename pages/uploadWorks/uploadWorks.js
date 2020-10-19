@@ -61,7 +61,7 @@ Page({
       opus:opus,
       success(data){
         if(data == true){
-          wx.navigateTo({
+          wx.navigateTo({ 
             url: '/pages/uploadSuccess/uploadSuccess',
           })
         }

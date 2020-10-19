@@ -28,7 +28,8 @@
     "pages/uploadWorks/uploadWorks",
     "pages/uploadSuccess/uploadSuccess",
     "pages/resetSuccess/resetSuccess",
-    "pages/stuDetail/stuDetail"
+    "pages/stuDetail/stuDetail",
+    "pages/achieveDetail/achieveDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
