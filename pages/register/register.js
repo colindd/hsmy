@@ -135,7 +135,7 @@ Page({
   // 点击使用条款
   showRule:function(){
     wx.navigateTo({
-      url: '/pages/regulation/regulation',
+      url: '/pages/regulation/regulation?para=register',
     })
   },
 

@@ -1,6 +1,6 @@
 <!--pages/enroll/enroll.wxml-->
 <view class="container">
-  <view class="list_box">
+  <view class="list_box" wx:if="{{list.length > 0}}">
     <view class="list_item" wx:for="{{list}}" wx:for-item="item" wx:key="id" data-paytype="{{item.payType}}" data-name="{{item.name}}" data-id="{{item.id}}" data-pid="{{item.professionalId}}" bindtap="{{item.examStatus == 100001 ? 'examDetail':''}}">
       <view class="list_item_title">全国{{item.name}}考级上海考区{{item.year}}年报考</view>
       <view class="list_item_bot">
@@ -16,5 +16,10 @@
         <image src="/images/corner01.png" wx:else></image>
       </view>
     </view>
+  </view>
+  <view class="none_box flex" wx:else>
+    <image src="/images/no_tea_list.png"></image>
+    <view class="tip_text">暂无考级报名</view>
+    <view class="back_index" bindtap="backIndex">返回首页</view>
   </view>
 </view>

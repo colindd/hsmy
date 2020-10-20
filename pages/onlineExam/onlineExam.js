@@ -42,9 +42,28 @@ Page({
         var timestamp = Date.parse(new Date());  
         console.log(data)
         list.map(item =>{
-          item.difference = (parseInt(item.startTime)-300000) - parseInt(timestamp)
+          item.endTime = item.startTime+(item.time*60*1000)
+          item.onTime = item.startTime+(30*60*1000)
+          item.readTime = item.startTime-(5*60*1000)
+          item.difference = (parseInt(item.startTime)-5*60*1000) - parseInt(timestamp)
           item.diffTime = that.timeLong(item.startTime)
           item.startTime = datetimeFormat(item.startTime)
+          if(timestamp < item.readTime){
+            item.status = 'wait'
+          }
+          if(timestamp > item.readTime){
+            item.status = 'open'
+          }
+          if(timestamp > item.startTime){
+            item.status = 'opened'
+          }
+          if(timestamp > item.onTime){
+            item.status = 'dont'
+          }
+          if(timestamp > item.endTime){
+            item.status = 'over'
+          }
+        
         })
         that.setData({
           list:list
@@ -58,6 +77,33 @@ Page({
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/tipPage/tipPage?id='+id,
+    })
+  },
+  // 暂未开始
+  examWait:function(){
+    wx.showToast({
+      title: '请耐心等待',
+      icon:'none',
+      duration:1500
+    })
+  },
+  // 开考三十分钟之后点击
+  examDont:function(){
+    wx.showModal({
+      title:'提示',
+      content:'考试已经开始，考生不得再进入考场',
+      showCancel:false,
+      success(res){
+        console.log(res)
+      }
+    })
+  },
+  // 考试已结束
+  examOver:function(){
+    wx.showToast({
+      title: '该场考试已结束',
+      icon:'none',
+      duration:1500
     })
   },
   // 时间格式化
@@ -98,9 +144,14 @@ Page({
 
   // 点击模拟考级
   simulateExam:function(e){
-    wx.navigateTo({
-      url: '/pages/simulateExam/simulateExam',
+    wx.showToast({
+      title: '暂未开放',
+      icon:'none',
+      duration:1500
     })
+    // wx.navigateTo({
+    //   url: '/pages/simulateExam/simulateExam',
+    // })
   },
 
   /**

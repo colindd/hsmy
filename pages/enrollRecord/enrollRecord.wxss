@@ -70,7 +70,7 @@ page{
 .no_list image{
   width:330rpx;
   height:230rpx;
-  margin-top:-300rpx;
+  margin-top:-260rpx;
 }
 .no_list text{
   color:#888;
@@ -81,7 +81,7 @@ page{
   text-align:center;
   color:#fff;
   border-radius:10rpx;
-  background:#FE657F;
+  background: linear-gradient(122deg, #FF8F78 0%, #FE657F 100%);
   line-height:60rpx;
   margin-top:40rpx;
 }

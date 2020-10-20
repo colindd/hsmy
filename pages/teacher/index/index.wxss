@@ -61,7 +61,10 @@ page{
 }
 .bot_box{
   width:100%;
+  min-height:780rpx;
   padding-bottom: 20rpx;
+  margin-top:6rpx;
+  background:#fff;
 }
 .list_item{
   margin-top:20rpx;
@@ -121,4 +124,12 @@ page{
   align-items: center;
   justify-content: space-between;
   padding: 200rpx 0;
+}
+.no_list image{
+  width:330rpx;
+  height:230rpx;
+}
+.no_list text{
+  color:#888;
+  margin-top:20rpx;
 }

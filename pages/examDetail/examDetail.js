@@ -3,7 +3,8 @@ import{
   levelExamDetail,
   roomDetail,
   examPaperDetail,
-  examStart
+  examStart,
+  examComplete
 } from '../../utils/api'
 Page({
 
@@ -116,22 +117,42 @@ Page({
   doneExam:function(e){
     var that = this;
     var examId = e.currentTarget.dataset.id
-    wx.showModal({
-      title:'提示',
-      content:'确定要提交考试视频？',
-      confirmText:'确定交卷',
-      confirmColor:'#FE657F',
-      cancelText:'继续考试',
-      cancelColor:'#888888',
-      success(res){
-        if(res.confirm){
-          clearInterval(that.data.timeDown);
-          wx.navigateTo({
-            url: '/pages/uploadWorks/uploadWorks?id='+examId,
+    examComplete({
+      id:examId,
+      success(data){
+        if(data){
+          wx.showModal({
+            title:'提示',
+            content:'确定要提交考试视频？',
+            confirmText:'确定交卷',
+            confirmColor:'#FE657F',
+            cancelText:'继续考试',
+            cancelColor:'#888888',
+            success(res){
+              if(res.confirm){
+                clearInterval(that.data.timeDown);
+                wx.navigateTo({
+                  url: '/pages/uploadWorks/uploadWorks?id='+examId,
+                })
+              }
+            }
+          })
+        }else{
+          wx.showToast({
+            title: '状态出错，请联系老师',
+            icon:'none',
+            duration:1500
           })
         }
+      },error(data){
+        wx.showToast({
+          title: data,
+          icon:'none',
+          duration:1500
+        })
       }
     })
+
   },
 
 

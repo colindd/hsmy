@@ -29,7 +29,7 @@
       <checkbox-group bindchange="chooseAgree">
         <checkbox value="agree"></checkbox>
       </checkbox-group>
-      <view class="tip_text">我同意<text>《海上美育考级报名须知》</text></view>
+      <view class="tip_text">我同意<text bindtap="showNotes">《海上美育考级报名须知》</text></view>
     </view>
   </view>
   <view class="next_btn" bindtap="nextStep">下一步</view>

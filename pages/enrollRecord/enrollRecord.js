@@ -194,7 +194,9 @@ Page({
   onUnload: function () {
     var pages = this.data.pages;
     if(pages == 'suc'){
-      wx.navigateBack(2)
+      wx.reLaunch({
+        url: '/pages/index/index',
+      })
     }
   },
 

@@ -1,10 +1,10 @@
 <!--pages/teacher/index/index.wxml-->
 <view class="container">
    <view class="header flex">
-      <view class="head_img">
+      <view class="head_img" bindtap="showOut">
         <image src="/images/default.png"></image>
       </view>
-      <view class="teacher_name">刘月月</view>
+      <view class="teacher_name">{{teacherInfo.teacher.name}}</view>
       <view class="organization">上海美育艺术培训机构</view>
    </view>
    <view class="nav_box flex">
@@ -28,6 +28,9 @@
           </view>
         </view>
      </view>
-     <view class="no_list" wx:else>暂无数据</view>
+     <view class="no_list" wx:else>
+      <image src="/images/no_tea_list.png"></image>
+      <text>暂无数据</text>
+     </view>
    </view>
 </view>

@@ -73,12 +73,12 @@ page{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 300rpx 0;
   box-sizing: border-box;
 }
 .suc_icon{
-  width:300rpx;
-  height:200rpx;
+  width:330rpx;
+  height:230rpx;
 }
 .tip_text{
   font-size:28rpx;
@@ -89,13 +89,12 @@ page{
 }
 
 .back_index{
-  width:50%;
-  margin:50rpx auto 0;
-  height:80rpx;
-  line-height:80rpx;
-  border-radius:20rpx;
+  width:180rpx;
+  margin:40rpx auto 0;
+  height:60rpx;
+  line-height:60rpx;
+  border-radius:10rpx;
   color:#fff;
   text-align:center;
   background: linear-gradient(90deg, #FF8F78 0%, #FE657F 100%);
-  box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);
 }

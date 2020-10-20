@@ -12,6 +12,10 @@
         <view class="info_item_right">{{name}}</view>
       </view>
       <view class="info_item flex">
+        <view class="info_item_left"><text>*</text> 姓名拼音</view>
+        <view class="info_item_right">{{alphabet}}</view>
+      </view>
+      <view class="info_item flex">
         <view class="info_item_left"><text>*</text>性别</view>
         <view class="info_item_right">
           <text wx:if="{{sex == 1}}">男</text>

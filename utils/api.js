@@ -346,13 +346,14 @@ export function imgUpload(options){
 }
 // 添加学生
 export function addStudent(options){
-  var {organizationId,name,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
+  var {organizationId,name,alphabet,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
   fetch({
     url:'student/add',
     method:'POST',
     data:{
       organizationId:organizationId,
       name:name,
+      alphabet:alphabet,
       sex:sex,
       birthday:birthday,
       nationality:nationality,
@@ -568,6 +569,18 @@ export function examScoreUpdate(options){
       name:name,
       mobile:mobile,
       address:address
+    },
+    success,error
+  })
+}
+// 视频考级中点击完成
+export function examComplete(options){
+  var {id,success,error } = options
+  fetch({
+    url:'levelExam/complete',
+    method:'GET',
+    data:{
+      id:id
     },
     success,error
   })

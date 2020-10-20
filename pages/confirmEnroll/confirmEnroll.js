@@ -109,7 +109,11 @@ Page({
                 })
               },
               fail(res){
-                console.log(res)
+                if(res.errMsg == 'requestPayment:fail cancel'){
+                  wx.navigateTo({
+                    url: '/pages/enrollRecord/enrollRecord?param=suc',
+                  })
+                }
               }
             })
           }

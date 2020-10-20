@@ -39,6 +39,7 @@ Page({
           userInfo:data,
           headUrl:data.avatar,
           name:data.name,
+          alphabet:data.alphabet,
           sex:data.sex,
           time:data.birthday,
           [countryName]:data.nationality,

@@ -35,8 +35,11 @@ Page({
    */
   onLoad: function (options) {
       var that = this;
-      var teacherInfo = app.globalData.userInfo;
+      var teacherInfo = wx.getStorageSync('user')
       console.log('用户信息:',teacherInfo)
+      that.setData({
+        teacherInfo:teacherInfo
+      })
       var page = that.data.initPage
       that.getTeacherList(page)
     },
@@ -79,6 +82,12 @@ Page({
     var idx = e.currentTarget.dataset.idx;
     this.setData({
       navIdx:idx
+    })
+  },
+  // 点击头像
+  showOut:function(){
+    wx.navigateTo({
+      url: '/pages/contact/contact',
     })
   },
   // 考试详情

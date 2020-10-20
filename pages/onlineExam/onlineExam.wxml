@@ -23,15 +23,31 @@
         </view>
       </view>
       <view class="exam_item_right">
-        <view class="exam_begin_btn flex" data-id="{{item.id}}" bindtap="{{item.difference < 0 ? 'examDetail':'notTime'}}">
-          <block wx:if="{{item.difference < 0}}">
-            <text class="full">开始考试</text>
-          </block>
-          <block wx:else>
-            <image class="time_icon" src="/images/exam_countdown.png"></image>
-            <text class="empty">{{item.diffTime}}</text>
-          </block>
-        </view>
+        <block wx:if="{{item.status == 'wait'}}">
+          <view class="exam_begin_btn flex" data-id="{{item.id}}" bindtap="examWait">
+              <text class="full">等待考试</text>
+          </view>
+        </block>
+        <block wx:if="{{item.status == 'open'}}">
+          <view class="exam_begin_btn flex" data-id="{{item.id}}" bindtap="examDetail">
+              <text class="full">开始考试</text>
+          </view>
+        </block>
+        <block wx:if="{{item.status == 'opened'}}">
+          <view class="exam_begin_btn flex" data-id="{{item.id}}" bindtap="examDetail">
+              <text class="full">正在考试</text>
+          </view>
+        </block>
+        <block wx:if="{{item.status == 'dont'}}">
+          <view class="exam_begin_btn over_exam flex" data-id="{{item.id}}" bindtap="examDont">
+              <text class="full">正在考试</text>
+          </view>
+        </block>
+        <block wx:if="{{item.status == 'over'}}">
+          <view class="exam_begin_btn over_exam flex" data-id="{{item.id}}" bindtap="examOver">
+              <text class="full">考试结束</text>
+          </view>
+        </block>
       </view>
     </view>
   </view>

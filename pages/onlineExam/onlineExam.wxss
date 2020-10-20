@@ -71,6 +71,9 @@ page{
   height:100%;
   text-align:center;
 }
+.over_exam{
+  background: #DBDBDB;
+}
 .exam_begin_btn .time_icon{
   position: relative;
   top:50%;

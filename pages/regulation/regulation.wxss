@@ -1,1 +1,17 @@
 /* pages/regulation/regulation.wxss */
+.container{
+  width:100%;
+  box-sizing: border-box;
+  padding:0 25rpx 30rpx;
+}
+.title{
+  color:#000;
+  font-size:30rpx;
+  text-align:center;
+}
+.register text{
+  color:#888;
+}
+.detail text{
+  color:#888;
+}

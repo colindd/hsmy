@@ -139,6 +139,13 @@ Page({
     }
   },
 
+  // 点击报名须知
+  showNotes:function(){
+    wx.navigateTo({
+      url: '/pages/regulation/regulation?para=detail',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

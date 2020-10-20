@@ -118,6 +118,7 @@ Page({
           userInfo:data,
           headUrl:data.avatar,
           name:data.name,
+          alphabet:data.alphabet,
           sex:data.sex,
           time:data.birthday,
           [countryName]:data.nationality,
@@ -243,6 +244,13 @@ Page({
       name:val
     })
   },
+    // 输入姓名拼音
+    inputName:function(e){
+      var val = e.detail.value
+      this.setData({
+        alphabet:val
+      })
+    },
   // 选择性别
   selectSex:function(e){
     var sex = e.detail.value
@@ -309,11 +317,11 @@ Page({
 
   // 添加学生
   addStudent:function(){
-    var that = this;
-    var {organization,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
+    var that = this;  
+    var {organization,alphabet,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
     var userInfo = wx.getStorageSync('user')
     addStudent({
-      organizationId:organization.deptId,name,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
+      organizationId:organization.deptId,name,alphabet,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
       success(data){
         // console.log(data)
         wx.showToast({

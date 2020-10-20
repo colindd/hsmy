@@ -9,6 +9,7 @@
 }
 .tip_box{
   width:90%;
+  height:90%;
   margin:10% auto 0;
   background:#fff;
   box-sizing: border-box;
@@ -26,6 +27,8 @@
   margin-top:20rpx;
   font-size:28rpx;
   color:#353535;
+  height:83%;
+  overflow-y: scroll;
 }
 .tip_btn{
   justify-content: space-between;

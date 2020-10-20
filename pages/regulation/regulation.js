@@ -5,14 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    detailShow:false,
+    registerShow:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var para = options.para
+    if(para == 'detail'){
+      this.setData({
+        detailShow:true
+      })
+    }
+    if(para == 'register'){
+      this.setData({
+        registerShow:true
+      })
+    }
   },
 
   /**

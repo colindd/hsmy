@@ -93,12 +93,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 300rpx 0;
   box-sizing: border-box;
 }
 .none_box image{
-  width:480rpx;
-  height:324rpx;
+  width:330rpx;
+  height:230rpx;
 }
 .tip_text{
   margin-top:20rpx;
@@ -107,9 +107,9 @@
 .back_index{
   text-align:center;
   color:#fff;
-  width:200rpx;
+  width:180rpx;
   line-height:60rpx;
   border-radius:10rpx;
-  margin-top:50rpx;
+  margin-top:40rpx;
   background: linear-gradient(122deg, #FF8F78 0%, #FE657F 100%);
 }

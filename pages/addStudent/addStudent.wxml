@@ -19,6 +19,12 @@
         </view>
       </view>
       <view class="info_item flex">
+        <view class="info_item_left"><text>*</text>姓名拼音</view>
+        <view class="info_item_right">
+          <input type="text" placeholder="请输入" bindinput="inputAlphabet" value="{{alphabet}}"></input>
+        </view>
+      </view>
+      <view class="info_item flex">
         <view class="info_item_left"><text>*</text>性别</view>
         <view class="info_item_right">
           <radio-group bindchange="selectSex" >
