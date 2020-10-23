@@ -54,7 +54,7 @@
   </view>
   <view class="shear_box flex">
     <button class='btn2' open-type='share'>
-    <image class='btnImg' src='/images/share.png'></image>
- </button>
+      <image class='btnImg' src='/images/share.png'></image>
+    </button>
   </view>
 </view>

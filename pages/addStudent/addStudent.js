@@ -245,7 +245,7 @@ Page({
     })
   },
     // 输入姓名拼音
-    inputName:function(e){
+    inputAlphabet:function(e){
       var val = e.detail.value
       this.setData({
         alphabet:val
@@ -319,6 +319,9 @@ Page({
   addStudent:function(){
     var that = this;  
     var {organization,alphabet,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
+    if(headUrl = '/images/default.png'){
+      headUrl = ''
+    }
     var userInfo = wx.getStorageSync('user')
     addStudent({
       organizationId:organization.deptId,name,alphabet,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
@@ -347,10 +350,13 @@ Page({
   // 修改信息
   changeInfo:function(){
     var that = this;
-    var {studentId,organization,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
+    var {studentId,organization,alphabet,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
     var userInfo = wx.getStorageSync('user')
+    if(headUrl = '/images/default.png'){
+      headUrl = ''
+    }
     updateStudentInfo({
-      id:studentId,organizationId:organization.deptId,name,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
+      id:studentId,organizationId:organization.deptId,name,alphabet,sex,urgentMobile,mobile:userInfo.mobile,contacts,idCard,birthday:time,address,avatar:headUrl,nationality:country.name,nation:nation.name,
       success(data){
         wx.showToast({
           title: '修改成功',

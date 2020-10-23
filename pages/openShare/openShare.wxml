@@ -1,0 +1,36 @@
+<!--pages/openShare/openShare.wxml-->
+<view class="container">
+  <view class="list_box">
+    <view class="list_item flex">
+      <view class="list_item_left">报名科目</view>
+      <view class="list_item_right first_right">{{examInfo.name}}</view>
+    </view>
+    <view class="list_item flex">
+      <view class="list_item_left">报考专业</view>
+      <view class="list_item_right">
+        <picker mode="selector" bindchange="bindMajorChange"  value="{{chooseMajor.name}}" range-key="name" range="{{majorList}}">
+            <input value='{{chooseMajor.name}}' disabled="true"  placeholder='选择专业'/>
+        </picker>
+      </view>
+    </view>
+    <view class="list_item flex">
+      <view class="list_item_left">报考级别</view>
+      <view class="list_item_right">
+        <picker mode="selector" bindchange="bindLevelChange"  value="{{chooseLevel.name}}" range-key="name" range="{{levelList}}">
+            <input value='{{chooseLevel.name}}' disabled="true"  placeholder='选择级别'/>
+        </picker>
+      </view>
+    </view>
+    <view class="list_item flex">
+      <view class="list_item_left">考级费用</view>
+      <view class="list_item_right">¥<text>{{price}}</text></view>
+    </view>
+    <view class="list_item list_tip flex">
+      <checkbox-group bindchange="chooseAgree">
+        <checkbox value="agree"></checkbox>
+      </checkbox-group>
+      <view class="tip_text">我同意<text bindtap="showNotes">《海上美育考级报名须知》</text></view>
+    </view>
+  </view>
+  <view class="next_btn" bindtap="nextStep">下一步</view>
+</view>

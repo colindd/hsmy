@@ -2,10 +2,10 @@
 <view class="container">
    <view class="header flex">
       <view class="head_img" bindtap="showOut">
-        <image src="/images/default.png"></image>
+        <image src="{{teacherInfo.teacher.avatar}}"></image>
       </view>
       <view class="teacher_name">{{teacherInfo.teacher.name}}</view>
-      <view class="organization">上海美育艺术培训机构</view>
+      <view class="organization">{{teacherInfo.teacher.organizationName}}</view>
    </view>
    <view class="nav_box flex">
       <view class="nav_item {{navIdx==idx ? 'activeNav':''}}" wx:for="{{navList}}" wx:for-item='nav' wx:for-index="idx" data-idx="{{idx}}" wx:key="id" data-id="{{nav.id}}" bindtap="changeNav">{{nav.name}}</view>
@@ -14,7 +14,7 @@
      <view class="list_box" wx:if="{{listData.length>0}}">
         <view class="list_item" wx:for="{{listData}}" wx:for-item="item" data-id="{{item.id}}" data-status="{{item.examStatus}}" wx:key="id" bindtap="examDetail">
           <view class="item_title flex">
-            <view class="release_time"><image src="/images/release.png"></image> 发布时间:{{item.createDate}}</view>
+            <view class="release_time"><image src="/images/release.png"></image>发布时间:{{item.createDate}}</view>
             <view class="item_status">{{STATUS[item.examStatus]}}</view>
           </view>
           <view class="item_main">
@@ -24,7 +24,7 @@
             <view class="item_member">总报名:{{item.count}}人</view>
           </view>
           <view class="item_btn flex">
-            <view class="shear_btn" wx:if="{{item.examStatus == 100001}}" >去分享</view>
+            <button class="shear_btn" size="mini" wx:if="{{item.examStatus == 100001}}" data-name="{{item.name}}" data-year="{{item.year}}" data-id="{{item.id}}" hover-stop-propagation="true" catchtap="ShowShear" open-type='share'>去分享</button>
           </view>
         </view>
      </view>

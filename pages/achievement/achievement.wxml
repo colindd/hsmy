@@ -14,7 +14,7 @@
           </view>
         </view>
         <view class="list_item_right flex">
-          <view class="show_btn">去查看</view>
+          <view class="show_btn">查看成绩</view>
         </view>
       </view>
       <view class="list_item_bot flex" wx:if="{{item.trackingNumber}}">

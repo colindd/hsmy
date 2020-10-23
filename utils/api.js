@@ -382,7 +382,7 @@ export function studentDetail(options){
 }
 // 修改学生信息
 export function updateStudentInfo(options){
-  var {id,organizationId,name,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
+  var {id,organizationId,name,alphabet,sex,birthday,nationality,mobile,nation,idCard,contacts,urgentMobile,address,avatar,success,error } = options
   fetch({
     url:'student/update',
     method:'POST',
@@ -390,6 +390,7 @@ export function updateStudentInfo(options){
       id:id,
       organizationId:organizationId,
       name:name,
+      alphabet:alphabet,
       sex:sex,
       birthday:birthday,
       nationality:nationality,
@@ -581,6 +582,20 @@ export function examComplete(options){
     method:'GET',
     data:{
       id:id
+    },
+    success,error
+  })
+}
+// 分享页面打开请求
+export function getShareMsg(options){
+  var {openId,organizationId,teacherId,success,error } = options
+  fetch({
+    url:'auth/organization',
+    method:'GET',
+    data:{
+      openId:openId,
+      organizationId:organizationId,
+      teacherId:teacherId
     },
     success,error
   })

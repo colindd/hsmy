@@ -11,7 +11,8 @@ var STATUS = {
   '100001':'报名中',
   '100002':'报名截止',
   '100003':'等待考试',
-  '100004':'考试中'
+  '100004':'考试中',
+  '100005':'考试结束'
 }
 Page({
 
@@ -29,13 +30,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options)
     var id = options.id
     var status = options.status
     examDetail({
         id,status,
         success(data){
-          console.log('考级详情:',data)
           data.startDate = datetimeFormat2(data.startDate)
           data.endDate = datetimeFormat2(data.endDate)
           data.createDate = datetimeFormat2(data.createDate)
@@ -43,7 +42,6 @@ Page({
           teacherCount({
             oId:data.organizationId,
             success(response){
-              console.log('学生数量:',response)
               that.setData({
                 teacherCount:response
               })
@@ -119,6 +117,41 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var that = this;
+    var teacherInfo = that.data.teacherInfo
+    　　// 设置菜单中的转发按钮触发转发事件时的转发内容
+    　　var shareObj = {
+    　　　　title: "海上美育艺术考级平台",        
+    　　　　path: '/pages/openShare/openShare?teachId='+teacherInfo.id+'&orgId='+teacherInfo.organizationId,
+    　　　　imageUrl: '',  
+    　　　　success: function(res){
+    　　　　　　// 转发成功之后的回调
+    　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
+                console.log('success')
+    　　　　　　}
+    　　　　},
+    　　　　fail: function(res){
+    　　　　　　// 转发失败之后的回调
+    　　　　　　if(res.errMsg == 'shareAppMessage:fail cancel'){
+    　　　　　　　　// 用户取消转发
+                  console.log('cancel')
+    　　　　　　}else if(res.errMsg == 'shareAppMessage:fail'){
+    　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
+                  console.log('fail')
+    　　　　　　}
+    　　　　},
+    　　　　complete:function(res){
 
+          }
+  　　  };
+      // 来自页面内的按钮的转发
+  　　if( options.from == 'button' ){
+    　　　　var eData = options.target.dataset;
+    　　　　// 此处可以修改 shareObj 中的内容
+           shareObj.title = '全国'+eData.name+'考级上海考区'+eData.year+'年报考'
+    　　　　shareObj.path = '/pages/openShare/openShare?teachId='+teacherInfo.id+'&orgId='+teacherInfo.organizationId+'&examId='+eData.id
+    　　}
+    　　return shareObj;
   }
+  
 })

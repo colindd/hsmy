@@ -70,10 +70,18 @@ Page({
             content:'考试时长:'+data.time+'分钟',
             showCancel:false,
             success(res){
-              clearInterval(that.data.timeDown);
-              wx.navigateTo({
-                url: '/pages/uploadWorks/uploadWorks?id='+examId,
+              examComplete({
+                id:examId,
+                success(){
+                  if(data){
+                    clearInterval(that.data.timeDown);
+                    wx.navigateTo({
+                      url: '/pages/uploadWorks/uploadWorks?id='+examId,
+                    })
+                  }
+                }
               })
+            
             }
           })
         }

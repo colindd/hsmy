@@ -29,7 +29,8 @@
     "pages/uploadSuccess/uploadSuccess",
     "pages/resetSuccess/resetSuccess",
     "pages/stuDetail/stuDetail",
-    "pages/achieveDetail/achieveDetail"
+    "pages/achieveDetail/achieveDetail",
+    "pages/openShare/openShare"
   ],
   "window": {
     "backgroundTextStyle": "light",

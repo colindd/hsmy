@@ -30,17 +30,18 @@
 }
 .item_name{
   font-size:30rpx;
+  font-weight:bold;
 }
 .item_title,.item_time{
   margin-top:8rpx;
   font-size:26rpx;
 }
 .icon{
-  width:14rpx;
-  height:14rpx;
+  width:10rpx;
+  height:10rpx;
   border-radius:50%;
   position: relative;
-  top:10rpx;
+  top:12rpx;
   margin-right:8rpx;
 }
 .item_title .icon{

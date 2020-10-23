@@ -64,7 +64,6 @@ page{
   min-height:780rpx;
   padding-bottom: 20rpx;
   margin-top:6rpx;
-  background:#fff;
 }
 .list_item{
   margin-top:20rpx;
@@ -114,8 +113,15 @@ page{
   color:#fff;
   background: linear-gradient(99deg, #FF8F78 0%, #FE657F 100%);
   box-shadow: 0px 3px 6px rgba(249, 84, 126, 0.3);
+  font-weight:400;
+  font-size:28rpx !important;
   opacity: 1;
   border-radius: 4px;
+  margin:0;
+}
+.shear_btn::after {
+  border-radius: 10rpx;
+  border: 0; 
 }
 .no_list{
   color:#888;
@@ -123,7 +129,8 @@ page{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 200rpx 0 300rpx;
+  background:#fff;
 }
 .no_list image{
   width:330rpx;

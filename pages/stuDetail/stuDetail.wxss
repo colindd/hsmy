@@ -90,5 +90,8 @@ page{
   background: linear-gradient(123deg, #FF8F78 0%, #FE657F 100%);
   box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);
 }
+.address{
+  width:70%;
+}
 
  
