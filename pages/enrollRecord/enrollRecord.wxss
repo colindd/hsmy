@@ -39,7 +39,7 @@ page{
 }
 .pay_status{
   text-align:right;
-  margin-top:20rpx;
+  margin-top:15rpx;
   color:#888888;
 }
 .item_bot{
@@ -53,6 +53,15 @@ page{
   text-align:center;
   border-radius:16rpx;
   width:160rpx;
+  line-height:60rpx;
+  background: linear-gradient(122deg, #FF8F78 0%, #FE657F 100%);
+  box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);
+}
+.show_btn{
+  color:#fff;
+  text-align:center;
+  border-radius:16rpx;
+  width:180rpx;
   line-height:60rpx;
   background: linear-gradient(122deg, #FF8F78 0%, #FE657F 100%);
   box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);

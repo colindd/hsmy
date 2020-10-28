@@ -14,7 +14,8 @@ Page({
     hidePsd:true,
     mobile:'',
     showClear:false,
-    snsMsgWait:60
+    snsMsgWait:300,
+    agree:false
   },
 
   /**
@@ -108,7 +109,7 @@ Page({
        mobile,code,uuid,
        success(data){
          console.log(data)
-            // 60秒后重新获取验证码
+            // 300秒后重新获取验证码
           var inter = setInterval(function() {
             that.setData({
               codeTxt: '('+that.data.snsMsgWait + 's)后重发',
@@ -118,7 +119,7 @@ Page({
               clearInterval(inter)
               that.setData({
                 codeTxt: '获取验证码',
-                snsMsgWait: 60
+                snsMsgWait: 300
               });
             }
           }.bind(this), 1000);
@@ -131,6 +132,19 @@ Page({
          })
        }
     })
+  },
+  // 点击同意
+  agreeTip:function(e){
+    var num = e.detail.value[0]
+    if(num == 1){
+      this.setData({
+        agree:true
+      })
+    }else{
+      this.setData({
+        agree:false
+      })
+    }
   },
   // 点击使用条款
   showRule:function(){
@@ -151,22 +165,32 @@ Page({
     var mobile = that.data.mobile
     var psw = that.data.psw
     var code = that.data.phoneCode
-    register({
-      account:mobile,password:psw,code,
-      success(data){
-        console.log(data)
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
-      },
-      error(res){
-        wx.showToast({
-          title: res,
-          icon:'none',
-          duration:1500
-        })
-      }
-    })
+    var agree = that.data.agree
+    if(agree){
+      register({
+        account:mobile,password:psw,code,
+        success(data){
+          console.log(data)
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        },
+        error(res){
+          wx.showToast({
+            title: res,
+            icon:'none',
+            duration:1500
+          })
+        }
+      })
+    }else{
+      wx.showToast({
+        title: '请先阅读并同意使用条款',
+        icon:'none',
+        duration:1500
+      })
+    }
+    
   },
 
   /**

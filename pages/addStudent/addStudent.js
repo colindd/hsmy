@@ -147,6 +147,7 @@ Page({
             success(data){
               var host = 'https://hsmy2020.oss-cn-hangzhou.aliyuncs.com'
               var imgUrl = host+'/'+data
+              console.log(imgUrl)
               that.setData({
                 headUrl:imgUrl
               })
@@ -319,7 +320,7 @@ Page({
   addStudent:function(){
     var that = this;  
     var {organization,alphabet,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
-    if(headUrl = '/images/default.png'){
+    if(headUrl == '/images/default.png'){
       headUrl = ''
     }
     var userInfo = wx.getStorageSync('user')
@@ -352,7 +353,7 @@ Page({
     var that = this;
     var {studentId,organization,alphabet,name,sex,time,country,nation,idCard,contacts,urgentMobile,address,headUrl} = that.data
     var userInfo = wx.getStorageSync('user')
-    if(headUrl = '/images/default.png'){
+    if(headUrl == '/images/default.png'){
       headUrl = ''
     }
     updateStudentInfo({

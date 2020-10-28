@@ -165,7 +165,7 @@ Page({
     　　var shareObj = {
     　　　　title: "海上美育艺术考级平台",        
     　　　　path: '/pages/openShare/openShare?teacherId='+teacherInfo.id+'&orgId='+teacherInfo.organizationId,
-    　　　　imageUrl: '',  
+    　　　　imageUrl: '/images/share_show.png',  
     　　　　success: function(res){
     　　　　　　// 转发成功之后的回调
     　　　　　　if(res.errMsg == 'shareAppMessage:ok'){

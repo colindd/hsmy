@@ -23,16 +23,22 @@ Page({
     var pages = getCurrentPages()
     var id = options.id;
     var that = this;
-    var timeDown = setInterval(function(){
-      that.getExamInfo(id)
-    },60000)
     that.setData({
       examId:id,
-      pageList:pages,
-      timeDown:timeDown
+      pageList:pages
     })
     that.getExamInfo(id)
     that.changeStatus(id)
+  },
+  // 进入提醒
+  showEnterTip:function(){
+    setTimeout(function(){
+      wx.showToast({
+        title: '正式进入考试！',
+        icon:'none',
+        duration:1500
+      })
+    },1200)
   },
   // 改变考试状态
   changeStatus:function(id){
@@ -47,53 +53,30 @@ Page({
   // 请求考试信息
   getExamInfo:function(id){
     var that = this;
-    var nowTime = Date.parse(new Date()); 
-    var examId = that.data.examId;
     levelExamDetail({
       id:id,
       success(data){
-        var showTime = data.startTime+1800000
-        var endTime = data.startTime+(data.time)*60*1000
-        console.log(nowTime)
-        console.log(endTime)
-        if(nowTime > showTime){
-          that.setData({
-            showBtn:true
-          })
-        }
-        if(nowTime > endTime){
-          that.setData({
-            showModal:true
-          })
-          wx.showModal({
-            title:'考试结束',
-            content:'考试时长:'+data.time+'分钟',
-            showCancel:false,
-            success(res){
-              examComplete({
-                id:examId,
-                success(){
-                  if(data){
-                    clearInterval(that.data.timeDown);
-                    wx.navigateTo({
-                      url: '/pages/uploadWorks/uploadWorks?id='+examId,
-                    })
-                  }
-                }
-              })
-            
-            }
-          })
-        }
+        console.log('考试信息',data)
+        var nowTime = new Date().getTime();
+        var endTime = nowTime+(data.time*60*1000)
         that.setData({
           examInfo:data,
+          endTime:endTime,
+          timeLong:data.time,
           startTime:data.startTime
         })
+        setTimeout(function(){
+          that.countDown()
+        },600)
         // 考场信息
         roomDetail({
           id:data.examRoomId,
           success(room){
-            console.log(room)
+            console.log('考场信息',room)
+            var nowTime = new Date().getTime();
+            if(nowTime > room.examStartTime && nowTime < room.examEndTime){
+              that.showEnterTip()
+            }
             that.setData({
               roomInfo:room
             })
@@ -103,17 +86,106 @@ Page({
         examPaperDetail({
           id:data.examPaperId,
           success(paper){
+            console.log('考题信息',paper)
             that.setData({
               paperInfo:paper
             })
           }
         })
       },error(res){
-        console.log(res)
+        wx.showToast({
+          title: res,
+          icon:'none',
+          duration:1500
+        })
       }
       
     })
   },
+
+  // 倒计时
+  countDown:function(){
+    var that=this;
+    var examId = that.data.examId;
+    var startTime = that.data.roomInfo.examStartTime;
+    var endTime = that.data.roomInfo.examEndTime;
+    var readTime = startTime - 300000
+    var nowTime = new Date().getTime();//现在时间（时间戳）
+    var time = (endTime-nowTime)/1000;//距离结束的毫秒数
+    that.setData({
+      headerLeft:'考试时间:'
+    })
+    if(nowTime < startTime && nowTime > readTime){
+      time = (nowTime - readTime)/1000
+      that.setData({
+        headerLeft:'距离考试:'
+      })
+    }
+    // 获取天、时、分、秒
+    let day = parseInt(time / (60 * 60 * 24));
+    let hou = parseInt(time % (60 * 60 * 24) / 3600);
+    let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+    let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+    day = that.timeFormin(day),
+    hou = that.timeFormin(hou),
+    min = that.timeFormin(min),
+    sec = that.timeFormin(sec)
+    that.setData({
+      day: that.timeFormat(day),
+      hou: that.timeFormat(hou),
+      min: that.timeFormat(min),
+      sec: that.timeFormat(sec)
+    })
+    // 每1000ms刷新一次
+    if(time < 300){
+      that.setData({
+        showBtn:true
+      })
+    }
+    if (time>0){
+      that.setData({
+        countDown: true
+      })
+      setTimeout(this.countDown, 1000);
+    }else{
+      wx.showModal({
+        title:'考试结束',
+        content:'考试时长:'+that.data.timeLong+'分钟',
+        showCancel:false,
+        success(res){
+          examComplete({
+            id:examId,
+            success(data){
+              if(data){
+                wx.navigateTo({
+                  url: '/pages/uploadWorks/uploadWorks?id='+examId,
+                })
+              }else{
+                wx.showToast({
+                  title: data,
+                  icon:'none',
+                  duration:1200
+                })
+              }
+            }
+          })
+        }
+      })
+      that.setData({
+        countDown:false
+      })
+    }
+  
+  },
+  //小于10的格式化函数（2变成02）
+  timeFormat(param) {
+    return param < 10 ? '0' + param : param;
+  },
+  //小于0的格式化函数（不会出现负数）
+  timeFormin(param) {
+    return param < 0 ? 0: param;
+  },
+
   // 开关右侧学生信息
   toggleRightBox:function(){
     this.setData({
@@ -161,6 +233,12 @@ Page({
       }
     })
 
+  },
+  // 点击返回
+  BackPage:function(){
+    wx.navigateBack({
+      delta: 2,
+    })
   },
 
 

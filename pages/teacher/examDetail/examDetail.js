@@ -30,8 +30,14 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var teacherInfo = wx.getStorageSync('user')
     var id = options.id
     var status = options.status
+    that.setData({
+      teacherInfo:teacherInfo,
+      examId:id
+    })
+    // 考试详情
     examDetail({
         id,status,
         success(data){
@@ -116,19 +122,19 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (options) {
     var that = this;
     var teacherInfo = that.data.teacherInfo
     　　// 设置菜单中的转发按钮触发转发事件时的转发内容
     　　var shareObj = {
     　　　　title: "海上美育艺术考级平台",        
     　　　　path: '/pages/openShare/openShare?teachId='+teacherInfo.id+'&orgId='+teacherInfo.organizationId,
-    　　　　imageUrl: '',  
+    　　　　imageUrl: '/images/share_show.png',  
     　　　　success: function(res){
     　　　　　　// 转发成功之后的回调
     　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
                 console.log('success')
-    　　　　　　}
+    　　　　　　} 
     　　　　},
     　　　　fail: function(res){
     　　　　　　// 转发失败之后的回调

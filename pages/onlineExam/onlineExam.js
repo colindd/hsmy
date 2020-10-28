@@ -79,6 +79,43 @@ Page({
       url: '/pages/tipPage/tipPage?id='+id,
     })
   },
+    // 倒计时
+    countDown:function(endTimeLong){
+      var that=this;
+      var nowTime = new Date().getTime();//现在时间（时间戳）
+      var endTime = new Date(endTimeLong).getTime();//结束时间（时间戳）
+      var time = (endTime-nowTime)/1000;//距离结束的毫秒数
+      // 获取天、时、分、秒
+      let day = parseInt(time / (60 * 60 * 24));
+      let hou = parseInt(time % (60 * 60 * 24) / 3600);
+      let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+      let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+      day = that.timeFormin(day),
+      hou = that.timeFormin(hou),
+      min = that.timeFormin(min),
+      sec = that.timeFormin(sec)
+      // 每1000ms刷新一次
+      if (time>0){
+        that.setData({
+          countDown: true
+        })
+        setTimeout(this.countDown, 1000);
+      }else{
+        that.setData({
+          countDown:false
+        })
+      }
+      
+      return  hou+':'+min+':'+sec
+    },
+    //小于10的格式化函数（2变成02）
+    timeFormat(param) {
+      return param < 10 ? '0' + param : param;
+    },
+    //小于0的格式化函数（不会出现负数）
+    timeFormin(param) {
+      return param < 0 ? 0: param;
+    },
   // 暂未开始
   examWait:function(){
     wx.showToast({
@@ -114,7 +151,6 @@ Page({
     let endTime=sdate.getTime();//结束时间
     let startTime=now.getTime();//开始时间
     let timeDiff =endTime  - startTime;
-    console.log(timeDiff)
     let hours = parseInt((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = parseInt((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = (timeDiff % (1000 * 60)) / 1000;
@@ -144,14 +180,14 @@ Page({
 
   // 点击模拟考级
   simulateExam:function(e){
-    wx.showToast({
-      title: '暂未开放',
-      icon:'none',
-      duration:1500
-    })
-    // wx.navigateTo({
-    //   url: '/pages/simulateExam/simulateExam',
+    // wx.showToast({
+    //   title: '暂未开放',
+    //   icon:'none',
+    //   duration:1500
     // })
+    wx.navigateTo({
+      url: '/pages/simulateExam/simulateExam',
+    })
   },
 
   /**

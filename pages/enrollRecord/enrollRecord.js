@@ -4,8 +4,12 @@ import{
   payOrder,
   orderQuery,
   applyBack,
-  cancelOrder
+  cancelOrder,
+  levelExamCard
 } from '../../utils/api'
+import{
+  datetimeFormat
+} from '../../utils/util'
 var STATUS = {
   '100001':'等待支付',
   '100002':'支付成功',
@@ -29,7 +33,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     var that = this;
     var initPage = that.data.initPage
     that.getOrderList(initPage)
@@ -45,9 +48,21 @@ Page({
     orderList({
       page:initPage,
       success(data){
+       var list = data.rows
+       list.map(item =>{
+         item.createDate = datetimeFormat(item.createDate)
+         levelExamCard({
+          orderId:item.id,
+          success(card){
+            item.cardInfo = card
+          }
+         })
+       })
+       setTimeout(function(){
         that.setData({
-          list:data.rows
-        })
+          list:list
+         })
+       },500)
       }
     })
   },

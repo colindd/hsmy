@@ -1,2 +1,11 @@
 <!--pages/simulateExam/simulateExam.wxml-->
-<text>pages/simulateExam/simulateExam.wxml</text>
+<view class="container">
+  <view class="list_box">
+    <view class="list_item flex">
+      <view class="list_item_left">模拟专业</view>
+      <view class="list_item_right flex"><text>美术</text><image src="/images/right.png"></image></view>
+    </view>
+    <view class="start_btn" bindtap="startSimulate">开始模拟操作</view>
+    <view class="show_tip">模拟考试时长并非真正考级时长，各级别的<text>具体时长请以正式考试录制页面提示为准。</text></view>
+  </view>
+</view>

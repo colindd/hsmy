@@ -5,10 +5,10 @@
       <view class="list_item_top flex">
         <view class="list_item_left flex">
           <view class="item_head">
-            <image src="{{item.avatar}}"></image>
+            <image src="{{item.orderStudent.avatar}}"></image>
           </view>
           <view class="item_info">
-            <view class="item_name">{{item.studentName}}</view>
+            <view class="item_name">{{item.orderStudent.name}}</view>
             <view class="item_title flex"> <view class="icon"></view>{{item.professionalItemName}}{{item.levelName}}考试({{item.professionalName}})</view>
             <view class="item_time flex"> <view class="icon"></view>{{item.examStartTime}}-{{item.endTime}}</view>
           </view>

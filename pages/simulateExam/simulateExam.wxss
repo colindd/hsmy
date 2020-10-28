@@ -1,1 +1,39 @@
 /* pages/simulateExam/simulateExam.wxss */
+.list_box{
+  box-sizing: border-box;
+  padding:0 20rpx;
+  margin-top:30rpx;
+}
+.list_item{
+  line-height:90rpx;
+  margin-top:10rpx;
+  border-bottom:1rpx solid #eee;
+  justify-content: space-between;
+}
+.list_item_left{
+  color:#353535;
+}
+.list_item_right image{
+  width:30rpx;
+  height:30rpx;
+  position: relative;
+  top: 28rpx;
+}
+.start_btn{
+  text-align:center;
+  width:90%;
+  margin:100rpx auto 0;
+  color:#fff;
+  line-height:90rpx;
+  font-size:32rpx;
+  border-radius:20rpx;
+  background: linear-gradient(90deg, #FF8F78 0%, #FE657F 100%);
+  box-shadow: 0px 6px 12px rgba(254,101,127, 0.4);
+}
+.show_tip{
+  font-size:24rpx;
+  margin-top:50rpx;
+}
+.show_tip text{
+  color:#7A67FB;
+}

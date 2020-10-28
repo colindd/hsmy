@@ -1,2 +1,117 @@
 <!--pages/achieveDetail/achieveDetail.wxml-->
-<text>pages/achieveDetail/achieveDetail.wxml</text>
+<view class="container">
+  <view class="header">
+    <image src="/images/head_picture.png" mode="widthFix"></image>
+  </view>
+  <view class="table_box">
+    <view class="table_inner">
+      <view class="table_header">全国{{examScoreInfo.professionalName}}书法等级考试（上海考区）</view>
+      <view class="table_name flex">
+        <view class="t_name_left">
+          <view class="left_lable">考生姓名</view>
+          <view class="left_lable top_line">性别</view>
+        </view>
+        <view class="t_name_mid">
+          <view class="mid_lable">{{examScoreInfo.orderStudent.name}}</view>
+          <view class="mid_lable top_line">
+            <text wx:if="{{examScoreInfo.orderStudent.sex ==1}}">男</text>
+            <text wx:if="{{examScoreInfo.orderStudent.sex ==2}}">女</text>
+          </view>
+        </view>
+        <view class="id_photo">
+          <image src="{{examScoreInfo.orderStudent.avatar}}" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="t_tr flex">
+        <view class="left_lable">国籍</view>
+        <view class="right_lable">{{examScoreInfo.orderStudent.nationality}}</view>
+      </view>
+      <view class="t_tr flex">
+        <view class="left_lable">民族</view>
+        <view class="right_lable">{{examScoreInfo.orderStudent.nation}}</view>
+      </view>
+      <view class="t_tr flex">
+        <view class="left_lable">身份证号</view>
+        <view class="right_lable">{{examScoreInfo.orderStudent.idCard}}</view>
+      </view>
+      <view class="t_tr flex">
+        <view class="left_lable">报考科目</view>
+        <view class="right_lable">{{examScoreInfo.professionalItemName}}({{examScoreInfo.professionalName}})</view>
+      </view>
+      <view class="t_tr flex">
+        <view class="left_lable">报考级别</view>
+        <view class="right_lable">{{examScoreInfo.levelName}}</view>
+      </view>
+      <view class="t_tr flex">
+        <view class="left_lable">通过级别</view>
+        <view class="right_lable">
+          <block wx:if="{{examScoreInfo.scoreStatus}}">
+            <text wx:if="{{examScoreInfo.scoreStatus == 100001}}">{{LEVEL[examScoreInfo.levelId]}}</text>
+            <text wx:if="{{examScoreInfo.scoreStatus == 100002}}">{{LEVEL[examScoreInfo.levelId-1]}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="express_box" wx:if="{{examScoreInfo.scoreStatus == 100001}}">
+    <view class="express_title flex">
+      <view class="title_left">邮寄获奖证书</view>
+      <view class="switch_box">
+        <switch checked="{{openExpress}}" bindchange="ToggleExpress"/>
+      </view>
+    </view>
+    <view class="express_item flex" wx:if="{{openExpress}}">
+      <view class="express_left">收货人</view>
+      <view class="express_right flex">
+        <view class="express_input">
+          <input type="text" value="{{initName}}"  bindinput="changeName"></input>
+        </view>
+        <view class="clear_inp" bindtap="clearInput1">
+          <image wx:if="{{showClear1}}" src="/images/clear.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="express_item flex" wx:if="{{openExpress}}">
+      <view class="express_left">联系方式</view>
+      <view class="express_right flex">
+        <view class="express_input">
+          <input type="text" value="{{initMobile}}" bindinput="changeMobile" ></input>
+        </view>
+        <view class="clear_inp" bindtap="clearInput2">
+          <image wx:if="{{showClear2}}" src="/images/clear.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="express_item address flex" wx:if="{{openExpress}}">
+      <view class="express_left">地址</view>
+      <view class="express_right flex">
+        <view class="express_input">
+          <input type="text" value="{{initAddress}}"  bindinput="changeAddress"></input>
+        </view>
+        <view class="clear_inp" bindtap="clearInput3">
+          <image wx:if="{{showClear3}}" src="/images/clear.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="express_item express_btn  flex" wx:if="{{openExpress}}">
+      <view class="express_left" bindtap="changeInfo" wx:if="{{startChange}}">保存</view>
+      <view class="express_right" bindtap="startChange" wx:else>
+        <image src="/images/edit.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="express_box" wx:if="{{openExpress}}">
+    <view class="express_item address flex">
+      <view class="express_left">物流公司</view>
+      <view class="express_right"></view>
+    </view>
+    <view class="express_item address flex">
+      <view class="express_left">运单号码</view>
+      <view class="express_right">
+        <text wx:if="{{examScoreInfo.trackingNumber}}">{{examScoreInfo.trackingNumber}}</text>
+        <text wx:else>暂无运单号信息</text>
+      </view>
+    </view>
+  </view>
+  <view class="show_certificate" data-id="{{examScoreInfo.id}}"  bindtap="showCertificate" wx:if="{{examScoreInfo.scoreStatus == 100001}}">查看证书</view>
+</view>

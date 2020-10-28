@@ -47,36 +47,39 @@ page{
   margin-left:20rpx;
 }
 .item_info_name{
+  font-size:30rpx;
   font-weight:bold;
   color:#353535;
 }
 .birth_box,.item_info_org{
   margin-top:10rpx;
-  font-size:24rpx;
+  font-size:28rpx;
 }
 .birth_box image{
-  width:30rpx;
-  height:30rpx;
+  width:34rpx;
+  height:34rpx;
   margin-right:10rpx;
 }
 .sex_img{
   margin-left:20rpx;
 }
 .item_info_org image{
-  width:30rpx;
-  height:30rpx;
+  width:34rpx;
+  height:34rpx;
   margin-right:10rpx;
 }
 .item_bot{
   color:#888888;
   padding:25rpx 0;
+  font-size:26rpx;
   box-sizing: border-box;
   justify-content: space-between;
 }
+
 .item_bot_left image{
   width:30rpx;
   height:30rpx;
   margin-right:10rpx;
   position: relative;
-  top:4rpx;
+  top:2rpx;
 }

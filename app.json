@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/login/login",
     "pages/index/index",
     "pages/register/register",
@@ -24,6 +25,7 @@
     "pages/onlineExam/onlineExam",
     "pages/examDetail/examDetail",
     "pages/simulateExam/simulateExam",
+    "pages/simulateDetail/simulateDetail",
     "pages/tipPage/tipPage",
     "pages/uploadWorks/uploadWorks",
     "pages/uploadSuccess/uploadSuccess",

@@ -1,7 +1,7 @@
 <!--pages/enrollRecord/enrollRecord.wxml-->
 <view class="container">
   <view class="list_box" wx:if="{{list.length>0}}">
-    <view class="list_item" data-id="{{item.id}}" bindtap="{{item.orderStatus == 100003 ? 'recordDetail':''}}" wx:for="{{list}}" wx:for-item="item" wx:key="id">
+    <view class="list_item" data-id="{{item.id}}"  wx:for="{{list}}" wx:for-item="item" wx:key="id">
       <view class="item_top flex">
         <view class="item_left">      
             <image src="/images/record.png"></image>
@@ -10,6 +10,7 @@
           <view class="item_title">{{item.professionalItemName}}专业{{item.levelName}}考试({{item.professionalName}})</view>
           <view class="item_line">形式：视频考试</view>
           <view class="item_line">姓名：{{item.studentName}}</view>
+          <view class="item_line">报名时间：{{item.createDate}}</view>
         </view>
         <view class="item_right">
           <view class="pay_money">¥{{item.price}}</view>
@@ -20,10 +21,9 @@
         <!-- <block wx:if="{{item.payType == 100001}}">
           <view class="cancel_btn" bindtap="{{item.orderStatus == 100001 ? 'cancelOrder':'applyBack'}}" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001 || item.orderStatus == 100002}}">取消报名</view>
         </block> -->
-        <block>
-          <view class="cancel_btn" bindtap="{{item.orderStatus == 100001 ? 'cancelOrder':'applyBack'}}" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001 || item.orderStatus == 100002}}">取消报名</view>
-        </block>
+        <view class="cancel_btn" bindtap="{{item.orderStatus == 100001 ? 'cancelOrder':'applyBack'}}" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001 || item.orderStatus == 100002}}">取消报名</view>
         <view class="pay_btn" bindtap="toPay" data-id="{{item.id}}" wx:if="{{item.orderStatus == 100001}}">立即支付</view>
+        <view class="show_btn" bindtap="recordDetail" data-id="{{item.id}}" wx:if="{{item.cardInfo}}">查看准考证</view>
       </view>
     </view>
   </view>

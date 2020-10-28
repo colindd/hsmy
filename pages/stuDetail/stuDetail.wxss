@@ -92,6 +92,7 @@ page{
 }
 .address{
   width:70%;
+  text-align:right;
 }
 
  

@@ -38,7 +38,7 @@
 }
 .ignore,.agree{
   box-sizing: border-box;
-  width:180rpx;
+  width:260rpx;
   height:80rpx;
   line-height:80rpx;
   font-size:30rpx;

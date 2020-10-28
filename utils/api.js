@@ -574,6 +574,18 @@ export function examScoreUpdate(options){
     success,error
   })
 }
+// 证书信息获取
+export function Credentials(options){
+  var {id,success,error } = options
+  fetch({
+    url:'credentials/info',
+    method:'GET',
+    data:{
+      examScoreId:id
+    },
+    success,error
+  })
+}
 // 视频考级中点击完成
 export function examComplete(options){
   var {id,success,error } = options

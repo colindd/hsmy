@@ -53,7 +53,7 @@
     </view>
   </view>
   <view class="shear_box flex">
-    <button class='btn2' open-type='share'>
+    <button class='btn2' data-id="{{examId}}" data-name="{{examDetail.name}}" data-year="{{examDetail.year}}" open-type='share'>
       <image class='btnImg' src='/images/share.png'></image>
     </button>
   </view>

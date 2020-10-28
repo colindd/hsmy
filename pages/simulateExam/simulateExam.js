@@ -1,4 +1,5 @@
 // pages/simulateExam/simulateExam.js
+
 Page({
 
   /**
@@ -13,6 +14,13 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  // 点击开始
+  startSimulate:function(){
+    wx.navigateTo({
+      url: '/pages/simulateDetail/simulateDetail',
+    })
   },
 
   /**

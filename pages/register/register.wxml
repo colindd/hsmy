@@ -46,8 +46,10 @@
         <image wx:else bindtap="ToggleShow" src="/images/hidden.png"></image>
       </view>
     </view>
-    <view class="tip_box">
-     <checkbox class="checkbox"></checkbox> 我同意<text bindtap="showRule">《用户使用条款及服务协议》</text>
+    <view class="tip_box flex">
+      <checkbox-group bindchange="agreeTip">
+        <checkbox value="1" class="checkbox" ></checkbox>
+      </checkbox-group>我同意<text bindtap="showRule">《用户使用条款及服务协议》</text>
     </view>
   </view>
   <view class="reg_btn" bindtap="toReg">注册</view>

@@ -1,36 +1,36 @@
+<!--pages/simulateDetail/simulateDetail.wxml-->
 <!--pages/examDetail/examDetail.wxml-->
 <view class="container">
   <live-pusher class="push_box" url="{{examInfo.pushUrl}}" orientation="horizontal" autopush="true"></live-pusher>
-  <live-player class="play_box" src="{{roomInfo.playUrl}}" mode="live" orientation="horizontal" autoplay="true"></live-player>
   <cover-view class="live_header flex fixed">
     <cover-view class="header_left flex">
       <cover-view class="back_page" bindtap="BackPage"><cover-image class="back_icon" src="/images/back.png"></cover-image></cover-view>
       <cover-view><cover-image class="v_icon" src="/images/videoicon.png"></cover-image></cover-view>
-      <cover-view class="header_time">{{headerLeft}}{{hou}}:{{min}}:{{sec}}</cover-view>
+      <cover-view class="header_time">考试时间: {{hou}}:{{min}}:{{sec}}</cover-view>
     </cover-view>
-    <cover-view class="header_right">全国{{examInfo.professionalItemName}}等级考试</cover-view>
+    <cover-view class="header_right">全国美术等级考试</cover-view>
   </cover-view>
   <cover-view class="live_bottom flex fixed">
     <cover-view class="bottom_left">考生务必保持在画面之内</cover-view>
-    <cover-view class="bottom_mid">监考:{{roomInfo.invigilatorName}}老师</cover-view>
+    <cover-view class="bottom_mid">监考:XX老师</cover-view>
     <cover-view class="bottom_right">
-      <cover-view class="done" data-id="{{examId}}" bindtap="doneExam" wx:if="{{showBtn}}">完成考试</cover-view>
+      <cover-view class="done" bindtap="doneExam" wx:if="{{showBtn}}">完成考试</cover-view>
     </cover-view>
   </cover-view>
   <cover-view class="exam_info_box fixed {{boxOpen ? '' :'c-state1'}}">
     <cover-view class="stu_box flex">
       <cover-view class="header">
-        <cover-image class="stu_header" src="{{examInfo.avatar}}"></cover-image>
+        <cover-image class="stu_header" src="/images/default.png"></cover-image>
       </cover-view>
       <cover-view class="stu_right">
-        <cover-view class="stu_name">{{examInfo.name}}</cover-view>
-        <cover-view class="stu_exam">{{examInfo.professionalName}}{{examInfo.professionalItemName}}{{examInfo.levelName}}</cover-view>
+        <cover-view class="stu_name">测试信息</cover-view>
+        <cover-view class="stu_exam">测试画像</cover-view>
       </cover-view>
     </cover-view>
     <cover-view class="exam_info">
-      <cover-view class="exam_detail_title">题目:{{paperInfo.title}}</cover-view>
-      <cover-view class="exam_detail_time">时长:{{examInfo.time}}分钟</cover-view>
-      <cover-image class="exam_detail_img" wx:if="{{paperInfo.img}}" src="{{paperInfo.img}}" mode="widthFix"></cover-image>
+      <cover-view class="exam_detail_title">题目:人像</cover-view>
+      <cover-view class="exam_detail_time">时长:15分钟</cover-view>
+      <cover-image class="exam_detail_img" src="/images/default.png" mode="widthFix"></cover-image>
     </cover-view>
   </cover-view>
   <cover-view class="toggletBtn {{boxOpen ? 'openBtn' :''}}" bindtap="toggleRightBox">
@@ -38,3 +38,4 @@
     <cover-image class="toggletBtnImg" src="/images/right_close.png" wx:else></cover-image>
   </cover-view>
 </view>
+
