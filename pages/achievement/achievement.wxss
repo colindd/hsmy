@@ -65,6 +65,9 @@
   right:-30rpx;
   background:#FE657F;
 }
+.grey_btn{
+  background:#B2B2B2;
+}
 .not_show{
   background:#B2B2B2;
 }
@@ -76,6 +79,12 @@
   box-sizing: border-box;
   font-size:26rpx;
   justify-content: space-between;
+}
+.bot_img{
+  width:30rpx;
+  height:35rpx;
+  margin-top:23rpx;
+  margin-left:10rpx;
 }
 .item_label_left{
   color:#888888;

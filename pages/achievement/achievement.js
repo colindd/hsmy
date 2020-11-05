@@ -22,6 +22,11 @@ Page({
   onLoad: function (options) {
     var that = this;
     var page = that.data.initPage;
+    that.getList(page)
+  },
+  // 获取列表
+  getList:function(page){
+    var that = this;
     examScoreList({
       page,
       success(data){
@@ -42,7 +47,6 @@ Page({
           duration:1500
         })
       }
-      
     })
   },
 
@@ -61,6 +65,15 @@ Page({
     })
   },
 
+  // 填写邮寄单号
+  fillNumber:function(e){
+    var  id = e.currentTarget.dataset.id
+    var  org = e.currentTarget.dataset.org
+    wx.navigateTo({
+      url: '/pages/fillNum/fillNum?id='+id+'&org='+org,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -72,7 +85,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var param = this.data.param
+    var page = this.data.initPage;
+    if(param && param == 'done'){
+      this.getList(page)
+    }
   },
 
   /**

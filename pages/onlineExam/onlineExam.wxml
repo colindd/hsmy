@@ -45,12 +45,12 @@
           </view>
         </block>
         <block wx:if="{{item.status == 'over'}}">
-          <view class="exam_begin_btn over_exam flex" data-id="{{item.id}}" bindtap="examDetail">
-              <text class="full">考试结束</text>
-          </view>
-          <!-- <view class="exam_begin_btn over_exam flex" data-id="{{item.id}}" bindtap="examOver">
+          <!-- <view class="exam_begin_btn over_exam flex" data-id="{{item.id}}" bindtap="examDetail">
               <text class="full">考试结束</text>
           </view> -->
+          <view class="exam_begin_btn over_exam flex" data-id="{{item.id}}" bindtap="examOver">
+              <text class="full">考试结束</text>
+          </view>
         </block>
       </view>
     </view>

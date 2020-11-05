@@ -561,15 +561,29 @@ export function examScoreAddress(options){
 }
 // 更新证书邮寄地址
 export function examScoreUpdate(options){
-  var {id,name,mobile,address,success,error } = options
+  var {id,name,mobile,address,status,success,error } = options
   fetch({
     url:'examScore/update',
     method:'POST',
     data:{
       id:id,
       name:name,
+      status:status,
       mobile:mobile,
       address:address
+    },
+    success,error
+  })
+}
+// 更新作品邮寄单号
+export function addTrackingNumber(options){
+  var {id,num,success,error } = options
+  fetch({
+    url:'examScore/addTrackingNumber',
+    method:'POST',
+    data:{
+      id:id,
+      trackingNumber:num
     },
     success,error
   })

@@ -64,7 +64,7 @@
       <view class="express_left">收货人</view>
       <view class="express_right flex">
         <view class="express_input">
-          <input type="text" value="{{initName}}"  bindinput="changeName"></input>
+          <input type="text" value="{{initName}}" disabled="{{disabled}}"  bindinput="changeName"></input>
         </view>
         <view class="clear_inp" bindtap="clearInput1">
           <image wx:if="{{showClear1}}" src="/images/clear.png"></image>
@@ -75,7 +75,7 @@
       <view class="express_left">联系方式</view>
       <view class="express_right flex">
         <view class="express_input">
-          <input type="text" value="{{initMobile}}" bindinput="changeMobile" ></input>
+          <input type="text" value="{{initMobile}}" disabled="{{disabled}}" bindinput="changeMobile" ></input>
         </view>
         <view class="clear_inp" bindtap="clearInput2">
           <image wx:if="{{showClear2}}" src="/images/clear.png"></image>
@@ -86,7 +86,7 @@
       <view class="express_left">地址</view>
       <view class="express_right flex">
         <view class="express_input">
-          <input type="text" value="{{initAddress}}"  bindinput="changeAddress"></input>
+          <input type="text" value="{{initAddress}}" disabled="{{disabled}}"  bindinput="changeAddress"></input>
         </view>
         <view class="clear_inp" bindtap="clearInput3">
           <image wx:if="{{showClear3}}" src="/images/clear.png"></image>

@@ -11,9 +11,12 @@
     <cover-view class="header_right">全国{{examInfo.professionalItemName}}等级考试</cover-view>
   </cover-view>
   <cover-view class="live_bottom flex fixed">
-    <cover-view class="bottom_left">考生务必保持在画面之内</cover-view>
+    <cover-view class="bottom_left flex">
+      <cover-view><cover-image class="v_icon" src="/images/light.png"></cover-image></cover-view>
+      <cover-view class="bot_left_txt">考生务必保持在画面之内</cover-view>
+    </cover-view>
     <cover-view class="bottom_mid">监考:{{roomInfo.invigilatorName}}老师</cover-view>
-    <cover-view class="bottom_right">
+    <cover-view class="bottom_right flex">
       <cover-view class="done" data-id="{{examId}}" bindtap="doneExam" wx:if="{{showBtn}}">完成考试</cover-view>
     </cover-view>
   </cover-view>

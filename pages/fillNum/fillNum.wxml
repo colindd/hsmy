@@ -1,0 +1,22 @@
+<!--pages/fillNum/fillNum.wxml-->
+<view class="container">
+  <view class="address_box">
+    <view class="address_title">收件人信息</view>
+    <view class="address_content">
+      <view>邮寄地址：{{addInfo.address}}</view>
+      <view>联系人：{{addInfo.name}} {{addInfo.mobile}}</view>
+    </view>
+  </view>
+  <view class="number_box">
+    <view class="number_title">填写作品邮寄单号*</view>
+    <view class="number_bot flex" >
+      <view class="express_input">
+          <input type="text" value="{{num}}" placeholder="如：圆通34666678990099990009"  bindinput="inputNumber"></input>
+        </view>
+        <view class="clear_inp" bindtap="clearInput">
+          <image wx:if="{{showClear}}" src="/images/clear.png"></image>
+        </view>
+    </view>
+  </view>
+  <view class="done_btn" bindtap="ChangeNum">完成</view>
+</view>

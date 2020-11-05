@@ -42,7 +42,7 @@ page{
   font-size: 24rpx;
 }
 .info_right{
-  width:28%;
+  width:24%;
 }
 .info_right image{
   width:100%;

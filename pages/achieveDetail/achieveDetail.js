@@ -1,13 +1,10 @@
 // pages/achieveDetail/achieveDetail.js
 import{
   examScoreInfo,
-  examScoreUpdate
+  examScoreUpdate,
+  Credentials
 } from '../../utils/api'
-import {
-  datetimeFormat,
-  datetimeFormat4,
-  datetimeFormat5
-} from '../../utils/util'
+
 var LEVEL = {
   '1':'一级',
   '2':'二级',
@@ -33,7 +30,8 @@ Page({
     startChange:false,
     showClear1:false,
     showClear2:false,
-    showClear3:false
+    showClear3:false,
+    disabled:true
   },
 
   /**
@@ -51,9 +49,9 @@ Page({
         that.setData({
           examScoreInfo:data,
           initId:data.id,
-          initName:data.orderStudent.name,
-          initMobile:data.orderStudent.mobile,
-          initAddress:data.orderStudent.address,
+          initName:data.name,
+          initMobile:data.mobile,
+          initAddress:data.address,
         })        
       },error(data){
         wx.showToast({
@@ -71,6 +69,7 @@ Page({
       showClear1:true,
       showClear2:true,
       showClear3:true,
+      disabled:false
     })
   },
   // 清除操作
@@ -149,15 +148,28 @@ Page({
   // 修改邮寄信息
   changeInfo:function(){
     var that = this;
-    var {initId,initName,initMobile,initAddress} = that.data
+    var {initId,initName,initMobile,initAddress,openExpress} = that.data
+    if(openExpress){
+      var status = '100001'
+    }
+    if(openExpress == false){
+      var status = '100002'
+    }
     examScoreUpdate({
-      id:initId,name:initName,mobile:initMobile,address:initAddress,
+      id:initId,name:initName,mobile:initMobile,address:initAddress,status,
       success(data){
         console.log(data)
        wx.showToast({
          title: '修改成功',
          icon:'success',
          duration:1500
+       })
+       that.setData({
+        disabled:true,
+        startChange:false,
+        showClear1:false,
+        showClear2:false,
+        showClear3:false,
        })
       },error(data){
         wx.showToast({
@@ -173,6 +185,9 @@ Page({
   showCertificate:function(e){
     var id = e.currentTarget.dataset.id
     console.log(id)
+    wx.navigateTo({
+      url: '/pages/credentials/credentials?id='+id
+    })
   },
 
   /**

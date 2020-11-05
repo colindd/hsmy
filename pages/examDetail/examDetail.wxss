@@ -26,7 +26,7 @@
   background:rgba(0,0,0,0.5);
 }
 .header_left{
-  width:25%;
+  width:40%;
   color:#FFDE48;
   line-height:50px;
 }
@@ -54,8 +54,9 @@
 }
 .header_right{
   color:#fff;
+  font-size:17px;
   line-height:50px;
-  margin-left:15%;
+  margin-left:5%;
 }
 .live_bottom{
   bottom:0;
@@ -70,12 +71,30 @@
   justify-content: space-between;
 }
 .bottom_left{
+  width:40%;
   color:#FFDE48;
+  line-height:50px;
+}
+.bottom_left .v_icon{
+  width:15px;
+  height:15px;
+  position: relative;
+  top:18px;
+  display:block;
+  margin-right:2px;
+}
+.bot_left_txt{
   line-height:50px;
 }
 .bottom_mid{
   color:#fff;
+  width:20%;
   line-height:50px;
+  margin-left:5%;
+}
+.bottom_right{
+  width:35%;
+  justify-content: flex-end;
 }
 .exam_info_box{
   width:25%;
@@ -107,7 +126,7 @@
   font-size:14px;
   box-sizing: border-box;
   padding:0 5px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .stu_name{
   margin-top:15px;
