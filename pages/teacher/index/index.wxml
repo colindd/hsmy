@@ -24,6 +24,7 @@
             <view class="item_member">总报名:{{item.count}}人</view>
           </view>
           <view class="item_btn flex">
+            <view class="shear_btn" data-id="{{item.id}}" catchtap="getCode" data-name="{{item.name}}" wx:if="{{item.examStatus == 100001}}">生成二维码</view>
             <button class="shear_btn" size="mini" wx:if="{{item.examStatus == 100001}}" data-name="{{item.name}}" data-year="{{item.year}}" data-id="{{item.id}}" hover-stop-propagation="true" catchtap="ShowShear" open-type='share'>去分享</button>
           </view>
         </view>
@@ -32,5 +33,16 @@
       <image src="/images/no_tea_list.png"></image>
       <text>暂无数据</text>
      </view>
+   </view>
+   <view class="qrcode_box {{codeShow ? 'show':'hidden'}}" bindtap="hiddeQrcode">
+    <view class="codeBg">
+        <image src="https://hsmy2020.oss-cn-hangzhou.aliyuncs.com/images/codeBg.jpeg"></image>
+    </view>
+    <view class="code_box">
+      <view class="code_title">{{teacherInfo.teacher.organizationName}}|报名二维码</view>
+      <canvas class="canvas-code"canvas-id="myQrcode" style="background:#fff;width: 150px;height: 150px;"/>
+      <view class="code_bot">{{choosePro}}等级考试({{teacherInfo.teacher.organizationName}})</view>
+    </view>
+   
    </view>
 </view>

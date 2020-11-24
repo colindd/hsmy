@@ -123,6 +123,9 @@ page{
   border-radius: 10rpx;
   border: 0; 
 }
+.shear_btn:not(:last-child){
+  margin-right:10rpx;
+}
 .no_list{
   color:#888;
   display: flex;
@@ -139,4 +142,51 @@ page{
 .no_list text{
   color:#888;
   margin-top:20rpx;
+}
+.qrcode_box{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  box-sizing: border-box;
+  z-index:9;
+  background-color: #f2f2f2;
+}
+.codeBg{
+  width:100%;
+  height:450rpx;
+}
+.code_box{
+  width:90%;
+  border-radius:20rpx;
+  margin:0 auto;
+  background-color: #fff;
+  position: relative;
+  top:-30rpx;
+  box-shadow: 0px 6px 12px rgba(79, 71, 232, 0.15);
+}
+.code_title{
+  width:100%;
+  text-align:center;
+  color:#888888;
+  font-size:36rpx;
+  position: relative;
+  top:30rpx;
+}
+.code_bot{
+  width:100%;
+  text-align:center;
+  position: relative;
+  top:-50rpx;
+}
+.show{
+  display:block;
+}
+.hidden{
+  display:none;
+}
+.canvas-code{
+  display:block;
+  margin:100rpx auto;
 }

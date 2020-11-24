@@ -6,6 +6,7 @@ import{
   datetimeFormat2,
   datetimeFormat3
 } from '../../../utils/util'
+var QRCode = require('../../../utils/weapp-qrcode.js')
 var STATUS = {
   '100001':'报名中',
   '100002':'报名截止',
@@ -28,7 +29,9 @@ Page({
     listData:[],
     STATUS:STATUS,
     navIdx:0,
-    initPage:1
+    initPage:1,
+    codeShow:false,
+    choosePro:''
   },
 
   /**
@@ -107,6 +110,30 @@ Page({
     var status = e.currentTarget.dataset.status;
     wx.navigateTo({
       url: '/pages/teacher/examDetail/examDetail?id='+id+'&status='+status,
+    })
+  },
+  // 生成二维码
+  getCode:function(e){
+    var that = this;
+    var id = e.currentTarget.dataset.id;choosePro
+    var choosePro = e.currentTarget.dataset.name;
+    that.setData({
+      codeShow:true,
+      choosePro:choosePro
+    })
+    new QRCode('myQrcode', {
+      text: 'https://api.hsmy.art/exam/addStudent.html?id='+id,
+      width: 150,
+      height: 150,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  },
+  // 隐藏二维码
+  hiddeQrcode:function(){
+    this.setData({
+      codeShow:false
     })
   },
   // 去分享
