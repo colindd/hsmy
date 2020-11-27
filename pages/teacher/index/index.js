@@ -121,8 +121,9 @@ Page({
       codeShow:true,
       choosePro:choosePro
     })
+    var teacherInfo = that.data.teacherInfo
     new QRCode('myQrcode', {
-      text: 'https://api.hsmy.art/exam/addStudent.html?id='+id,
+      text: 'https://api.hsmy.art/exam/addStudent.html?id='+id+'&teaId='+teacherInfo.id,
       width: 150,
       height: 150,
       colorDark: "#000000",

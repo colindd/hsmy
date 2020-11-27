@@ -46,7 +46,7 @@ Page({
           data.createDate = datetimeFormat2(data.createDate)
           data.year = datetimeFormat3(data.createDate)
           teacherCount({
-            oId:data.organizationId,
+            oId:data.id,
             success(response){
               that.setData({
                 teacherCount:response
