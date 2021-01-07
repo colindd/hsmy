@@ -8,7 +8,7 @@
         </view>
         <view class="item_mid">
           <view class="item_title">{{item.professionalItemName}}专业{{item.levelName}}考试({{item.professionalName}})</view>
-          <view class="item_line">形式：视频考试</view>
+          <!-- <view class="item_line">形式：视频考试</view> -->
           <view class="item_line">姓名：{{item.studentName}}</view>
           <view class="item_line">报名时间：{{item.createDate}}</view>
         </view>
