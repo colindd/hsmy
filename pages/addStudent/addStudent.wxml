@@ -3,7 +3,7 @@
   <view class="info_top">
     <view class="header_img">
       <view class="img_box">
-        <image class="headImg" src="{{headUrl}}" bindtap="uploadImg"></image>
+        <image class="headImg" src="{{headUrl}}" bindtap="uploadImg2"></image>
         <image class="cameraImg" src="/images/click_upload.png" wx:if="{{showChange}}"></image>
       </view>
       <view class="tip_box" wx:if="{{showChange}}">

@@ -9,7 +9,7 @@ import{
   updateStudentInfo
 } from '../../utils/api'
 import {dateFormat, datetimeFormat2} from '../../utils/util';
-
+const app = getApp()
 const date = new Date();
 const years = [];
 const months = [];
@@ -155,6 +155,12 @@ Page({
           })
         }
       }
+    })
+  },
+  //  测试
+  uploadImg2:function(){
+    wx.navigateTo({
+      url: '../../pages/cut/cut',
     })
   },
   // 
@@ -390,7 +396,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('add:',app.globalData.imgSrc)
+    const that = this
+    if(app.globalData.imgSrc){
+      that.setData({
+        headUrl:app.globalData.imgSrc
+      })
+    } else {
+      that.setData({
+        headUrl:'/images/default.png'
+      })
+    }
   },
 
   /**

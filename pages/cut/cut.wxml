@@ -1,0 +1,8 @@
+<!--pages/cut/cut.wxml-->
+<image-cropper id="image-cropper" bindload="cropperload" bindimageload="loadimage" max_scale="{{max_scale}}" bindtapcut="clickcut" limit_move="{{limit_move}}" disable_width="{{disable_width}}" disable_height="{{disable_height}}" disable_rotate="{{disable_rotate}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" angle="{{angle}}" disable_width="{{disable_width}}" max_width="{{max_width}}" max_height="{{max_height}}" disable_height="{{disable_height}}" disable_ratio="{{disable_ratio}}">
+</image-cropper>
+<view class='bottom'>
+  <text class="btnBox" catchtap='cancel'>取消</text>
+  <view class="btnBox imageBox" catchtap='reset'>重置</view>
+  <view class="btnBox btnColor"  bindtap='submit'>确定</view>
+</view>
